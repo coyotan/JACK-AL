@@ -1,14 +1,39 @@
 package structs
 
-import "../logUtil"
+import "log"
 
 type CoreCfg struct {
-	token string `json:"token"`
+	Token string `json:"token"`
 
-	Logger  logUtil.Level
-	LogFile string `json:"logFile"`
+	Logger      logs
+	LogFilePath string `json:"logFile"`
+
+	CommandPrefix string `json:"commandPrefix"`
 }
 
-func (c *CoreCfg) SetToken(token string) {
-	c.token = token
+func (core *CoreCfg) LogFile() (fPath string) {
+	return core.LogFilePath
+}
+
+func (core *CoreCfg) LogConsole() (console *log.Logger) {
+	return core.Logger.Console
+}
+
+func (core *CoreCfg) LogInfo() (info *log.Logger) {
+	return core.Logger.Info
+}
+
+func (core *CoreCfg) LogWarn() (warn *log.Logger) {
+	return core.Logger.Warn
+}
+
+func (core *CoreCfg) LogError() (error *log.Logger) {
+	return core.Logger.Error
+}
+
+type logs struct {
+	Console *log.Logger
+	Info    *log.Logger
+	Warn    *log.Logger
+	Error   *log.Logger
 }
