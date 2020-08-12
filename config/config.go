@@ -49,7 +49,7 @@ func LoadCfg(filename string, config interface{}) (err error) {
 
 	if err != nil {
 		logErr.Println("There was a critical error opening the core json.\n", err)
-		//os.Exit(10)
+		os.Exit(10)
 	}
 
 	defer file.Close()
@@ -57,7 +57,7 @@ func LoadCfg(filename string, config interface{}) (err error) {
 	byteVal, err := ioutil.ReadAll(file)
 	if err != nil {
 		logErr.Println("There was a critical error reading data from the config file.\n", err)
-		//os.Exit(11)
+		os.Exit(11)
 	}
 
 	json.Unmarshal(byteVal, &config)
