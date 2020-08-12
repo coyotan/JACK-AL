@@ -6,9 +6,11 @@ import (
 )
 
 var (
-	Core structs.CoreCfg
+	Core = structs.CoreCfg{
+		LogFilePath: "C:/Users/Coyotan/Documents/JACK-AL/Log.txt",
+	}
 )
 
 func main() {
-	config.Init(&Core)
+	Core.Logger.Console, Core.Logger.Info, Core.Logger.Warn, Core.Logger.Error = config.Init(&Core)
 }

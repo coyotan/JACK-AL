@@ -3,8 +3,8 @@ package structs
 import "log"
 
 type CoreCfg struct {
-	Token string `json:"token"`
-
+	Token       string `json:"token"`
+	Name        string
 	Logger      logs
 	LogFilePath string `json:"logFile"`
 

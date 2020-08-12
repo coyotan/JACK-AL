@@ -22,3 +22,4 @@ Error Codes
 -
 - 10: Failure opening config file.
 - 11: Failure reading from config file.
+- 12: Could not find User Config Directory

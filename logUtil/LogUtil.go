@@ -60,6 +60,7 @@ func VerifyFile(fName string) (fExists bool) {
 }
 
 //Attempt to create a file, and if file creation for the log file fails, flip shit.
+//We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.
 func CreateFile(fName string) (fHandle *os.File, err error) {
 
 	fHandle, err = os.Create(fName)
