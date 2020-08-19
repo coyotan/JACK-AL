@@ -6,6 +6,7 @@ import (
 
 type initInt interface {
 	LogFile() string
+
 	LogConsole() *log.Logger
 	LogInfo() *log.Logger
 	LogWarn() *log.Logger
