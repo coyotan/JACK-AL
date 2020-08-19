@@ -26,3 +26,7 @@ VerifyFile attempts to validate the existence of the file at the path provided. 
 <code>CreateFile(fName string) (fHandle *os.File, err error)</code>
 </pre>
 CreateFile will attempt to create a file at the path provided. It may return two variables. Upon successful creation of the provided file, it will return the file handle along with nil, in place of the error.
+
+Error Codes
+-
+- 1: Failed to create log file.

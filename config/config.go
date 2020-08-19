@@ -10,34 +10,37 @@ import (
 )
 
 var (
-	//	logCon	*log.Logger
-	logErr       *log.Logger
+	logErr       	*log.Logger
 	possibleCfgs = []string{"./config.json", GetConfDir() + "./config.json"}
+	configPath		string
 )
 
 //Take in a core, which must be compliant with the initInt interface. Let's try to make this lib modular too!
 func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger, err *log.Logger) {
 	console, info, warn, err = logUtil.InitLoggers(core.LogFile())
 
-	//	logCon = console
 	logErr = err
 
 	//Before we load, let's see if it's the first run. If it is, we'll make the config file next.
 	if isFirstRun() {
+		fPath := GetConfDir()
+		configPath = fPath+"/config.json"
+		//Make file in ConfDir, and return as file used, so we can adjust the code that follows...
+		err := SaveCfg(configPath, &core)
 
+		if err != nil {
+			logErr.Println("There was a critical error loading ")
+		}
 	}
 
 	//Range through possible locations until we find one that exists.
-	for _, v := range possibleCfgs {
-		if logUtil.VerifyFile(v) {
-			//if the file exists, load it.
-			LoadCfg(v, &core)
-			break
+		if logUtil.VerifyFile(configPath) {
+			LoadCfg(configPath, &core)
+			return
 		} else {
 			core.LogError().Println("Failed to locate config file.")
-			//os.Exit(12)
+			os.Exit(12)
 		}
-	}
 
 	return
 }
@@ -65,14 +68,31 @@ func LoadCfg(filename string, config interface{}) (err error) {
 	return err
 }
 
-func SaveCfg(core interface{}, fName string) (err error) {
-	//Check if fName exists.
-	//If it does not exist, make it!
-	//If it errors, freak the hell out
-	//If it exists, try to open it.
-	//If it errors, freak the hell out
-	//If it doesn't error, try to write to it.
-	//If it errors, freak the hell out.
+//FIXME Be aware, review for possible recursion issues.
+func SaveCfg(fName string, core interface{}) (err error) {
+
+	if logUtil.VerifyFile(fName) {
+		confOut, err := json.Marshal(core)
+		if err != nil {
+			logErr.Println("There was a critical error writing save data to the configuration file.\n", err)
+			os.Exit(13)
+			//File failed to write to config... but it did open.
+		}
+
+		err = ioutil.WriteFile(fName, confOut, 600)
+
+	} else {
+		//If it does not exist, make it!
+		_, err = os.Create(fName)
+		if err != nil {
+			logErr.Println("There was a critical error creating the save file.", err)
+			os.Exit(10)
+			//Prevent recursion by stopping here... we do NOT want to continue with this one.
+		}
+
+		SaveCfg(fName, core)
+	}
+
 	return
 }
 
@@ -82,7 +102,7 @@ func GetConfDir() (fPath string) {
 	//We can exit code for this, since this shouldn't ever happen.
 	if err != nil {
 		logErr.Println("Couldn't find config directory.", err)
-		//os.Exit(12)
+		os.Exit(12)
 	}
 
 	return path
