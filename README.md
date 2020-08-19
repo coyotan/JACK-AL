@@ -23,4 +23,7 @@ Jackal can be fully customized. Explain
 ###Capabilities
 Jackal capabilities and features.
 ###Dependencies
-Jackal dependencies
+<p>
+Coyotech/JACK-AL/config     <br>
+Coyotech/JACK-AL/logUtil
+</P>
