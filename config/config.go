@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"../logUtil"
+	"../logutil"
 )
 
 var (
@@ -15,9 +15,9 @@ var (
 	configPath   string
 )
 
-//Take in a core, which must be compliant with the initInt interface. Let's try to make this lib modular too!
+//Init, Take in a core, which must be compliant with the initInt interface. Let's try to make this lib modular too!
 func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger, err *log.Logger) {
-	console, info, warn, err = logUtil.InitLoggers(core.LogFile())
+	console, info, warn, err = logutil.InitLoggers(core.LogFile())
 
 	logErr = err
 
@@ -39,7 +39,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 	return
 }
 
-//Load configuration from specified directory and provide it to interface. Ideally this would be a reference.
+//LoadCfg configuration from specified directory and provide it to interface. Ideally this would be a reference.
 func LoadCfg(filename string, config interface{}) (err error) {
 
 	file, err := os.Open(filename)
@@ -62,10 +62,10 @@ func LoadCfg(filename string, config interface{}) (err error) {
 	return err
 }
 
-//FIXME Be aware, review for possible recursion issues.
+//SaveCfg will save running configurations to a provided file, or respond with an error if something goes wrong.
 func SaveCfg(fName string, core interface{}) (err error) {
 
-	if logUtil.VerifyFile(fName) {
+	if logutil.VerifyFile(fName) {
 		confOut, err := json.Marshal(core)
 		if err != nil {
 			logErr.Println("There was a critical error writing save data to the configuration file.\n", err)
@@ -97,6 +97,7 @@ func SaveCfg(fName string, core interface{}) (err error) {
 	return
 }
 
+//GetConfDir returns the file location for the ideal place to use for a working directory.
 func GetConfDir() (fPath string) {
 	path, err := os.UserConfigDir()
 
@@ -114,7 +115,7 @@ func GetConfDir() (fPath string) {
 func isFirstRun() (firstRun bool) {
 
 	for _, v := range possibleCfgs {
-		if logUtil.VerifyFile(v) {
+		if logutil.VerifyFile(v) {
 			firstRun = false
 			break
 		} else {
