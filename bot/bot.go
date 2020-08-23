@@ -12,6 +12,7 @@ var (
 	jackal *structs.CoreCfg
 )
 
+//Init accepts a pointer to the core of Jackal. This core will be used to establish a connection with Discord and act as a registration point for command handlers, as well as a service provider for other linked services.
 func Init(core *structs.CoreCfg) {
 
 	jackal = core

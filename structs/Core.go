@@ -11,7 +11,7 @@ type CoreCfg struct {
 	Discord DiscordConn `json:"discord"`
 }
 
-//LogFile is an exported fucntion which returns the location of the LogFile. This is relevant to create logging interfaces.
+//LogFile is an exported function which returns the location of the LogFile. This is relevant to create logging interfaces.
 func (core *CoreCfg) LogFile() (fPath string) {
 	return core.LogFilePath
 }

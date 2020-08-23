@@ -18,7 +18,7 @@ func init() {
 
 }
 
-//Initialize and return all the log handlers. We're going to try to do this modularly.
+//InitLoggers will initialize and return all the log handlers. We're going to try to do this modularly.
 func InitLoggers(logFile string) (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Error *log.Logger) {
 
 	//Init console logger first. We can know for sure that this one is going to work.
@@ -58,8 +58,7 @@ func VerifyFile(fName string) (fExists bool) {
 	return fExists
 }
 
-//Attempt to create a file, and if file creation for the log file fails, flip shit.
-//We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.
+//CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
 func CreateFile(fName string) (fHandle *os.File, err error) {
 
 	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_WRONLY, 660)
@@ -78,3 +77,5 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 
 	return fHandle, err
 }
+
+//We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.
