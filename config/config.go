@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/CoyoTan/logutil"
+	"github.com/CoyoTan/JACK-AL/logutil"
 )
 
 var (
