@@ -5,14 +5,14 @@ import (
 )
 
 type DiscordConn struct {
-	User		*discordgo.User		`json:"-"`
-	Session		*discordgo.Session	`json:"-"`
+	User    *discordgo.User    `json:"-"`
+	Session *discordgo.Session `json:"-"`
 
 	//Discord Token. This can be saved in json.
-	Token		string `json:discordToken`
+	Token string `json:discordToken`
 
 	//Structure information pertaining to dispatching and responding.
-	CommandPrefix	string 		`json:"commandPrefix"`
+	CommandPrefix string `json:"commandPrefix"`
 
-	CreateListeners map[string]func(message *discordgo.Message)(err error)
+	CreateListeners map[string]func(message *discordgo.Message) (err error)
 }

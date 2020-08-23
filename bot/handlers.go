@@ -15,7 +15,7 @@ func Ready(s *discordgo.Session, r *discordgo.Ready) {
 
 func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 	if created.Author.ID != jackal.Discord.User.ID {
-		var totalListeners= 0
+		var totalListeners = 0
 
 		fields := strings.Fields(strings.ToLower(created.Message.Content))
 

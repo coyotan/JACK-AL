@@ -11,8 +11,7 @@ NO FILES INTENDING TO USE THE DISCORD INTERFACE MAY BE ALPHABETICALLY SUPERIOR T
 Public Variables accessible from this location:
 jackal - Core configuration.
 jackal.Discord - Contains Discord configuration
- */
-
+*/
 
 func init() {
 	addCreateListener("ping", responderPong)
@@ -22,7 +21,7 @@ func responderPong(message *discordgo.Message) (err error) {
 	jackal.Logger.Console.Println("Discord message received: ", message.Content)
 
 	if strings.ToLower(message.Content[len(jackal.Discord.CommandPrefix):]) == "ping" {
-		_, err = jackal.Discord.Session.ChannelMessageSend(message.ChannelID,"Pong!")
+		_, err = jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "Pong!")
 		jackal.Logger.Info.Println("Received ping, Pong!")
 	}
 

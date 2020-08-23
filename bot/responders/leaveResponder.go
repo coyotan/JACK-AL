@@ -20,7 +20,7 @@ func responderLeave(message *discordgo.Message) (err error) {
 	} else if err != nil {
 		jackal.Logger.Error.Println("There was an error validating the permissions of user ", message.Author.Username+"#"+message.Author.Discriminator, " when they attempted to run the leave command.")
 	} else {
-		jackal.Discord.Session.ChannelMessageSend(message.ChannelID,"You do not have permission to use that command.")
+		jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "You do not have permission to use that command.")
 		jackal.Logger.Warn.Println(message.Author.Username+"#"+message.Author.Discriminator, " attempted to run privileged command 'leave' but was rejected due to insufficient permissions.")
 	}
 

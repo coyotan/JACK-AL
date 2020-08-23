@@ -1,8 +1,8 @@
 package bot
 
 import (
-	"./responders"
 	"../structs"
+	"./responders"
 	"github.com/bwmarrin/discordgo"
 	"github.com/txgruppi/parseargs-go"
 	"os"
@@ -11,7 +11,6 @@ import (
 var (
 	jackal *structs.CoreCfg
 )
-
 
 func Init(core *structs.CoreCfg) {
 
@@ -23,7 +22,7 @@ func Init(core *structs.CoreCfg) {
 
 	for {
 
-		resp, _:= parseargs.Parse(GetInput())
+		resp, _ := parseargs.Parse(GetInput())
 
 		if len(resp) > 0 {
 			switch resp[0] {
@@ -43,7 +42,7 @@ func dgOpen() {
 		jackal.Logger.Error.Println("The configuration provided does not contain an API Token. Please provide a token to the Jackal Configuration file.", len(jackal.Discord.Token))
 	}
 
-	dg, err := discordgo.New("Bot "+jackal.Discord.Token)
+	dg, err := discordgo.New("Bot " + jackal.Discord.Token)
 
 	if err != nil {
 		jackal.Logger.Error.Println("There was an error when attempting to begin a session with Discord.")

@@ -4,10 +4,10 @@ import "log"
 
 type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
-	Logger      	logs
-	LogFilePath 	string 		`json:"logFile"`
+	Logger      logs
+	LogFilePath string `json:"logFile"`
 
-	Discord			DiscordConn `json:"discord"`
+	Discord DiscordConn `json:"discord"`
 }
 
 func (core *CoreCfg) LogFile() (fPath string) {

@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	logErr       	*log.Logger
+	logErr       *log.Logger
 	possibleCfgs = []string{"./config.json", GetConfDir() + "/config.json"}
-	configPath		string
+	configPath   string
 )
 
 //Take in a core, which must be compliant with the initInt interface. Let's try to make this lib modular too!
@@ -22,7 +22,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 	logErr = err
 
 	fPath := GetConfDir()
-	configPath = fPath+"/config.json"
+	configPath = fPath + "/config.json"
 
 	//Before we load, let's see if it's the first run. If it is, we'll make the config file next.
 	if isFirstRun() {
@@ -77,7 +77,7 @@ func SaveCfg(fName string, core interface{}) (err error) {
 
 	} else {
 		//If it does not exist, make it!
-		err = os.MkdirAll(fName[:len(fName)-12],600)
+		err = os.MkdirAll(fName[:len(fName)-12], 600)
 
 		if err != nil {
 			logErr.Println("There was a critical error creating a directory in "+fName[:12], err)
@@ -106,7 +106,7 @@ func GetConfDir() (fPath string) {
 		os.Exit(12)
 	}
 
-	return path+"/JACK-AL"
+	return path + "/JACK-AL"
 }
 
 //isFirstRun returns a boolean if the program detects this is its first run. This can be evaluated by checking for the existence of a configuration file.

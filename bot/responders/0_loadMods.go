@@ -7,23 +7,22 @@ import (
 )
 
 var (
-	jackal *structs.CoreCfg
-	createLocalListener map[string]func(message *discordgo.Message)(err error)
+	jackal              *structs.CoreCfg
+	createLocalListener map[string]func(message *discordgo.Message) (err error)
 )
 
-
 func init() {
-	createLocalListener = make(map[string]func(message *discordgo.Message)(err error))
+	createLocalListener = make(map[string]func(message *discordgo.Message) (err error))
 }
 
+//InitAll starts the initialization process when called on by another package. In this case, bot, the package just above us.
 func InitAll(core *structs.CoreCfg) {
 	jackal = core
 	jackal.Logger.Info.Println("Beginning module load process.")
 	jackal.Discord.CreateListeners = createLocalListener
 }
 
-
-func addCreateListener(name string, responder func(message *discordgo.Message)(err error))(err error) {
+func addCreateListener(name string, responder func(message *discordgo.Message) (err error)) (err error) {
 
 	if createLocalListener == nil {
 		createLocalListener = make(map[string]func(message *discordgo.Message) (err error))
