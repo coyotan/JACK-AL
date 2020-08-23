@@ -39,9 +39,9 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 						totalListeners++
 					}
 				}
-
-				jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
 			}
+
+			jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
 		}
 	}
 }
