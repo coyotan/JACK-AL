@@ -1,3 +1,4 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/CoyoTan/JACK-AL)](https://goreportcard.com/report/github.com/CoyoTan/JACK-AL)
 Project: JACK-AL: X
 -
 #####Just Another Classified Kiosk - Access Level: X
