@@ -3,8 +3,9 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/CoyoTan/JACK-AL)](https://goreportcard.com/report/github.com/CoyoTan/JACK-AL)
 
 <br>
-Project: JACK-AL: X 
+Project: JACK-AL: X
 -
+
 #####Just Another Classified Kiosk - Access Level: X
 Project JACK-AL is a Discord and Web Bot Framework intended to assist in the management, configuration, and utilization of various types of Discord servers. By creating different integration levels of this platform, different features can be leveraged by users with different intentions. 
 ###Access Levels:
