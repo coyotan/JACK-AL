@@ -25,15 +25,13 @@ func InitLoggers(logFile string) (Console *log.Logger, Info *log.Logger, Warn *l
 	Console = log.New(os.Stdout, "Console: ", log.Ltime|log.Lshortfile)
 	localLogger.Console = Console
 
-	//Just to prevent stupid mistakes.
-	if !VerifyFile(logFile) {
-		lFile, _ = CreateFile(logFile)
-	}
+	//Create the file to start overwrite ... without this, we're getting some stupid bug.
+	lFile, _ = CreateFile(logFile)
 
 	//Now that we know the file exists, we can use the rest of these.
 	Info = log.New(lFile, "INFO: ", log.Ltime|log.Ldate|log.Lshortfile)
 	Warn = log.New(lFile, "WARN: ", log.Ltime|log.Ldate|log.Lshortfile)
-	Error = log.New(lFile, "", log.Ltime|log.Ldate|log.Lshortfile)
+	Error = log.New(lFile, "ERROR: ", log.Ltime|log.Ldate|log.Lshortfile)
 
 	//Add some stuff for us to take care of ourselves in here. In the name of modularity.
 	localLogger.Info = Info
@@ -48,6 +46,7 @@ func InitLoggers(logFile string) (Console *log.Logger, Info *log.Logger, Warn *l
 }
 
 //VerifyFile returns false if the filename present does not exist in the filesystem.
+//Exported because it makes writing other things that need to use this a lot smoother.
 func VerifyFile(fName string) (fExists bool) {
 
 	if _, err := os.Stat(fName); os.IsNotExist(err) {
@@ -63,7 +62,7 @@ func VerifyFile(fName string) (fExists bool) {
 //We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.
 func CreateFile(fName string) (fHandle *os.File, err error) {
 
-	fHandle, err = os.Create(fName)
+	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_WRONLY, 660)
 
 	if err != nil {
 		if initComplete {

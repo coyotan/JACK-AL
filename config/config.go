@@ -11,7 +11,7 @@ import (
 
 var (
 	logErr       	*log.Logger
-	possibleCfgs = []string{"./config.json", GetConfDir() + "./config.json"}
+	possibleCfgs = []string{"./config.json", GetConfDir() + "/config.json"}
 	configPath		string
 )
 
@@ -21,10 +21,11 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 
 	logErr = err
 
+	fPath := GetConfDir()
+	configPath = fPath+"/config.json"
+
 	//Before we load, let's see if it's the first run. If it is, we'll make the config file next.
 	if isFirstRun() {
-		fPath := GetConfDir()
-		configPath = fPath+"/config.json"
 		//Make file in ConfDir, and return as file used, so we can adjust the code that follows...
 		err := SaveCfg(configPath, &core)
 
@@ -33,14 +34,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 		}
 	}
 
-	//Range through possible locations until we find one that exists.
-		if logUtil.VerifyFile(configPath) {
-			LoadCfg(configPath, &core)
-			return
-		} else {
-			core.LogError().Println("Failed to locate config file.")
-			os.Exit(12)
-		}
+	LoadCfg(configPath, &core)
 
 	return
 }
@@ -75,7 +69,7 @@ func SaveCfg(fName string, core interface{}) (err error) {
 		confOut, err := json.Marshal(core)
 		if err != nil {
 			logErr.Println("There was a critical error writing save data to the configuration file.\n", err)
-			os.Exit(13)
+			os.Exit(14)
 			//File failed to write to config... but it did open.
 		}
 
@@ -83,10 +77,17 @@ func SaveCfg(fName string, core interface{}) (err error) {
 
 	} else {
 		//If it does not exist, make it!
+		err = os.MkdirAll(fName[:len(fName)-12],600)
+
+		if err != nil {
+			logErr.Println("There was a critical error creating a directory in "+fName[:12], err)
+			os.Exit(13)
+		}
+
 		_, err = os.Create(fName)
 		if err != nil {
 			logErr.Println("There was a critical error creating the save file.", err)
-			os.Exit(10)
+			os.Exit(12)
 			//Prevent recursion by stopping here... we do NOT want to continue with this one.
 		}
 
@@ -105,15 +106,17 @@ func GetConfDir() (fPath string) {
 		os.Exit(12)
 	}
 
-	return path
+	return path+"/JACK-AL"
 }
 
 //isFirstRun returns a boolean if the program detects this is its first run. This can be evaluated by checking for the existence of a configuration file.
 //If one does not exist at either path, then we can assume that this is the first run.
 func isFirstRun() (firstRun bool) {
+
 	for _, v := range possibleCfgs {
 		if logUtil.VerifyFile(v) {
 			firstRun = false
+			break
 		} else {
 			firstRun = true
 		}

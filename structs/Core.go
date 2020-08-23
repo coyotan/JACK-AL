@@ -3,12 +3,11 @@ package structs
 import "log"
 
 type CoreCfg struct {
-	Token       string `json:"token"`
-	Name        string
-	Logger      logs
-	LogFilePath string `json:"logFile"`
+	//Structure components pertaining specifically to logging.
+	Logger      	logs
+	LogFilePath 	string 		`json:"logFile"`
 
-	CommandPrefix string `json:"commandPrefix"`
+	Discord			DiscordConn `json:"discord"`
 }
 
 func (core *CoreCfg) LogFile() (fPath string) {
