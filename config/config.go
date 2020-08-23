@@ -73,7 +73,7 @@ func SaveCfg(fName string, core interface{}) (err error) {
 			//File failed to write to config... but it did open.
 		}
 
-		return ioutil.WriteFile(fName, confOut, 600)
+		ioutil.WriteFile(fName, confOut, 600)
 
 	} else {
 		//If it does not exist, make it!
