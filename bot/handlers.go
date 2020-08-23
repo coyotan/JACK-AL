@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-//Function for receiving and processing the discord ready message once it is sent from the API.
+//Ready function for receiving and processing the discord ready message once it is sent from the API.
 func Ready(s *discordgo.Session, r *discordgo.Ready) {
 	jackal.Logger.Info.Println("Discord Ready Message Received. Username:", r.User.Username, " User ID:", r.User.ID)
 	jackal.Discord.User = r.User

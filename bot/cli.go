@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-//Get text input from the terminal. Return a string so that the terminal loop can process submitted text.
+//GetInput from the terminal. Return a string so that the terminal loop can process submitted text.
 func GetInput() string {
 
 	reader := bufio.NewReader(os.Stdin)

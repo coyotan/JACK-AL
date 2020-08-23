@@ -2,7 +2,7 @@ package structs
 
 import "log"
 
-//CoreCfg, arguably the most important part of this software, contains all information used by every part of this program. This is the heart of JACK-AL
+//CoreCfg is the most important part of this software, contains all information used by every part of this program. This is the heart of JACK-AL
 type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
 	Logger      logs
@@ -21,7 +21,7 @@ func (core *CoreCfg) LogConsole() (console *log.Logger) {
 	return core.Logger.Console
 }
 
-//LogConsole is an exported function which returns a pointer to the Info logger, which can be used to save informational messages to a log file.
+//LogInfo is an exported function which returns a pointer to the Info logger, which can be used to save informational messages to a log file.
 func (core *CoreCfg) LogInfo() (info *log.Logger) {
 	return core.Logger.Info
 }
@@ -31,7 +31,7 @@ func (core *CoreCfg) LogWarn() (warn *log.Logger) {
 	return core.Logger.Warn
 }
 
-//LogConsole is an exported function which returns a pointer to the Error logger, which can be used to save Emergency/Dangerous messages to a log file.
+//LogError is an exported function which returns a pointer to the Error logger, which can be used to save Emergency/Dangerous messages to a log file.
 func (core *CoreCfg) LogError() (error *log.Logger) {
 	return core.Logger.Error
 }
