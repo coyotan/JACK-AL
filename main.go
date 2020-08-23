@@ -1,9 +1,9 @@
 package main
 
 import (
-	"./bot"
-	"./config"
-	"./structs"
+	"github.com/CoyoTan/bot"
+	"github.com/CoyoTan/config"
+	"github.com/CoyoTan/structs"
 )
 
 var (

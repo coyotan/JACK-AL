@@ -1,7 +1,7 @@
 package responders
 
 import (
-	"../../botutils"
+	"github.com/CoyoTan/botutils"
 	"github.com/bwmarrin/discordgo"
 	"strings"
 )

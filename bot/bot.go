@@ -1,8 +1,8 @@
 package bot
 
 import (
-	"../structs"
-	"./responders"
+	"github.com/CoyoTan/structs"
+	"github.com/CoyoTan/responders"
 	"github.com/bwmarrin/discordgo"
 	"github.com/txgruppi/parseargs-go"
 	"os"

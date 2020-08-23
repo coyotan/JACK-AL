@@ -1,7 +1,7 @@
 package responders
 
 import (
-	"../../structs"
+	"github.com/CoyoTan/structs"
 	"errors"
 	"github.com/bwmarrin/discordgo"
 )
