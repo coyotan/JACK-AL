@@ -27,7 +27,7 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 					jackal.Logger.Error.Println("Responder is 10-33", err)
 				}
 
-				totalListeners++
+				totalListeners = 1
 			} else {
 				//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 				for _, v := range jackal.Discord.CreateListeners {
