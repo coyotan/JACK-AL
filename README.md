@@ -8,7 +8,7 @@ Project: JACK-AL: X
 
 #####Just Another Classified Kiosk - Access Level: X
 Project JACK-AL is a Discord and Web Bot Framework intended to assist in the management, configuration, and utilization of various types of Discord servers. By creating different integration levels of this platform, different features can be leveraged by users with different intentions. 
-###Access Levels:
+###Access Levels:<br>
 #####Archon Version: \*.3.0
 <p>
 Access Level Archon references a fully integrated and fully capable deployment of this project. It will have full functionality for intended database, permission, command, user information systems, and server moderation systems.
