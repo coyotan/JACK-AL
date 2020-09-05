@@ -16,4 +16,5 @@ type DiscordConn struct {
 	CommandPrefix string `json:"commandPrefix"`
 
 	CreateListeners map[string]func(message *discordgo.Message) (err error)
+	DeleteListeners map[string]func(deleted *discordgo.MessageDelete) (err error)
 }

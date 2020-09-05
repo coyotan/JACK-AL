@@ -44,3 +44,21 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 		}
 	}
 }
+
+func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
+	if deleted.Author.ID != jackal.Discord.User.ID {
+		var totalListeners = 0
+			//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
+			for _, v := range jackal.Discord.DeleteListeners {
+				err := v(deleted.Message)
+
+				if err != nil {
+					jackal.Logger.Error.Println("Responder is 10-33", err)
+				} else {
+					totalListeners++
+				}
+			}
+
+		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
+	}
+}
