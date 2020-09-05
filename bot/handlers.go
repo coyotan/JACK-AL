@@ -50,7 +50,7 @@ func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
 		var totalListeners = 0
 			//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 			for _, v := range jackal.Discord.DeleteListeners {
-				err := v(deleted.Message)
+				err := v(deleted)
 
 				if err != nil {
 					jackal.Logger.Error.Println("Responder is 10-33", err)
