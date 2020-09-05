@@ -22,6 +22,6 @@ Error Codes
 -
 - 10: Failure opening config file.
 - 11: Failure reading from config file.
-- 12: Could not find User Config Directory
+- 12: Could not find user config Directory
 - 13: Could not create user config Directory.
 - 14: Failure writing data to config file.

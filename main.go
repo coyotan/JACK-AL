@@ -21,7 +21,3 @@ func init() {
 func main() {
 
 }
-
-//TODO: SORT OUT EXIT CODES. MAKE SURE THAT THEY ALL LINE UP WITH THE RIGHT ERROR.
-//TODO: Project Phase complete. Start testing for responsiveness.
-//TODO: Testing webhook.

@@ -51,13 +51,13 @@ func dgOpen() {
 
 	responders.InitAll(jackal)
 
-	dg.AddHandler(Ready)
+	dg.AddHandler(ready)
 	dg.AddHandler(createDispatch)
 
 	err = dg.Open()
 
 	if err != nil {
 		jackal.Logger.Error.Println(err)
-		os.Exit(100)
+		os.Exit(101)
 	}
 }
