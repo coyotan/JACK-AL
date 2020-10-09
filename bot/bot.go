@@ -45,8 +45,16 @@ func dgOpen() {
 
 	dg, err := discordgo.New("Bot " + jackal.Discord.Token)
 
+	//Enable and configure Stateful Discord!
 	dg.StateEnabled = true
-	dg.State.MaxMessageCount = jackal.Discord.MaxMessageCount
+	dg.State.TrackRoles = true
+	dg.State.TrackMembers = true
+	dg.State.TrackPresences = true
+	if jackal.Discord.MaxMessageCount < 1 {
+		dg.State.MaxMessageCount = 50
+	} else {
+		dg.State.MaxMessageCount = jackal.Discord.MaxMessageCount
+	}
 
 	if err != nil {
 		jackal.Logger.Error.Println("There was an error when attempting to begin a session with Discord.")

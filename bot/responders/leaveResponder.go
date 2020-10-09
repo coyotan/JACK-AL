@@ -12,7 +12,7 @@ func init() {
 
 func responderLeave(message *discordgo.Message) (err error) {
 	jackal.Logger.Console.Println("Discord message received: ", message.Content)
-	if isAdm, err := botutils.CheckAdminPermissions(message.Author.ID, message.GuildID); isAdm {
+	if isAdm, err := botutils.CheckAdminPermissions(jackal.Discord.Session, message); isAdm {
 		if strings.ToLower(message.Content[len(jackal.Discord.CommandPrefix):]) == "leave" {
 			jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "Leaving now!")
 			jackal.Discord.Session.Close()
