@@ -60,3 +60,11 @@ func LoadDndCFG(fName string, conf *DndConf) {
 	}
 	return
 }
+
+func Dnd5eSaveCFG(fName string, conf *DndConf) {
+	err := config.SaveCfg(DndWorkingDir+fName, &conf)
+
+	if err != nil {
+		Jackal.Logger.Error.Println("DND5E Mod. Error saving config file!", err)
+	}
+}
