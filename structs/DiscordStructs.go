@@ -12,6 +12,9 @@ type DiscordConn struct {
 	//Discord Token. This can be saved in json.
 	Token string `json:"discordToken"`
 
+	//Discord Maximum State Size. This is how many messages we save from the state pool.
+	MaxMessageCount int `json:"maxMessageCount"`
+
 	//Structure information pertaining to dispatching and responding.
 	CommandPrefix string `json:"commandPrefix"`
 

@@ -1,8 +1,8 @@
 package bot
 
 import (
-	"github.com/CoyoTan/JACK-AL/structs"
 	"github.com/CoyoTan/JACK-AL/bot/responders"
+	"github.com/CoyoTan/JACK-AL/structs"
 	"github.com/bwmarrin/discordgo"
 	"github.com/txgruppi/parseargs-go"
 	"os"
@@ -44,6 +44,9 @@ func dgOpen() {
 	}
 
 	dg, err := discordgo.New("Bot " + jackal.Discord.Token)
+
+	dg.StateEnabled = true
+	dg.State.MaxMessageCount = jackal.Discord.MaxMessageCount
 
 	if err != nil {
 		jackal.Logger.Error.Println("There was an error when attempting to begin a session with Discord.")
