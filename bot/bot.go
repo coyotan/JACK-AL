@@ -64,6 +64,7 @@ func dgOpen() {
 
 	dg.AddHandler(ready)
 	dg.AddHandler(createDispatch)
+	dg.AddHandler(deleteDispatch)
 
 	err = dg.Open()
 

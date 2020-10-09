@@ -16,6 +16,9 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 	if created.Author.ID != jackal.Discord.User.ID {
 		var totalListeners = 0
 
+		//Add the message to the cache for logging, if it's deleted soon!
+		jackal.Discord.Session.State.MessageAdd(created.Message)
+
 		fields := strings.Fields(strings.ToLower(created.Message.Content))
 
 		if string(fields[0][0]) == jackal.Discord.CommandPrefix {
@@ -46,7 +49,10 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 }
 
 func deleteDispatch(s *discordgo.Session, deleted *discordgo.MessageDelete) {
-	if deleted.Author.ID != jackal.Discord.User.ID {
+
+	_, err := s.ChannelMessageSend(deleted.BeforeDelete.ChannelID, deleted.BeforeDelete.Content)
+	jackal.Logger.Error.Println(err)
+	/*if deleted.Author.ID != jackal.Discord.User.ID {
 		var totalListeners = 0
 		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 		for _, v := range jackal.Discord.DeleteListeners {
@@ -60,5 +66,5 @@ func deleteDispatch(s *discordgo.Session, deleted *discordgo.MessageDelete) {
 		}
 
 		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
-	}
+	}*/
 }
