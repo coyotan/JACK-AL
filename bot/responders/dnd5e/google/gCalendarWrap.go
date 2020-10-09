@@ -14,14 +14,13 @@ func getClient(config *oauth2.Config) *http.Client {
 	// created automatically when the authorization flow completes for the first
 	// time.
 
-	tok := dnd5e.DndCore.GToken
-	if tok != nil {
-		tok = getTokenFromWeb(config)
-		saveToken(tokFile, tok)
+	if dnd5e.DndCore.GToken != nil {
+		dnd5e.DndCore.GToken = getTokenFromWeb(config)
+		dnd5e.Dnd5eSaveCFG("dndConfig.json", &dnd5e.DndCore)
 	} else {
 
 	}
-	return config.Client(context.Background(), tok)
+	return config.Client(context.Background(), dnd5e.DndCore.GToken)
 }
 
 // Request a token from the web, then returns the retrieved token.
@@ -32,12 +31,12 @@ func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 
 	var authCode string
 	if _, err := fmt.Scan(&authCode); err != nil {
-		log.Fatalf("Unable to read authorization code: %v", err)
+		dnd5e.Jackal.Logger.Error.Fatalf("Unable to read authorization code: %v", err)
 	}
 
 	tok, err := config.Exchange(context.TODO(), authCode)
 	if err != nil {
-		log.Fatalf("Unable to retrieve token from web: %v", err)
+		dnd5e.Jackal.Logger.Error.Fatalf("Unable to retrieve token from web: %v", err)
 	}
 	return tok
 }
