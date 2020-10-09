@@ -20,4 +20,5 @@ type DiscordConn struct {
 
 	CreateListeners map[string]func(message *discordgo.Message) (err error)
 	DeleteListeners map[string]func(deleted *discordgo.MessageDelete) (err error)
+	EditListeners   map[string]func(deleted *discordgo.MessageUpdate) (err error)
 }

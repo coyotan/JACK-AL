@@ -66,3 +66,22 @@ func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
 		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
 	}
 }
+
+//Thanks to the new "BeforeUpdate" method, this is all this function really needs to be! It's so much simpler now!
+func editDispatch(_ *discordgo.Session, updated *discordgo.MessageDelete) {
+	if updated.Author.ID != jackal.Discord.User.ID {
+		var totalListeners = 0
+		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
+		for _, v := range jackal.Discord.EditListeners {
+			err := v(updated)
+
+			if err != nil {
+				jackal.Logger.Error.Println("Responder is 10-33", err)
+			} else {
+				totalListeners++
+			}
+		}
+
+		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
+	}
+}
