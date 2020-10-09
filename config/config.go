@@ -25,7 +25,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 	configPath = fPath + "/config.json"
 
 	//Before we load, let's see if it's the first run. If it is, we'll make the config file next.
-	if isFirstRun() {
+	if IsFirstRun() {
 		//Make file in ConfDir, and return as file used, so we can adjust the code that follows...
 		err := SaveCfg(configPath, &core)
 
@@ -110,9 +110,9 @@ func GetConfDir() (fPath string) {
 	return path + "/JACK-AL"
 }
 
-//isFirstRun returns a boolean if the program detects this is its first run. This can be evaluated by checking for the existence of a configuration file.
+//IsFirstRun returns a boolean if the program detects this is its first run. This can be evaluated by checking for the existence of a configuration file.
 //If one does not exist at either path, then we can assume that this is the first run.
-func isFirstRun() (firstRun bool) {
+func IsFirstRun() (firstRun bool) {
 
 	for _, v := range possibleCfgs {
 		if logutil.VerifyFile(v) {
