@@ -48,11 +48,9 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 	}
 }
 
-func deleteDispatch(s *discordgo.Session, deleted *discordgo.MessageDelete) {
-
-	_, err := s.ChannelMessageSend(deleted.BeforeDelete.ChannelID, deleted.BeforeDelete.Content)
-	jackal.Logger.Error.Println(err)
-	/*if deleted.Author.ID != jackal.Discord.User.ID {
+//Thanks to the new "BeforeDelete" method, this is all this function really needs to be! It's so much simpler now!
+func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
+	if deleted.Author.ID != jackal.Discord.User.ID {
 		var totalListeners = 0
 		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 		for _, v := range jackal.Discord.DeleteListeners {
@@ -66,5 +64,5 @@ func deleteDispatch(s *discordgo.Session, deleted *discordgo.MessageDelete) {
 		}
 
 		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
-	}*/
+	}
 }
