@@ -68,7 +68,7 @@ func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
 }
 
 //Thanks to the new "BeforeUpdate" method, this is all this function really needs to be! It's so much simpler now!
-func editDispatch(_ *discordgo.Session, updated *discordgo.MessageDelete) {
+func editDispatch(_ *discordgo.Session, updated *discordgo.MessageUpdate) {
 	if updated.Author.ID != jackal.Discord.User.ID {
 		var totalListeners = 0
 		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
