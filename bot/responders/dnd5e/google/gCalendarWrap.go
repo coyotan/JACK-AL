@@ -15,7 +15,7 @@ func getClient(config *oauth2.Config) *http.Client {
 	// time.
 
 	tok := dnd5e.DndCore.GToken
-	if GToken != nil {
+	if tok != nil {
 		tok = getTokenFromWeb(config)
 		saveToken(tokFile, tok)
 	} else {

@@ -18,8 +18,8 @@ var (
 )
 
 type DndConf struct {
-	GToken  oauth2.Token `json:"googleCalendarToken"`
-	Version string       `json:"-"`
+	GToken  *oauth2.Token `json:"googleCalendarToken"`
+	Version string        `json:"-"`
 }
 
 func init() {
