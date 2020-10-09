@@ -73,11 +73,11 @@ func SaveCfg(fName string, core interface{}) (err error) {
 			//File failed to write to config... but it did open.
 		}
 
-		ioutil.WriteFile(fName, confOut, 600)
+		ioutil.WriteFile(fName, confOut, 660)
 
 	} else {
 		//If it does not exist, make it!
-		err = os.MkdirAll(fName[:len(fName)-12], 600)
+		err = os.MkdirAll(fName[:len(fName)-12], 660)
 
 		if err != nil {
 			logErr.Println("There was a critical error creating a directory in "+fName[:12], err)
@@ -122,6 +122,5 @@ func IsFirstRun() (firstRun bool) {
 			firstRun = true
 		}
 	}
-
 	return
 }
