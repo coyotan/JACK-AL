@@ -3,6 +3,7 @@ package dnd5e
 import (
 	"github.com/CoyoTan/JACK-AL/config"
 	"github.com/CoyoTan/JACK-AL/structs"
+	"golang.org/x/oauth2"
 	"os"
 )
 
@@ -17,8 +18,8 @@ var (
 )
 
 type DndConf struct {
-	GToken  string `json:"googleCalendarToken"`
-	Version string `json:"-"`
+	GToken  oauth2.Token `json:"googleCalendarToken"`
+	Version string       `json:"-"`
 }
 
 func init() {
