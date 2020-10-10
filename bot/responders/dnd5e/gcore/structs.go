@@ -10,8 +10,8 @@ import (
 type e5GCore struct {
 	dCore dndCore `json:"-"`
 
-	DndGuildCalenders []CalendarsByGuild `json:"DndGuildCalenders"`
-	DndGuildCalMap    map[string]string  `json:"-"`
+	DndGuildCalendars []CalendarsByGuild `json:"DndGuildCalenders"`
+	DndCalendarMap    map[string]string  `json:"-"`
 }
 
 func (d *e5GCore) AddGuildCalToMap(guildID string, calendarID string) {
