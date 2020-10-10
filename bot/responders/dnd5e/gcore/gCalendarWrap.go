@@ -15,9 +15,11 @@ import (
 )
 
 var jackal *structs.CoreCfg
-var dCore dndCore
+var e5Core = &e5GCore{}
 
 func init() {
+	e5Core.DndCalendarMap = make(map[string]string)
+	e5Core.GuildCalendars = make(map[string]*GuildCalender)
 }
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -26,7 +28,7 @@ func getClient(config *oauth2.Config) (ctx context.Context, client *oauth2.Token
 	// created automatically when the authorization flow completes for the first
 	// time.
 
-	tokFile := dCore.GetDndDir() + "/token.json"
+	tokFile := e5Core.dCore.GetDndDir() + "/token.json"
 	tok, err := tokenFromFile(tokFile)
 	if err != nil {
 		tok = getTokenFromWeb(config)
@@ -80,9 +82,9 @@ func saveToken(path string, token *oauth2.Token) {
 func InitGoogleCore(core *structs.CoreCfg, core2 dndCore) {
 
 	jackal = core
-	dCore = core2
+	e5Core.dCore = core2
 
-	b, err := ioutil.ReadFile(dCore.GetDndDir() + "/credentials.json")
+	b, err := ioutil.ReadFile(e5Core.dCore.GetDndDir() + "/credentials.json")
 	if err != nil {
 		jackal.Logger.Error.Fatalf("Unable to read client secret file: %v", err)
 	}
@@ -96,7 +98,7 @@ func InitGoogleCore(core *structs.CoreCfg, core2 dndCore) {
 	ctx, token := getClient(config)
 
 	srv, err := calendar.NewService(ctx, option.WithTokenSource(config.TokenSource(ctx, token)))
-	dCore.SetGCore(srv)
+	e5Core.dCore.SetGCore(srv)
 
 	if err != nil {
 		jackal.Logger.Error.Fatalf("Unable to authenticate and retrieve Calendar client: %v", err)

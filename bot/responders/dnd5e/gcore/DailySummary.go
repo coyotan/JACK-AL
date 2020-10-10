@@ -1,8 +1,11 @@
 package gcore
 
-import "time"
+import (
+	"encoding/json"
+	"time"
+)
 
-var Cal = dCore.GetGCore()
+var Cal = e5Core.dCore.GetGCore()
 
 func GetDailyEventSummary(calenderID string) {
 
@@ -38,5 +41,15 @@ func verifyGuildCalender(calenderID string) (err error) {
 		jackal.Logger.Error.Println("There was a critical error verifying the DND Calender JSON for ", calenderID)
 	}
 
+	newCal := &GuildCalender{}
+
+	err = json.Unmarshal([]byte(guildCal.Description), &newCal)
+
+	if err != nil {
+		jackal.Logger.Error.Println("There was a critical error unmarshalling the guildCalender Description", err)
+		return
+	} else {
+		e5Core.GuildCalendars[calenderID] = newCal
+	}
 	return
 }
