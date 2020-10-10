@@ -18,7 +18,8 @@ type DiscordConn struct {
 	//Structure information pertaining to dispatching and responding.
 	CommandPrefix string `json:"commandPrefix"`
 
-	CreateListeners map[string]func(message *discordgo.Message) (err error)
-	DeleteListeners map[string]func(deleted *discordgo.MessageDelete) (err error)
-	EditListeners   map[string]func(deleted *discordgo.MessageUpdate) (err error)
+	InitModListeners map[string]func(jackal *CoreCfg) (err error)
+	CreateListeners  map[string]func(message *discordgo.Message) (err error)
+	DeleteListeners  map[string]func(deleted *discordgo.MessageDelete) (err error)
+	EditListeners    map[string]func(deleted *discordgo.MessageUpdate) (err error)
 }

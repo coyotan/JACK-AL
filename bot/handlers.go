@@ -1,6 +1,7 @@
 package bot
 
 import (
+	"github.com/CoyoTan/JACK-AL/structs"
 	"github.com/bwmarrin/discordgo"
 	"strings"
 )
@@ -74,6 +75,23 @@ func editDispatch(_ *discordgo.Session, updated *discordgo.MessageUpdate) {
 		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 		for _, v := range jackal.Discord.EditListeners {
 			err := v(updated)
+
+			if err != nil {
+				jackal.Logger.Error.Println("Responder is 10-33", err)
+			} else {
+				totalListeners++
+			}
+		}
+
+		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
+	}
+}
+
+func initModDispatch(jackal *structs.CoreCfg) {
+		var totalListeners = 0
+		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
+		for _, v := range jackal.Discord.InitModListeners {
+			err := v(jackal)
 
 			if err != nil {
 				jackal.Logger.Error.Println("Responder is 10-33", err)
