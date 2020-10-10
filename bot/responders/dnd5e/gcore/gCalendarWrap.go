@@ -4,19 +4,20 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/CoyoTan/JACK-AL/structs"
-
-	//"github.com/CoyoTan/JACK-AL/bot/responders/dnd5e"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/calendar/v3"
 	"google.golang.org/api/option"
+	"io/ioutil"
+
 	//"io/ioutil"
 	"os"
 	"time"
 )
 
 var jackal *structs.CoreCfg
+var dCore dndCore
 
 func init() {
 	//	initGoogleCore()
@@ -30,7 +31,7 @@ func getClient(config *oauth2.Config) (ctx context.Context, client *oauth2.Token
 	// created automatically when the authorization flow completes for the first
 	// time.
 
-	//tokFile := dnd5e.DndWorkingDir + "/token.json"
+	tokFile := dCore.GetDndDir() + "/token.json"
 	tok, err := tokenFromFile(tokFile)
 	if err != nil {
 		tok = getTokenFromWeb(config)
@@ -48,12 +49,12 @@ func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 
 	var authCode string
 	if _, err := fmt.Scan(&authCode); err != nil {
-		//dnd5e.Jackal.Logger.Error.Fatalf("Unable to read authorization code: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to read authorization code: %v", err)
 	}
 
 	tok, err := config.Exchange(context.TODO(), authCode)
 	if err != nil {
-		//dnd5e.Jackal.Logger.Error.Fatalf("Unable to retrieve token from web: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to retrieve token from web: %v", err)
 	}
 	return tok
 }
@@ -75,7 +76,7 @@ func saveToken(path string, token *oauth2.Token) {
 	fmt.Printf("Saving credential file to: %s\n", path)
 	f, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
-		//dnd5e.Jackal.Logger.Error.Fatalf("Unable to cache oauth token: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to cache oauth token: %v", err)
 	}
 	defer f.Close()
 	json.NewEncoder(f).Encode(token)
@@ -85,31 +86,31 @@ func InitGoogleCore(core *structs.CoreCfg, core2 dndCore) {
 
 	jackal = core
 
-	//b, err := ioutil.ReadFile(dnd5e.DndWorkingDir + "/credentials.json")
+	b, err := ioutil.ReadFile(dCore.GetDndDir() + "/credentials.json")
 	if err != nil {
-		//dnd5e.Jackal.Logger.Error.Fatalf("Unable to read client secret file: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to read client secret file: %v", err)
 	}
 
 	// If modifying these scopes, delete your previously saved token.json.
 	config, err := google.ConfigFromJSON(b, calendar.CalendarReadonlyScope)
 	if err != nil {
-		//	dnd5e.Jackal.Logger.Error.Fatalf("Unable to parse client secret file to config: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
 
 	ctx, token := getClient(config)
 
 	srv, err := calendar.NewService(ctx, option.WithTokenSource(config.TokenSource(ctx, token)))
-	//dnd5e.DndCore.GCore = srv
+	dCore.SetGCore = srv
 
 	if err != nil {
-		//	dnd5e.Jackal.Logger.Error.Fatalf("Unable to authenticate and retrieve Calendar client: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to authenticate and retrieve Calendar client: %v", err)
 	}
 
 	t := time.Now().Format(time.RFC3339)
 	events, err := srv.Events.List("primary").ShowDeleted(false).
 		SingleEvents(true).TimeMin(t).MaxResults(10).OrderBy("startTime").Do()
 	if err != nil {
-		//dnd5e.Jackal.Logger.Error.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
+		jackal.Logger.Error.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
 	}
 	fmt.Println("Upcoming events:")
 	if len(events.Items) == 0 {

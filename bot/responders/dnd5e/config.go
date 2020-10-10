@@ -26,6 +26,10 @@ type DndConf struct {
 	GCore *calendar.Service `json:"-"`
 }
 
+func (d *DndConf) SetGCore(core *calendar.Service) {
+	d.GCore = core
+}
+
 func (d *DndConf) GetGCore() *calendar.Service {
 	return d.GCore
 }

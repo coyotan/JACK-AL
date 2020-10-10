@@ -3,6 +3,7 @@ package gcore
 import "google.golang.org/api/calendar/v3"
 
 type dndCore interface {
-	getGCore() *calendar.Service
-	getDndDir() string
+	SetGCore(core *calendar.Service)
+	GetGCore() *calendar.Service
+	GetDndDir() string
 }
