@@ -7,4 +7,6 @@ type dndCore interface {
 	GetGCore() *calendar.Service
 	GetDndDir() string
 	GetGuildMap() map[string]string
+	SetDndGuildCal(DndGuildCalendersJSON string)
+	GetDndGuildCal() string
 }

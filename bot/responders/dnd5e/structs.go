@@ -11,8 +11,7 @@ type e5Conf struct {
 
 	GCore *calendar.Service `json:"-"`
 
-	DndGuildCalendars string            `json:"DndCalendars"`
-	DndCalendarMap    map[string]string `json:"-"`
+	DndGuildCalendars string `json:"DndCalendars"`
 }
 
 func (d *e5Conf) SetGCore(core *calendar.Service) {
@@ -25,4 +24,12 @@ func (d *e5Conf) GetGCore() *calendar.Service {
 
 func (d *e5Conf) GetDndDir() string {
 	return d.DndWorkingDir
+}
+
+func (d *e5Conf) SetDndGuildCal(DndGuildCalendersJSON string) {
+	d.DndGuildCalendars = DndGuildCalendersJSON
+}
+
+func (d *e5Conf) GetDndGuildCal() string {
+	return d.DndGuildCalendars
 }
