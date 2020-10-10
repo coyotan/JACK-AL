@@ -100,7 +100,7 @@ func InitGoogleCore(core *structs.CoreCfg, core2 dndCore) {
 	ctx, token := getClient(config)
 
 	srv, err := calendar.NewService(ctx, option.WithTokenSource(config.TokenSource(ctx, token)))
-	dCore.SetGCore = srv
+	dCore.SetGCore(srv)
 
 	if err != nil {
 		jackal.Logger.Error.Fatalf("Unable to authenticate and retrieve Calendar client: %v", err)
