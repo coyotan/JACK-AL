@@ -88,18 +88,17 @@ func editDispatch(_ *discordgo.Session, updated *discordgo.MessageUpdate) {
 }
 
 func initModDispatch(jackal *structs.CoreCfg) {
-		var totalListeners = 0
-		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
-		for _, v := range jackal.Discord.InitModListeners {
-			err := v(jackal)
+	var totalListeners = 0
+	//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
+	for _, v := range jackal.Discord.InitModListeners {
+		err := v(jackal)
 
-			if err != nil {
-				jackal.Logger.Error.Println("Responder is 10-33", err)
-			} else {
-				totalListeners++
-			}
+		if err != nil {
+			jackal.Logger.Error.Println("Responder is 10-33", err)
+		} else {
+			totalListeners++
 		}
-
-		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
 	}
+
+	jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
 }
