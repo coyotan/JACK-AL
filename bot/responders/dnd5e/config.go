@@ -24,13 +24,12 @@ type DndConf struct {
 }
 
 func init() {
-	Jackal.Logger.Info.Println("Initializing DND5E Module")
 	LoadDndCFG("dndConfig.json", &DndCore)
-
 }
 
 func InitDnd(core *structs.CoreCfg) {
 	Jackal = core
+	Jackal.Logger.Info.Println("Initializing DND5E Module")
 }
 
 func LoadDndCFG(fName string, conf *DndConf) {
