@@ -39,7 +39,7 @@ func InitDnd(core *structs.CoreCfg) (err error) {
 
 func LoadDndCFG(fName string, conf *DndConf) {
 
-	if config.IsFirstRun() {
+	if _, err := os.Stat(fName); os.IsNotExist(err) {
 		err := os.MkdirAll(DndWorkingDir, 660)
 
 		if err != nil {

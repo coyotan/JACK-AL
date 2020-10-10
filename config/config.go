@@ -114,7 +114,7 @@ func GetConfDir() (fPath string) {
 //If one does not exist at either path, then we can assume that this is the first run.
 func IsFirstRun() (firstRun bool) {
 
-	for _, v := range possibleCfgs {
+	for _, v := range append(possibleCfgs) {
 		if logutil.VerifyFile(v) {
 			firstRun = false
 			break
