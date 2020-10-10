@@ -18,7 +18,6 @@ var jackal *structs.CoreCfg
 var dCore dndCore
 
 func init() {
-	fmt.Println("WTF!")
 }
 
 // Retrieve a token, saves the token, then returns the generated client.
