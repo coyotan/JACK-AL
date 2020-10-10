@@ -3,7 +3,7 @@ package dnd5e
 import (
 	"github.com/CoyoTan/JACK-AL/config"
 	"github.com/CoyoTan/JACK-AL/structs"
-	"golang.org/x/oauth2"
+	"google.golang.org/api/calendar/v3"
 	"os"
 )
 
@@ -20,7 +20,7 @@ var (
 type DndConf struct {
 	Version string `json:"-"`
 
-	GCore *oauth2.Config `json:"-"`
+	GCore *calendar.Service `json:"-"`
 }
 
 func init() {
@@ -31,7 +31,6 @@ func init() {
 
 func InitDnd(core *structs.CoreCfg) {
 	Jackal = core
-
 }
 
 func LoadDndCFG(fName string, conf *DndConf) {
