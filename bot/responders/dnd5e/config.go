@@ -49,14 +49,14 @@ func LoadDndCFG(fName string, conf *DndConf) {
 
 		newConf := DndConf{}
 
-		err = config.SaveCfg(DndWorkingDir+fName, newConf)
+		err = config.SaveCfg(DndWorkingDir+"/"+fName, newConf)
 
 		if err != nil {
 			Jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to create Config", err)
 			Jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
 		}
 	} else {
-		err := config.LoadCfg(DndWorkingDir+fName, conf)
+		err := config.LoadCfg(DndWorkingDir+"/"+fName, conf)
 
 		if err != nil {
 			Jackal.Logger.Error.Println("There was a critical error loading the DND5E Configuration.", err)
