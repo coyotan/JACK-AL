@@ -11,4 +11,5 @@ func init() {
 
 func addDndGuildCalender(m *discordgo.Message) (err error) {
 
+	return
 }

@@ -65,3 +65,8 @@ func SaveDndCFG(fName string, conf *e5Conf) {
 		jackal.Logger.Error.Println("DND5E Mod. Error saving config file!", err)
 	}
 }
+
+func AddCalBuBuild(guildID string, calenderID string) {
+	e5Core.AddGuildCalToMap(guildID, calenderID)
+	e5Core.GenerateCalenderMap()
+}
