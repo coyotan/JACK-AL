@@ -8,10 +8,10 @@ import (
 
 var (
 	jackal              *structs.CoreCfg
-	initLocalListener   map[string]func(message *structs.CoreCfg) (err error)
-	editLocalListener   map[string]func(message *discordgo.MessageUpdate) (err error)
+	initLocalListener   map[string]func(core *structs.CoreCfg) (err error)
+	editLocalListener   map[string]func(edited *discordgo.MessageUpdate) (err error)
 	createLocalListener map[string]func(message *discordgo.Message) (err error)
-	deleteLocalListener map[string]func(message *discordgo.MessageDelete) (err error)
+	deleteLocalListener map[string]func(deleted *discordgo.MessageDelete) (err error)
 )
 
 func init() {
