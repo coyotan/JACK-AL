@@ -2,6 +2,7 @@ package dnd5e
 
 import (
 	"fmt"
+	"github.com/CoyoTan/JACK-AL/bot/responders/dnd5e/gcore"
 	"github.com/CoyoTan/JACK-AL/config"
 	"github.com/CoyoTan/JACK-AL/structs"
 	"google.golang.org/api/calendar/v3"
@@ -9,19 +10,28 @@ import (
 )
 
 var (
-	DndWorkingDir = config.GetConfDir() + "/dnd5e"
-
 	Jackal *structs.CoreCfg
 
 	DndCore = DndConf{
-		Version: "1.0",
+		Version:       "1.0",
+		DndWorkingDir: config.GetConfDir() + "/dnd5e",
 	}
 )
 
 type DndConf struct {
 	Version string `json:"-"`
 
+	DndWorkingDir string `json:"-"`
+
 	GCore *calendar.Service `json:"-"`
+}
+
+func (d *DndConf) GetGCore() *calendar.Service {
+	return d.GCore
+}
+
+func (d *DndConf) GetDndDir() string {
+	return d.DndWorkingDir
 }
 
 func init() {
@@ -32,7 +42,7 @@ func InitDnd(core *structs.CoreCfg) (err error) {
 	Jackal = core
 	Jackal.Logger.Info.Println("Initializing DND5E Module")
 	LoadDndCFG("dndConfig.json", &DndCore)
-
+	gcore.InitGoogleCore(jackal, DndCore)
 	//FIXME: Placeholder error.
 	return nil
 }
@@ -40,7 +50,7 @@ func InitDnd(core *structs.CoreCfg) (err error) {
 func LoadDndCFG(fName string, conf *DndConf) {
 
 	if _, err := os.Stat(fName); os.IsNotExist(err) {
-		err := os.MkdirAll(DndWorkingDir, 660)
+		err := os.MkdirAll(DndCore.DndWorkingDir+"/", 660)
 
 		if err != nil {
 			Jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to make all directories", err)
@@ -49,14 +59,14 @@ func LoadDndCFG(fName string, conf *DndConf) {
 
 		newConf := DndConf{}
 
-		err = config.SaveCfg(DndWorkingDir+"/"+fName, newConf)
+		err = config.SaveCfg(DndCore.DndWorkingDir+"/"+fName, newConf)
 
 		if err != nil {
 			Jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to create Config", err)
 			Jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
 		}
 	} else {
-		err := config.LoadCfg(DndWorkingDir+"/"+fName, conf)
+		err := config.LoadCfg(DndCore.DndWorkingDir+"/"+fName, conf)
 
 		if err != nil {
 			Jackal.Logger.Error.Println("There was a critical error loading the DND5E Configuration.", err)
@@ -66,7 +76,7 @@ func LoadDndCFG(fName string, conf *DndConf) {
 }
 
 func SaveDndCFG(fName string, conf *DndConf) {
-	err := config.SaveCfg(DndWorkingDir+"/"+fName, &conf)
+	err := config.SaveCfg(DndCore.DndWorkingDir+"/"+fName, &conf)
 
 	if err != nil {
 		Jackal.Logger.Error.Println("DND5E Mod. Error saving config file!", err)
