@@ -14,6 +14,10 @@ import (
 	"time"
 )
 
+func init() {
+	initGoogleCore()
+}
+
 // Retrieve a token, saves the token, then returns the generated client.
 func getClient(config *oauth2.Config) (ctx context.Context, client *oauth2.Token) {
 	// The file token.json stores the user's access and refresh tokens, and is
@@ -70,7 +74,7 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
-func InitGoogleCore() {
+func initGoogleCore() {
 	b, err := ioutil.ReadFile(dnd5e.DndWorkingDir + "/credentials.json")
 	if err != nil {
 		dnd5e.Jackal.Logger.Error.Fatalf("Unable to read client secret file: %v", err)
@@ -85,6 +89,7 @@ func InitGoogleCore() {
 	ctx, token := getClient(config)
 
 	srv, err := calendar.NewService(ctx, option.WithTokenSource(config.TokenSource(ctx, token)))
+	dnd5e.DndCore.GCore = srv
 
 	if err != nil {
 		dnd5e.Jackal.Logger.Error.Fatalf("Unable to authenticate and retrieve Calendar client: %v", err)
