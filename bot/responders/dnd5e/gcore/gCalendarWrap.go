@@ -15,7 +15,8 @@ import (
 )
 
 func init() {
-	initGoogleCore()
+	//	initGoogleCore()
+	fmt.Println("WTF!")
 }
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -74,7 +75,7 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
-func initGoogleCore() {
+func InitGoogleCore() {
 	b, err := ioutil.ReadFile(dnd5e.DndWorkingDir + "/credentials.json")
 	if err != nil {
 		dnd5e.Jackal.Logger.Error.Fatalf("Unable to read client secret file: %v", err)

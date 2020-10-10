@@ -100,5 +100,5 @@ func initModDispatch(jackal *structs.CoreCfg) {
 		}
 	}
 
-	jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
+	jackal.Logger.Console.Println("Dispatched INIT to ", totalListeners, " listeners. All responders are 10-8.")
 }
