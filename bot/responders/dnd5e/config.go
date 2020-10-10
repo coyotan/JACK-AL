@@ -1,6 +1,7 @@
 package dnd5e
 
 import (
+	"fmt"
 	"github.com/CoyoTan/JACK-AL/config"
 	"github.com/CoyoTan/JACK-AL/structs"
 	"google.golang.org/api/calendar/v3"
@@ -24,12 +25,13 @@ type DndConf struct {
 }
 
 func init() {
-	LoadDndCFG("dndConfig.json", &DndCore)
+	fmt.Println("Starting DND5e Module")
 }
 
 func InitDnd(core *structs.CoreCfg) {
 	Jackal = core
 	Jackal.Logger.Info.Println("Initializing DND5E Module")
+	LoadDndCFG("dndConfig.json", &DndCore)
 }
 
 func LoadDndCFG(fName string, conf *DndConf) {
