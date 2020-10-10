@@ -67,6 +67,8 @@ func dgOpen() {
 	dg.AddHandler(editDispatch)
 	dg.AddHandler(deleteDispatch)
 
+	initModDispatch(jackal)
+
 	err = dg.Open()
 
 	if err != nil {
