@@ -56,7 +56,7 @@ func LoadDndCFG(fName string, conf *DndConf) {
 			Jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
 		}
 	} else {
-		err := config.LoadCfg(DndWorkingDir+fName, &DndCore)
+		err := config.LoadCfg(DndWorkingDir+fName, conf)
 
 		if err != nil {
 			Jackal.Logger.Error.Println("There was a critical error loading the DND5E Configuration.", err)
@@ -65,7 +65,7 @@ func LoadDndCFG(fName string, conf *DndConf) {
 	return
 }
 
-func Dnd5eSaveCFG(fName string, conf *DndConf) {
+func SaveDndCFG(fName string, conf *DndConf) {
 	err := config.SaveCfg(DndWorkingDir+fName, &conf)
 
 	if err != nil {
