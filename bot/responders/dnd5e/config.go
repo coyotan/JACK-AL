@@ -28,10 +28,13 @@ func init() {
 	fmt.Println("Starting DND5e Module")
 }
 
-func InitDnd(core *structs.CoreCfg) {
+func InitDnd(core *structs.CoreCfg) (err error) {
 	Jackal = core
 	Jackal.Logger.Info.Println("Initializing DND5E Module")
 	LoadDndCFG("dndConfig.json", &DndCore)
+
+	//FIXME: Placeholder error.
+	return nil
 }
 
 func LoadDndCFG(fName string, conf *DndConf) {
