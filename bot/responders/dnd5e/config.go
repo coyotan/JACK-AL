@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	Jackal *structs.CoreCfg
+	jackal *structs.CoreCfg
 
 	DndCore = DndConf{
 		Version:       "1.0",
@@ -39,8 +39,8 @@ func init() {
 }
 
 func InitDnd(core *structs.CoreCfg) (err error) {
-	Jackal = core
-	Jackal.Logger.Info.Println("Initializing DND5E Module")
+	jackal = core
+	jackal.Logger.Info.Println("Initializing DND5E Module")
 	LoadDndCFG("dndConfig.json", &DndCore)
 	gcore.InitGoogleCore(jackal, DndCore)
 	//FIXME: Placeholder error.
@@ -53,8 +53,8 @@ func LoadDndCFG(fName string, conf *DndConf) {
 		err := os.MkdirAll(DndCore.DndWorkingDir+"/", 660)
 
 		if err != nil {
-			Jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to make all directories", err)
-			Jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
+			jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to make all directories", err)
+			jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
 		}
 
 		newConf := DndConf{}
@@ -62,14 +62,14 @@ func LoadDndCFG(fName string, conf *DndConf) {
 		err = config.SaveCfg(DndCore.DndWorkingDir+"/"+fName, newConf)
 
 		if err != nil {
-			Jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to create Config", err)
-			Jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
+			jackal.Logger.Error.Println("DND5E Mod Non-Fatal Error: Failed to create Config", err)
+			jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
 		}
 	} else {
 		err := config.LoadCfg(DndCore.DndWorkingDir+"/"+fName, conf)
 
 		if err != nil {
-			Jackal.Logger.Error.Println("There was a critical error loading the DND5E Configuration.", err)
+			jackal.Logger.Error.Println("There was a critical error loading the DND5E Configuration.", err)
 		}
 	}
 	return
@@ -79,6 +79,6 @@ func SaveDndCFG(fName string, conf *DndConf) {
 	err := config.SaveCfg(DndCore.DndWorkingDir+"/"+fName, &conf)
 
 	if err != nil {
-		Jackal.Logger.Error.Println("DND5E Mod. Error saving config file!", err)
+		jackal.Logger.Error.Println("DND5E Mod. Error saving config file!", err)
 	}
 }
