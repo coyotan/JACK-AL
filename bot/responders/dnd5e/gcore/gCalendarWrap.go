@@ -10,8 +10,6 @@ import (
 	"google.golang.org/api/calendar/v3"
 	"google.golang.org/api/option"
 	"io/ioutil"
-
-	//"io/ioutil"
 	"os"
 	"time"
 )
@@ -20,8 +18,6 @@ var jackal *structs.CoreCfg
 var dCore dndCore
 
 func init() {
-	//	initGoogleCore()
-
 	fmt.Println("WTF!")
 }
 
@@ -85,6 +81,7 @@ func saveToken(path string, token *oauth2.Token) {
 func InitGoogleCore(core *structs.CoreCfg, core2 dndCore) {
 
 	jackal = core
+	dCore = core2
 
 	b, err := ioutil.ReadFile(dCore.GetDndDir() + "/credentials.json")
 	if err != nil {
