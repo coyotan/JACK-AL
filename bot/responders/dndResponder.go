@@ -1,5 +1,7 @@
 package responders
 
-func init() {
+import "github.com/CoyoTan/JACK-AL/bot/responders/dnd5e"
 
+func init() {
+	dnd5e.InitDnd(jackal)
 }

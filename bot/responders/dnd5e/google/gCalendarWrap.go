@@ -6,12 +6,16 @@ import (
 	"github.com/CoyoTan/JACK-AL/bot/responders/dnd5e"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
-	"net/http"
+	"golang.org/x/oauth2/google"
+	"google.golang.org/api/calendar/v3"
+	"google.golang.org/api/option"
+	"io/ioutil"
 	"os"
+	"time"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
-func getClient(config *oauth2.Config) *http.Client {
+func getClient(config *oauth2.Config) (ctx context.Context, client *oauth2.Token) {
 	// The file token.json stores the user's access and refresh tokens, and is
 	// created automatically when the authorization flow completes for the first
 	// time.
@@ -21,7 +25,8 @@ func getClient(config *oauth2.Config) *http.Client {
 		tok = getTokenFromWeb(config)
 		saveToken(tokFile, tok)
 	}
-	return config.Client(context.Background(), tok)
+
+	return context.Background(), tok
 }
 
 // Request a token from the web, then returns the retrieved token.
@@ -63,4 +68,45 @@ func saveToken(path string, token *oauth2.Token) {
 	}
 	defer f.Close()
 	json.NewEncoder(f).Encode(token)
+}
+
+func InitGoogleCore() {
+	b, err := ioutil.ReadFile(dnd5e.DndWorkingDir + "/credentials.json")
+	if err != nil {
+		dnd5e.Jackal.Logger.Error.Fatalf("Unable to read client secret file: %v", err)
+	}
+
+	// If modifying these scopes, delete your previously saved token.json.
+	config, err := google.ConfigFromJSON(b, calendar.CalendarReadonlyScope)
+	if err != nil {
+		dnd5e.Jackal.Logger.Error.Fatalf("Unable to parse client secret file to config: %v", err)
+	}
+
+	ctx, token := getClient(config)
+
+	srv, err := calendar.NewService(ctx, option.WithTokenSource(config.TokenSource(ctx, token)))
+
+	if err != nil {
+		dnd5e.Jackal.Logger.Error.Fatalf("Unable to authenticate and retrieve Calendar client: %v", err)
+	}
+
+	t := time.Now().Format(time.RFC3339)
+	events, err := srv.Events.List("primary").ShowDeleted(false).
+		SingleEvents(true).TimeMin(t).MaxResults(10).OrderBy("startTime").Do()
+	if err != nil {
+		dnd5e.Jackal.Logger.Error.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
+	}
+	fmt.Println("Upcoming events:")
+	if len(events.Items) == 0 {
+		fmt.Println("No upcoming events found.")
+	} else {
+		for _, item := range events.Items {
+			date := item.Start.DateTime
+			if date == "" {
+				date = item.Start.Date
+			}
+			fmt.Printf("%v (%v)\n", item.Summary, date)
+		}
+	}
+
 }
