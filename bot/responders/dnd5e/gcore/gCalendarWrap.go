@@ -1,4 +1,4 @@
-package google
+package gcore
 
 import (
 	"encoding/json"

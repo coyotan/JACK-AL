@@ -31,6 +31,7 @@ func init() {
 
 func InitDnd(core *structs.CoreCfg) {
 	Jackal = core
+
 }
 
 func LoadDndCFG(fName string, conf *DndConf) {
