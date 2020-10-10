@@ -19,6 +19,10 @@ type e5Conf struct {
 	DndCalendarMap    map[string]string  `json:"-"`
 }
 
+func (d *e5Conf) GetGuildCalendars() []CalendarsByGuild {
+	return d.DndGuildCalendars
+}
+
 func (d *e5Conf) SetGCore(core *calendar.Service) {
 	d.GCore = core
 }
@@ -122,4 +126,12 @@ func (e *SpecialEvent) DiscordRole(jackal *structs.CoreCfg) (role *discordgo.Rol
 type CalendarsByGuild struct {
 	CalenderID string `json:"CalendarID"`
 	GuildID    string `json:"GuildID"`
+}
+
+func (c *CalendarsByGuild) SetCalenderID(calenderID string) {
+	c.CalenderID = calenderID
+}
+
+func (c *CalendarsByGuild) SetGuildID(guildID string) {
+	c.GuildID = guildID
 }
