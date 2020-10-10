@@ -43,9 +43,7 @@ func LoadDndCFG(fName string, conf *DndConf) {
 			Jackal.Logger.Error.Println("DND5E Mod: Persistence will not be enabled")
 		}
 
-		newConf := DndConf{
-			GToken: nil,
-		}
+		newConf := DndConf{}
 
 		err = config.SaveCfg(DndWorkingDir+fName, newConf)
 
