@@ -36,8 +36,15 @@ func GetDailyEventSummary(calenderID string) {
 
 	for _, v := range evts.Items {
 		if len(v.Description) < 10 {
-			//Condition for "This is probably not a valid json"
-		} else if strings.ToLower(string(v.Summary[0:11])) == "daily event" {
+
+			//Condition for "This is probably not a valid json". This should only fire if the user has not properly formatted their Google Calendar event. We should skip it to avoid errors.
+			jackal.Logger.Error.Printf("Event %s ID(%v) does not meet the requirements for a DND5e Module event. Skipping. Please review the Readme docuemtnation.", v.Summary, v.Id)
+			jackal.Logger.Console.Printf("Skipping event %s. Check error log.", v.Summary)
+
+		} else if strings.ToLower(string(v.Summary[0:10])) == "daily event" {
+			/*
+				This condition assumes that the data you received in the description of the calendar event is for a daily event. Daily events contain information about upcoming events and daily conditions which players should be aware of.
+			*/
 			err = json.Unmarshal([]byte(v.Description), dailyEvts)
 
 			if err != nil {
@@ -45,6 +52,9 @@ func GetDailyEventSummary(calenderID string) {
 			}
 
 		} else {
+			/*
+				This portion of code assumes that the data received in the description of the event is for a Special Event. Special events are scheduled incidents such as the Bee and Barley Job Fair.
+			*/
 			newSpecEvt := SpecialEvent{}
 
 			err = json.Unmarshal([]byte(v.Description), &newSpecEvt)
@@ -65,7 +75,7 @@ func verifyGuildCalender(calenderID string) (newCal *GuildCalender, err error) {
 	guildCal, err := Cal.Calendars.Get(calenderID).Do()
 
 	if err != nil {
-		jackal.Logger.Error.Println("There was a critical error verifying the DND Calender JSON for ", calenderID)
+		return
 	}
 
 	newCal = &GuildCalender{}
@@ -73,7 +83,6 @@ func verifyGuildCalender(calenderID string) (newCal *GuildCalender, err error) {
 	err = json.Unmarshal([]byte(guildCal.Description), &newCal)
 
 	if err != nil {
-		jackal.Logger.Error.Println("There was a critical error when trying to unmarshal the guildCalender Description", err)
 		return
 	} else {
 		E5Core.GuildCalendars[calenderID] = newCal
