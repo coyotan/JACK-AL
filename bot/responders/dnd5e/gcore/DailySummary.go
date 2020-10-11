@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-var Cal = e5Core.dCore.GetGCore()
+var Cal = E5Core.dCore.GetGCore()
 
 //GetDailyEventSummary is called by a 24 hour recurring function. It MUST run before 0600, but specific timing is otherwise unimportant.
 func GetDailyEventSummary(calenderID string) {
@@ -54,7 +54,7 @@ func GetDailyEventSummary(calenderID string) {
 			}
 
 			newSpecEvt.GuildCal = gCal
-			e5Core.GuildCalendars[calenderID].SpecEvts = append(e5Core.GuildCalendars[calenderID].SpecEvts, newSpecEvt)
+			E5Core.GuildCalendars[calenderID].SpecEvts = append(E5Core.GuildCalendars[calenderID].SpecEvts, newSpecEvt)
 
 			//We will need to create goroutines for each of these later, so we can perform the appropriate actions
 		}
@@ -76,7 +76,7 @@ func verifyGuildCalender(calenderID string) (newCal *GuildCalender, err error) {
 		jackal.Logger.Error.Println("There was a critical error when trying to unmarshal the guildCalender Description", err)
 		return
 	} else {
-		e5Core.GuildCalendars[calenderID] = newCal
+		E5Core.GuildCalendars[calenderID] = newCal
 	}
 	return
 }
