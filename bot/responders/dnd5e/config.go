@@ -67,6 +67,6 @@ func SaveDndCFG(fName string, conf *e5Conf) {
 }
 
 func AddCalBuBuild(guildID string, calenderID string) {
-	e5Core.AddGuildCalToMap(guildID, calenderID)
-	gcore.GenerateCalenderMap()
+	gcore.E5Core.AddGuildCalToMap(guildID, calenderID)
+	gcore.E5Core.GenerateCalenderMap()
 }
