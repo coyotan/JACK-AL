@@ -2,6 +2,7 @@ Requirements
 -
 Coyotech JACK-AL Bot Dispatch Framework requires the use of the following
 * BWMarrin DiscordGo<br>
+* TXGruppi ParseArgs-Go<br>
 
 Without these libraries, this file library will return critical errors.
 
