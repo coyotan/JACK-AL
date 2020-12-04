@@ -15,7 +15,7 @@ func InitBoltDB(jack *structs.CoreCfg) {
 	jackal = jack
 	path := getConfDir()
 
-	db, err := bolt.Open(path+"jackal.db", 0600, nil)
+	jackal.DB, err := bolt.Open(path+"jackal.db", 0600, nil)
 	if err != nil {
 
 	}
