@@ -1,12 +1,16 @@
 package structs
 
-import "log"
+import (
+	"log"
+)
 
 //CoreCfg is the most important part of this software, contains all information used by every part of this program. This is the heart of JACK-AL
 type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
 	Logger      logs
 	LogFilePath string `json:"logFile"`
+
+	DB *JackalDB //We do not need any DB functions in our interface because we do not need this to be saved. This is a note for future me.
 
 	Discord DiscordConn `json:"discord"`
 }
