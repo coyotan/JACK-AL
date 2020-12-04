@@ -10,6 +10,8 @@ type CoreCfg struct {
 	Logger      logs
 	LogFilePath string `json:"logFile"`
 
+	DB *JackalDB //Let's go ahead and achieve the first goal. Adding in BoltDB.
+
 	Discord DiscordConn `json:"discord"`
 }
 
