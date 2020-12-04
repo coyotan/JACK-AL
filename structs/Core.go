@@ -10,8 +10,6 @@ type CoreCfg struct {
 	Logger      logs
 	LogFilePath string `json:"logFile"`
 
-	DB *JackalDB //We do not need any DB functions in our interface because we do not need this to be saved. This is a note for future me.
-	//DB is now here, Github... wtf
 	Discord DiscordConn `json:"discord"`
 }
 
