@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"os/user"
 )
 
 var (
@@ -27,7 +26,7 @@ func InitLoggers(logFileDir, logFile string) (Console *log.Logger, Info *log.Log
 	localLogger.Console = Console
 
 	//Create the file to start overwrite ... without this, we're getting some stupid bug.
-	if err := CreateInitDirs(GetHomeDir() + logFileDir); err != nil {
+	if err := CreateInitDirs(logFileDir); err != nil {
 		localLogger.Fatal("A critical error occurred when attempting to create the Documents directory for logging.", 3)
 	}
 
@@ -82,16 +81,6 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 	}
 
 	return fHandle, err
-}
-
-//GetHomeDir returns the home directory of the user which began execution.
-func GetHomeDir() (path string) {
-	usr, err := user.Current()
-	if err != nil {
-		localLogger.Fatal("A critical error occurred when attempting to get running user.\n"+err.Error(), 2)
-	}
-
-	return usr.HomeDir
 }
 
 func CreateInitDirs(dName string) (err error) {
