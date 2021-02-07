@@ -33,7 +33,7 @@ func CheckAdminPermissions(s *discordgo.Session, m *discordgo.Message) (isAdmin 
 			}
 
 			//Search if *any role* the user has, has Admin permissions.
-			if (role.Permissions & administrator) == administrator {
+			if administrator == (role.Permissions & administrator) {
 				isAdmin = true
 			}
 		}
