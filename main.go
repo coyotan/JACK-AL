@@ -8,8 +8,8 @@ import (
 
 var (
 	jackal = structs.CoreCfg{
-		LogFileDir:  "F:/Users/Coyotan/Documents/JACK-AL",
-		LogFilePath: "F:/Users/Coyotan/Documents/JACK-AL/Log.txt",
+		LogFileDir:  "F:/Documents/JACK-AL",
+		LogFilePath: "F:/Documents/JACK-AL/Log.txt",
 	}
 )
 
