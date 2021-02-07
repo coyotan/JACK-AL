@@ -4,6 +4,7 @@ import (
 	"github.com/boltdb/bolt"
 )
 
+//JackalDB contains the boltDatabase. This is used to protect the data in the boltDatabase by providing proxied access to the records.
 type JackalDB struct {
 	db *bolt.DB
 }
@@ -17,9 +18,7 @@ func (core *CoreCfg) InitDB() (dbError error) {
 
 	if dbError != nil {
 		return dbError
-
 	}
-
 	return
 }
 

@@ -76,14 +76,15 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 	return fHandle, err
 }
 
+//GetUserConfDir gets the application data directory of the operating system this code is running on. For example, in Windows this is %APPDATA%/JACK-AL
 func GetUserConfDir() (path string) {
+	path, err := os.UserConfigDir()
 
-	if path, err := os.UserConfigDir(); err != nil {
+	if err != nil {
 		localLogger.PrintFatal("There was a critical error attempting to access the logging directory\n"+err.Error(), 3)
 		return ""
-	} else {
-		return path + "/JACK-AL"
 	}
+	return path + "/JACK-AL"
 }
 
 //We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.

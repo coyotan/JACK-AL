@@ -9,6 +9,7 @@ type UtilLogger struct {
 	Level
 }
 
+//PrintFatal is a wrapper function which prints Fatal logs to the console and to the log file, for increased verbosity.
 func (u *UtilLogger) PrintFatal(v interface{}, code int) {
 	u.Console.Println(v)
 
@@ -19,16 +20,19 @@ func (u *UtilLogger) PrintFatal(v interface{}, code int) {
 	os.Exit(code)
 }
 
+//PrintWarn is a wrapper function which prints Warning logs to the console and to the log file, for increased verbosity.
 func (u *UtilLogger) PrintWarn(v interface{}) {
 	u.Console.Println(v)
 	u.Warning.Println(v)
 }
 
+//PrintInfo is a wrapper function which prints Informative logs to the console and to the log file, for increased verbosity.
 func (u *UtilLogger) PrintInfo(v interface{}) {
 	u.Console.Println(v)
 	u.Info.Println(v)
 }
 
+//PrintConsole is a wrapper function for ease of use.
 func (u *UtilLogger) PrintConsole(v interface{}) {
 	u.Console.Println(v)
 }
