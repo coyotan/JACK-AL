@@ -17,7 +17,7 @@ var (
 
 //Init takes in a core, which must be compliant with the initInt interface. Let's try to make this lib modular too!
 func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger, err *log.Logger) {
-	console, info, warn, err = logutil.InitLoggers(core.LogFile())
+	console, info, warn, err = logutil.InitLoggers()
 
 	logErr = err
 

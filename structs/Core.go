@@ -8,17 +8,11 @@ import (
 //CoreCfg is the most important part of this software, contains all information used by every part of this program. This is the heart of JACK-AL
 type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
-	Logger      logs
-	LogFilePath string `json:"logFile"`
+	Logger logs
 
 	DB *JackalDB //Let's go ahead and achieve the first goal. Adding in BoltDB.
 
 	Discord DiscordConn `json:"discord"`
-}
-
-//LogFile is an exported function which returns the location of the LogFile. This is relevant to create logging interfaces.
-func (core *CoreCfg) LogFile() (fPath string) {
-	return core.LogFilePath
 }
 
 //LogConsole is an exported function which returns a pointer to the console logger, which can be used to share informational messages with a console user.
