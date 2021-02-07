@@ -1,7 +1,6 @@
 package logutil
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
@@ -19,20 +18,21 @@ func init() {
 }
 
 //InitLoggers will initialize and return all the log handlers. We're going to try to do this modularly.
-func InitLoggers(logFileDir, logFile string) (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Error *log.Logger) {
+func InitLoggers(logFile string) (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Error *log.Logger) {
 
 	//Init console logger first. We can know for sure that this one is going to work.
 	Console = log.New(os.Stdout, "Console: ", log.Ltime|log.Lshortfile)
 	localLogger.Console = Console
 
 	//Create the file to start overwrite ... without this, we're getting some stupid bug.
-	if err := CreateInitDirs(logFileDir); err != nil {
-		localLogger.Fatal("A critical error occurred when attempting to create the Documents directory for logging.", 3)
+	if len(logFile) < 4 {
+		localLogger.Info.Println("Choosing default logging location.")
+		localLogger.Warning.Println("If you have specified a new log location, make sure that the file path contains more than 4 characters.")
+		lFile, _ = CreateFile(GetUserConfDir() + "/jackal.log")
+	} else {
+		localLogger.Info.Println("Choosing specified logging location.")
+		lFile, _ = CreateFile(logFile)
 	}
-
-	fmt.Println("At this point, the damn JACK-AL Directory BETTER EXIST!")
-
-	lFile, _ = CreateFile(logFile)
 
 	//Now that we know the file exists, we can use the rest of these.
 	Info = log.New(lFile, "INFO: ", log.Ltime|log.Ldate|log.Lshortfile)
@@ -83,11 +83,13 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 	return fHandle, err
 }
 
-func CreateInitDirs(dName string) (err error) {
-	if VerifyFile(dName) {
-		return nil
+func GetUserConfDir() (path string) {
+
+	if path, err := os.UserConfigDir(); err != nil {
+		localLogger.Fatal("There was a critical error attempting to access the logging directory\n"+err.Error(), 3)
+		return
 	} else {
-		return os.MkdirAll(dName, 640)
+		return path + "/JACK-AL"
 	}
 }
 

@@ -7,10 +7,7 @@ import (
 )
 
 var (
-	jackal = structs.CoreCfg{
-		LogFileDir:  "F:/Documents/JACK-AL",
-		LogFilePath: "F:/Documents/JACK-AL/Log.txt",
-	}
+	jackal = structs.CoreCfg{}
 )
 
 func init() {

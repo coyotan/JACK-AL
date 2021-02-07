@@ -9,7 +9,6 @@ import (
 type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
 	Logger      logs
-	LogFileDir  string `json:"logDir"`
 	LogFilePath string `json:"logFile"`
 
 	DB *JackalDB //Let's go ahead and achieve the first goal. Adding in BoltDB.
@@ -20,11 +19,6 @@ type CoreCfg struct {
 //LogFile is an exported function which returns the location of the LogFile. This is relevant to create logging interfaces.
 func (core *CoreCfg) LogFile() (fPath string) {
 	return core.LogFilePath
-}
-
-//LogDir is an exported function which returns the directory of the LogFile. This is relevant to create logging interfaces.
-func (core *CoreCfg) LogDir() (fPath string) {
-	return core.LogFileDir
 }
 
 //LogConsole is an exported function which returns a pointer to the console logger, which can be used to share informational messages with a console user.

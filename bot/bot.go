@@ -51,6 +51,7 @@ func dgOpen() {
 	dg.State.TrackRoles = true
 	dg.State.TrackMembers = true
 	dg.State.TrackPresences = true
+
 	if jackal.Discord.MaxMessageCount < 1 {
 		dg.State.MaxMessageCount = 50
 	} else {

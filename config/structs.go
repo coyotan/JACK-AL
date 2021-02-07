@@ -5,7 +5,6 @@ import (
 )
 
 type initInt interface {
-	LogDir() string
 	LogFile() string
 
 	LogConsole() *log.Logger
