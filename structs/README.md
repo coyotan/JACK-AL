@@ -31,3 +31,6 @@ A method of CoreCfg, this function returns a pointer referencing an instance of 
 <code>(core *CoreCfg) LogError() (warn *log.Logger)</code>
 </pre>
 A method of CoreCfg, this function returns a pointer referencing an instance of a Logger from the Golang "log" library. It is configured to display ERROR level information to the configured logfile identified in CoreCfg in date, time, filename format.
+
+Error Codes
+-

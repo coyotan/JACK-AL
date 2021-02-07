@@ -31,6 +31,7 @@ func Init(core *structs.CoreCfg) {
 				jackal.Logger.Console.Println("Pong")
 			case "leave":
 				jackal.Discord.Session.Close()
+				jackal.DB.Close()
 				os.Exit(100)
 			}
 		}

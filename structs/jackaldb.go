@@ -10,7 +10,10 @@ type JackalDB struct {
 
 //InitDB is called by the core loader of the bot each time the program is executed.
 func (core *CoreCfg) InitDB() (dbError error) {
-	core.DB.db, dbError = bolt.Open(core.GetConfDir()+"/jackal.db", 0600, nil)
+	core.DB = &JackalDB{}
+	core.DB.db = &bolt.DB{}
+
+	core.DB.db, dbError = bolt.Open(core.GetConfDir()+"/jackal.db", 0640, nil)
 
 	if dbError != nil {
 		return dbError

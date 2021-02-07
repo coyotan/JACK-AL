@@ -15,4 +15,8 @@ addCreateListener is a non-expported function which can be used by responders co
 
 Error Codes
 -
+#####Pre-Init:
+- 20: Failed to open database.
+
+#####Post-Init:
 - 100: Closed peacefully by JACK-AL Bot Framework
