@@ -67,7 +67,7 @@ func VerifyFile(fName string) (fExists bool) {
 //CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
 func CreateFile(fName string) (fHandle *os.File, err error) {
 
-	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_RDWR, 777)
+	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 
 	if err != nil {
 		if initComplete {
@@ -87,7 +87,7 @@ func CreateInitDirs(dName string) (err error) {
 	if VerifyFile(dName) {
 		return nil
 	} else {
-		return os.MkdirAll(dName, 777)
+		return os.MkdirAll(dName, 640)
 	}
 }
 
