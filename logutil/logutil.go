@@ -1,6 +1,7 @@
 package logutil
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/user"
@@ -29,6 +30,9 @@ func InitLoggers(logFileDir, logFile string) (Console *log.Logger, Info *log.Log
 	if err := CreateInitDirs(GetHomeDir() + logFileDir); err != nil {
 		localLogger.Fatal("A critical error occurred when attempting to create the Documents directory for logging.", 3)
 	}
+
+	fmt.Println("At this point, the damn JACK-AL Directory BETTER EXIST!")
+
 	lFile, _ = CreateFile(logFile)
 
 	//Now that we know the file exists, we can use the rest of these.
@@ -64,7 +68,7 @@ func VerifyFile(fName string) (fExists bool) {
 //CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
 func CreateFile(fName string) (fHandle *os.File, err error) {
 
-	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_WRONLY, 660)
+	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_WRONLY, 777)
 
 	if err != nil {
 		if initComplete {
@@ -84,7 +88,7 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 func GetHomeDir() (path string) {
 	usr, err := user.Current()
 	if err != nil {
-		localLogger.Fatal("A critical error ooccurredwhen attempting to get running user.\n"+err.Error(), 2)
+		localLogger.Fatal("A critical error occurred when attempting to get running user.\n"+err.Error(), 2)
 	}
 
 	return usr.HomeDir
@@ -94,7 +98,7 @@ func CreateInitDirs(dName string) (err error) {
 	if VerifyFile(dName) {
 		return nil
 	} else {
-		return os.MkdirAll(dName, 660)
+		return os.MkdirAll(dName, 777)
 	}
 }
 
