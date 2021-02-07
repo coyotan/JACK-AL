@@ -78,12 +78,11 @@ func dgOpen() {
 		os.Exit(101)
 	}
 
-	jackal.Logger.Console.Println("Begin Jackal Init")
 	if err := jackal.InitDB(); err != nil {
 		jackal.Logger.Error.Println("There was a critical error opening the Jackal Database.", err.Error())
 		os.Exit(20)
-	} else {
-		jackal.Logger.Info.Println("JackalDB Initialization Completed!")
 	}
+
+	jackal.Logger.Info.Println("JackalDB Initialization Completed!")
 
 }

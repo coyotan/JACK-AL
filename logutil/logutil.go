@@ -10,7 +10,7 @@ var (
 	lFile        *os.File
 
 	//While it is a small waste, by having a copy of the Core Logger here, we can make this software modular and avoid cycling imports.
-	localLogger Level
+	localLogger UtilLogger
 )
 
 //Initialize the library. Right now, we don't really need to do anything here.
@@ -69,7 +69,7 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 		}
 		//This is sloppy and missing a check, but the log file SHOULD be the only file we attempt to create before logging is enabled.
 		localLogger.Console.Println("(╯°□°）╯︵ ┻━┻")
-		localLogger.Fatal("A critical error prevented the creation of the log file. Execution will not continue.\n"+err.Error(), 1)
+		localLogger.PrintFatal("A critical error prevented the creation of the log file. Execution will not continue.\n"+err.Error(), 1)
 		//Exit code 1 is reserved for failed creation of log file. This should be a dead give away of the issue.
 	}
 
@@ -79,7 +79,7 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 func GetUserConfDir() (path string) {
 
 	if path, err := os.UserConfigDir(); err != nil {
-		localLogger.Fatal("There was a critical error attempting to access the logging directory\n"+err.Error(), 3)
+		localLogger.PrintFatal("There was a critical error attempting to access the logging directory\n"+err.Error(), 3)
 		return ""
 	} else {
 		return path + "/JACK-AL"
