@@ -87,7 +87,7 @@ func GetUserConfDir() (path string) {
 
 	if path, err := os.UserConfigDir(); err != nil {
 		localLogger.Fatal("There was a critical error attempting to access the logging directory\n"+err.Error(), 3)
-		return
+		return ""
 	} else {
 		return path + "/JACK-AL"
 	}
