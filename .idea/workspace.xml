@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logutil/logutil.go" beforeDir="false" afterPath="$PROJECT_DIR$/logutil/logutil.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logutil/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/logutil/structs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/structs/jackaldb.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs/jackaldb.go" afterDir="false" />
-    </list>
+    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,27 +86,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="10056" />
+          <entry key="go" value="10279" />
           <entry key="json" value="32" />
           <entry key="md" value="237" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1111" />
+          <entry key="txt" value="1135" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="10056" />
+          <entry key="Go" value="10279" />
           <entry key="JSON" value="32" />
           <entry key="Markdown" value="237" />
-          <entry key="PLAIN_TEXT" value="1111" />
+          <entry key="PLAIN_TEXT" value="1135" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logutil/logutil.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="751">
@@ -123,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/logutil/structs.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+            <state relative-caret-position="68">
+              <caret line="7" column="161" selection-start-line="7" selection-start-column="161" selection-end-line="7" selection-end-column="161" />
               <folding>
                 <element signature="n#!!block;n#PrintFatal#0" />
                 <element signature="n#!!block;n#PrintWarn#0" />
@@ -281,8 +276,8 @@
         <option value="$PROJECT_DIR$/bot/responders/leaveResponder.go" />
         <option value="$PROJECT_DIR$/bot/responders/0_loadMods.go" />
         <option value="$PROJECT_DIR$/structs/jackaldb.go" />
-        <option value="$PROJECT_DIR$/logutil/structs.go" />
         <option value="$PROJECT_DIR$/logutil/logutil.go" />
+        <option value="$PROJECT_DIR$/logutil/structs.go" />
       </list>
     </option>
   </component>
@@ -476,7 +471,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Exported IsFirstRun. Added basic conf structure for DND5E." />
     <MESSAGE value="Added additional DND Components" />
     <MESSAGE value="Updated Readme&#10;Added Go.Mod" />
     <MESSAGE value="Fixed Readme" />
@@ -501,7 +495,8 @@
     <MESSAGE value="Fixed Order of Operations Issue with Database Module." />
     <MESSAGE value="Completely Removed Customizable logging system.&#10;&#10;It works better this way." />
     <MESSAGE value="Added documentation. Updated Logging Again." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added documentation. Updated Logging Again." />
+    <MESSAGE value="Going for that A+!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Going for that A+!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Go/src/encoding/json/decode.go">
@@ -787,25 +782,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logutil/structs.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
-          <folding>
-            <element signature="n#!!block;n#PrintFatal#0" />
-            <element signature="n#!!block;n#PrintWarn#0" />
-            <element signature="n#!!block;n#PrintInfo#0" />
-            <element signature="n#!!block;n#PrintConsole#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logutil/logutil.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="751">
           <caret line="78" column="151" selection-start-line="78" selection-start-column="151" selection-end-line="78" selection-end-column="151" />
           <folding>
             <element signature="e#17#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logutil/structs.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="161" selection-start-line="7" selection-start-column="161" selection-end-line="7" selection-end-column="161" />
+          <folding>
+            <element signature="n#!!block;n#PrintFatal#0" />
+            <element signature="n#!!block;n#PrintWarn#0" />
+            <element signature="n#!!block;n#PrintInfo#0" />
+            <element signature="n#!!block;n#PrintConsole#0" />
           </folding>
         </state>
       </provider>

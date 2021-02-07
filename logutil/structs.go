@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-//This is a wrapper struct to allow for the injection of functions we can use to increase verbosity. These will be updated later with a debug option for the CLI.
+//UtilLogger is a wrapper struct to allow for the injection of functions we can use to increase verbosity. These will be updated later with a debug option for the CLI.
 type UtilLogger struct {
 	Level
 }
