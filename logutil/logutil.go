@@ -3,6 +3,7 @@ package logutil
 import (
 	"log"
 	"os"
+	"os/user"
 )
 
 var (
@@ -15,17 +16,19 @@ var (
 
 //Initialize the library. Right now, we don't really need to do anything here.
 func init() {
-
 }
 
 //InitLoggers will initialize and return all the log handlers. We're going to try to do this modularly.
-func InitLoggers(logFile string) (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Error *log.Logger) {
+func InitLoggers(logFileDir, logFile string) (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Error *log.Logger) {
 
 	//Init console logger first. We can know for sure that this one is going to work.
 	Console = log.New(os.Stdout, "Console: ", log.Ltime|log.Lshortfile)
 	localLogger.Console = Console
 
 	//Create the file to start overwrite ... without this, we're getting some stupid bug.
+	if err := CreateInitDirs(GetHomeDir() + logFileDir); err != nil {
+		localLogger.Fatal("A critical error occurred when attempting to create the Documents directory for logging.", 3)
+	}
 	lFile, _ = CreateFile(logFile)
 
 	//Now that we know the file exists, we can use the rest of these.
@@ -67,15 +70,32 @@ func CreateFile(fName string) (fHandle *os.File, err error) {
 		if initComplete {
 			//Log error creating file
 			localLogger.Error.Println("File " + fName + " could not be created!\n" + err.Error())
-		} else {
-			//This is sloppy and missing a check, but the log file SHOULD be the only file we attempt to create before logging is enabled.
-			localLogger.Console.Println("(╯°□°）╯︵ ┻━┻")
-			localLogger.Fatal("A critical error prevented the creation of the log file. Execution will not continue.\n"+err.Error(), 1)
-			//Exit code 1 is reserved for failed creation of log file. This should be a dead give away of the issue.
 		}
+		//This is sloppy and missing a check, but the log file SHOULD be the only file we attempt to create before logging is enabled.
+		localLogger.Console.Println("(╯°□°）╯︵ ┻━┻")
+		localLogger.Fatal("A critical error prevented the creation of the log file. Execution will not continue.\n"+err.Error(), 1)
+		//Exit code 1 is reserved for failed creation of log file. This should be a dead give away of the issue.
 	}
 
 	return fHandle, err
+}
+
+//GetHomeDir returns the home directory of the user which began execution.
+func GetHomeDir() (path string) {
+	usr, err := user.Current()
+	if err != nil {
+		localLogger.Fatal("A critical error ooccurredwhen attempting to get running user.\n"+err.Error(), 2)
+	}
+
+	return usr.HomeDir
+}
+
+func CreateInitDirs(dName string) (err error) {
+	if VerifyFile(dName) {
+		return nil
+	} else {
+		return os.MkdirAll(dName, 660)
+	}
 }
 
 //We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.

@@ -30,3 +30,5 @@ CreateFile will attempt to create a file at the path provided. It may return two
 Error Codes
 -
 - 1: Failed to create log file.
+- 2: Failed to get user home directory.
+- 3: Failed to create logging directory.
