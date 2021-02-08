@@ -1,5 +1,7 @@
-Requirements
--
+#JACK-AL Bot Component
+## Responsibilities: 
+## Requirements
+
 Coyotech JACK-AL Bot Framework requires the use of the following
 * Coyotech Logging<br>
 * Coyotech Config<br>
@@ -7,8 +9,8 @@ Coyotech JACK-AL Bot Framework requires the use of the following
 
 Without these libraries, this file library will return critical errors.
 
-Methods
--
+## Methods
+
 <pre>
     <code>bot.Init(core *structs.CoreCfg)</code>
 </pre>
@@ -20,7 +22,6 @@ The Init function provides the JACK-AL Bot Framework with the core configuration
 
 The GetInput function reads data in from the terminal and returns a trimmed version of the inputed string.
 
-Error Codes
--
+## Error Codes
 - 100: Closed peacefully by JACK-AL Bot Framework
 - 101: Failure to open an active connection with Discord.

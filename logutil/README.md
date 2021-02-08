@@ -1,13 +1,12 @@
-Package - Coyotech: LogUtil
-- 
+#Package - Coyotech: LogUtil
+ 
 The Logutil package from Coyotech is designed to be easily implemented into Golang projects. It is used as a dependency for some Coyotech Packages.
 
-Dependencies 
-- 
+## Dependencies 
 Coyotech - Config
 
-Methods
--
+## Methods
+
 <pre>
 <code>InitLoggers(logFile string) (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Error *log.Logger)</code>
 </pre>
@@ -27,8 +26,7 @@ VerifyFile attempts to validate the existence of the file at the path provided. 
 </pre>
 CreateFile will attempt to create a file at the path provided. It may return two variables. Upon successful creation of the provided file, it will return the file handle along with nil, in place of the error.
 
-Error Codes
--
+## Error Codes
 - 1: Failed to create log file.
 - 2: Failed to get user home directory.
 - 3: Failed to create logging directory.

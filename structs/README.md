@@ -1,11 +1,10 @@
-Package: JACK-AL Structs
-- 
+# Package: JACK-AL Structs
+
 This package containers the core structures for the JACK-AL Bot Framework and associated systems. Here, configuration structures, the core structure, and other centralized program-specific objects, and their child methods, can be found and manipulated.
 <br>
 
-Structures
--
-####Core
+# Structures
+#### Core
 <pre>
 <code>//This structure is saved to JSON and loaded by the config lib.
 type CoreCfg struct {...}</code>

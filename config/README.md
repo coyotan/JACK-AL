@@ -1,12 +1,13 @@
-Requirements
--
+# JACK-AL Config Component
+## Requirements
+
 Coyotech Config library requires the use of the following
 * Coyotech Logging<br>
 
 Without these libraries, this file library will return critical errors.
 
-Methods
--
+## Methods
+
 <pre>
     <code>config.Init(core interface{}) (console *log.Logger, info *log.Logger, warn *log.Logger, err *log.Logger)</code>
 </pre>
@@ -18,8 +19,7 @@ The Init function requires an interface containing the method "LogFile". This me
 </pre> 
 The LoadCfg function requires a filename and an interface to be provided. The function will parse the json file located at the specified position and attempt to load it into the interface provided. It is recommended that the interface is referenced as a pointer using the & keyrune.
 
-Error Codes
--
+## Error Codes
 - 10: Failure opening config file.
 - 11: Failure reading from config file.
 - 12: Could not find user config Directory
