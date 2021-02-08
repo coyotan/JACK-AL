@@ -39,7 +39,7 @@ Picture and Color are optional.
     "Title": "Example",
     "Description": "This is an example of a basic event structure. It can be used as a reference to create custom events.",
     "Picture": "https://link.to.picture/dogecandoit",
-    "Color": 0x555555
+    "Color": "0x555555"
   }
 }
 ```
@@ -55,7 +55,7 @@ Picture and Color are optional.<br>
     "Title": "Example Special Event Notification!",
     "Description": "Someone should probably put something interesting here!",
     "Picture": "https://link.to.picture",
-    "Color": 0x555555,
+    "Color": "0x555555",
     "EventRole":  "NameOfEventRole",
     "React":  ":ValidDiscordEmote:"
   }
@@ -73,7 +73,7 @@ React, Mentions, Picture, Cost, Reward, and QuestRole are all optional, and can 
     "Title": "JobName",
     "Description": "This is an example job. Players will be able to read this to get an idea of what is so special about the job. Use this section to sell your idea to them, to buy in interest.",
     "Picture": "https://link.to.picture/dogecandoit",
-    "Color": 0x555555,
+    "Color": "0x555555",
     "QuestID": "SomethingUnique",
     "Cost": ["costItem1","costItem2"],
     "Reward": ["rewardItem1","rewardItem2"],
@@ -100,7 +100,7 @@ Role, Color, and Picture are optional.
     "Description": "GMs should change this description to something more interesting than sample text!",
     "Role": ["List","OfRoles","ToPing"],
     "Picture": "https://link.to.picture",
-    "Color": 0x555555
+    "Color": "0x555555"
   }
 }
 ```
