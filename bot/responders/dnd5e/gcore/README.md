@@ -2,7 +2,7 @@
 
 This module provides JACK-AL bots with a method of interacting with the Google Calendar system. With this module, JACK-AL can performed timed operations which can be programed through the Google Calendar and Google Tasks API, through https://calendar.google.com.
 
-##TODO:
+##T ODO:
 
 REMEMBER THAT THIS DESIGN MUST SUPPORT MULTIPLE CALENDARS AND MULTIPLE GUILDS. USE DATABUCKET TO CORRELATE INFORMATION.
 
