@@ -1,4 +1,4 @@
-#JACK-AL Bot Component
+# JACK-AL Bot Component
 ## Responsibilities: 
 ## Requirements
 
