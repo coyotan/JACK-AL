@@ -27,7 +27,7 @@ Design this module. The design layout should be as follows:
     }
     ```
 2) Decode Google Tasks Data as structures.
-    1) Including coorelation with Google Calendar dates.
+    1) Including correlation with Google Calendar dates.
     2) Decode Calendar Tasks including Title, Description, Time. We will store this data in respective fields.
     ```go
     type Task struct {

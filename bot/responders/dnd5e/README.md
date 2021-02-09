@@ -6,15 +6,13 @@ The DND5e JACK-AL Framework Extension allows for Game Masters who wish to host, 
     - explain
 2) Automatic execution of Tasks.
     - explain
-3) Gamemasters can easily define their own events.
+3) Game masters can easily define their own events.
     - explain. Demonstrate.
+
 ## Event List:
 - CallToArms
 - ClergyNotif
 - Daily
-- Decree
-- Election
-- EndElection
 - GuardNotif
 - GuildNotif
 - IncomeEvent
@@ -22,10 +20,9 @@ The DND5e JACK-AL Framework Extension allows for Game Masters who wish to host, 
 - QuestBoard
 - Restock
 - Taxes
-- WarDeclaration
-- WarCompletion
 
 ## Event Structure:
+
 ### Basic Event Structures
 ##### Basic Notification Event Structure:
 Below is an example of the basic Notification event structure for the DND5e Framework Extension. The text should be placed into the description section of a Google Calendar Task. (Provide Example).<br><br>
@@ -34,7 +31,7 @@ Title and Description are required.<br>
 Picture and Color are optional.
 ```json
 {
-  "Event": "[EventName]",
+  "Event": "EventName",
   "Content": {
     "Title": "Example",
     "Description": "This is an example of a basic event structure. It can be used as a reference to create custom events.",
@@ -43,7 +40,9 @@ Picture and Color are optional.
   }
 }
 ```
+
 ### Special Event Structures:
+
 ##### SpecialEventNotif Event
 The SpecialEventNotif event can be used to RSVP players for specific upcoming events. Players can indicate their reservation by reacting to the announcement. After their reaction, they will be assigned a corresponding role that can be used for tracking. This can be used in combination with the Daily and QuestBoard Event.<br><br>
 Title, Description, EventRole, and React are all required.<br>
@@ -104,6 +103,24 @@ Role, Color, and Picture are optional.
   }
 }
 ```
+##### Restock Event
+Using the JackalDB Database, stores can be created. These stores can have a restricted or unrestricted inventory. If they have a restricted inventory, then they will need to be restocked. This event can be used to restock select stores with a range of value.<br><br>
+If announced is true, Title is required.<br>
+Shop, Min and Max Cost are optional - if not provided, then all shops will be fully restocked.<br>
+Description is optional.
+```json
+{
+  "Event": "Restock",
+  "Content": {
+    "Announced": true,
+    "Title": "Stores have been restocked!",
+    "Description": "Optional description.",
+    "Shop": ["Shop1","Shop2","Shop3"],
+    "MinCost": 100,
+    "MaxCost": 400
+  }
+}
+```
 ##### Taxes
 This one is pretty obvious. GMs should set this incident up as recurring, so that it only has to be set once. <br>Announced, and Percentage OR Amount are required. <br>If Percentage and Amount are BOTH provided, amount is considered a minimum value.<br>
 Title is required if Announced is true.<br>Description is optional.
@@ -119,6 +136,42 @@ Title is required if Announced is true.<br>Description is optional.
   }
 }
 ```
+##### IncomePayment Event
+   Using information from the JackalDB Character Database, characters can have a source of income. When this task is scheduled on the Google Calendar, once executed, all characters currently employed (and living) will receive a payment equal to their "Income" attribute in the database.<br><br>
+   Announced is required. If announced is true, then Title is required.<br>
+   Description and IncomeTax are optional. Note that IncomeTax is a percentage value, and does not effect NPCs.
+   <br>
+   Hint: GMs could consider using a high IncomeTax value to drive world events. 
+   ```json
+   {
+     "Event": "IncomePayment",
+     "Content": {
+       "Announced": true,
+       "Title": "Payday has come again!",
+       "Description": "This one is optional, but to keep things spicy, it wouldn't hurt to put something here!",
+       "IncomeTax": 15
+     }
+   }
+   ```
+##### RandomEncounter Event
+Upcoming Event Notifications can be used to remind players of events, or special events, that will be coming up soon. Players can react to this message to RSVP for an event, so that the GMs can keep track of interested parties, and notify all players when the event is ready.<br><br>
+Title, Description, <br>
+Mentions, Picture, EventRole, React, and Color are optional.
+```json
+{
+  "Event": "RandomEncounter",
+  "Content": {
+    "Title": "Random Event!",
+    "Description": "This field is required! GMs should explain a little bit about the random encounter, so that players can find it.",
+    "Picture": "https://link.to.picture",
+    "Color": "0x555555",
+    "Mentions": ["Valid","Discord","RolesTo","Ping"],
+    "EventRole": "DiscordRoleName",
+    "React": ":SomeValidDiscordEmote:"
+  }
+}
+```
+
 ## Todo:
 1) Using data buckets, keep track of which guild calendar is associated with which guild. GMs can link a single calendar by using the !dnd calendar set command.
     1) The !dnd calendar set command will take the Google Calendar link as a sole argument. It will then create an entry into the data buckets. <br><br>
