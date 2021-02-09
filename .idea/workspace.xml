@@ -2,15 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
+                <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                  <state split_layout="SPLIT">
+                    <first_editor relative-caret-position="238">
+                      <caret line="63" selection-start-line="63" selection-end-line="63" />
+                      <folding>
+                        <element signature="e#287#299#0" />
+                      </folding>
+                    </first_editor>
+                    <second_editor />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="677283557">
@@ -72,9 +96,9 @@
         <counts>
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="3" />
-          <entry key="go" value="116" />
+          <entry key="go" value="117" />
           <entry key="json" value="2" />
-          <entry key="md" value="37" />
+          <entry key="md" value="38" />
           <entry key="mod" value="5" />
           <entry key="sum" value="2" />
         </counts>
@@ -82,28 +106,28 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="DTD" value="5" />
-          <entry key="Go" value="116" />
+          <entry key="Go" value="117" />
           <entry key="JSON" value="2" />
-          <entry key="Markdown" value="37" />
+          <entry key="Markdown" value="38" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="10289" />
+          <entry key="go" value="12524" />
           <entry key="json" value="32" />
           <entry key="md" value="13848" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1478" />
+          <entry key="txt" value="1511" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="10328" />
+          <entry key="Go" value="12563" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13707" />
-          <entry key="PLAIN_TEXT" value="1478" />
+          <entry key="PLAIN_TEXT" value="1511" />
         </counts>
       </usages-collector>
     </session>
@@ -123,26 +147,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="357">
-                <caret line="185" column="225" lean-forward="true" selection-start-line="185" selection-start-column="225" selection-end-line="185" selection-end-column="225" />
-                <folding>
-                  <element signature="e#287#299#0" />
-                  <element signature="e#510#524#0" />
-                  <element signature="e#731#757#0" />
-                  <element signature="e#1515#1544#0" />
-                  <element signature="e#2452#2484#0" />
-                  <element signature="e#3617#3634#0" />
-                  <element signature="e#4145#4164#0" />
-                  <element signature="e#4205#4216#0" />
-                  <element signature="e#5520#5545#0" />
-                  <element signature="e#6434#6461#0" />
-                  <element signature="e#5957#5965#0" />
-                </folding>
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+              <folding>
+                <element signature="e#15#66#0" expanded="true" />
+                <element signature="e#812#834#0" />
+                <element signature="e#1016#1037#0" />
+                <element signature="n#!!block;n#Validate#0" />
+                <element signature="e#1801#1900#0" />
+                <element signature="n#!!block;n#Validate#1" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -268,7 +284,6 @@
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/config.go" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bot/responders/commandStructs.go" />
-        <option value="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" />
         <option value="$PROJECT_DIR$/botutils/BoltDB/structs.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/gcore/gCalendarWrap.go" />
         <option value="$PROJECT_DIR$/botutils/BoltDB/boltinit.go" />
@@ -298,6 +313,7 @@
         <option value="$PROJECT_DIR$/bot/README.md" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/README.md" />
+        <option value="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" />
       </list>
     </option>
   </component>
@@ -491,7 +507,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Something really strange is going on with my version control system." />
     <MESSAGE value="Trying to fix VCS" />
     <MESSAGE value="Adding Bolt... Again" />
     <MESSAGE value="Trying to make this run again." />
@@ -516,7 +531,8 @@
     <MESSAGE value="Resolved JSON formatting issue in prototype and examples." />
     <MESSAGE value="Fixed the damned Google Core README. Another Github rendering issue." />
     <MESSAGE value="That... that one was on me." />
-    <option name="LAST_COMMIT_MESSAGE" value="That... that one was on me." />
+    <MESSAGE value="Added more documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more documentation" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Go/src/os/file.go">
@@ -562,7 +578,6 @@
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/structs.go" />
     <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/bot/responders/dnd5e/gcore/interfaces.go" />
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/config.go" />
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go" />
     <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/structs/DiscordStructs.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -808,23 +823,28 @@
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="357">
-            <caret line="185" column="225" lean-forward="true" selection-start-line="185" selection-start-column="225" selection-end-line="185" selection-end-column="225" />
+          <first_editor relative-caret-position="238">
+            <caret line="63" selection-start-line="63" selection-end-line="63" />
             <folding>
               <element signature="e#287#299#0" />
-              <element signature="e#510#524#0" />
-              <element signature="e#731#757#0" />
-              <element signature="e#1515#1544#0" />
-              <element signature="e#2452#2484#0" />
-              <element signature="e#3617#3634#0" />
-              <element signature="e#4145#4164#0" />
-              <element signature="e#4205#4216#0" />
-              <element signature="e#5520#5545#0" />
-              <element signature="e#6434#6461#0" />
-              <element signature="e#5957#5965#0" />
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="e#15#66#0" expanded="true" />
+            <element signature="e#812#834#0" />
+            <element signature="e#1016#1037#0" />
+            <element signature="n#!!block;n#Validate#0" />
+            <element signature="e#1801#1900#0" />
+            <element signature="n#!!block;n#Validate#1" />
+          </folding>
         </state>
       </provider>
     </entry>
