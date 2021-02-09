@@ -5,6 +5,7 @@ import (
 )
 
 //Add custom/predefined Header and Footer.
+///TODO Add Validation function.
 type BasicNotif struct {
 	Title       string `json:"Title"`
 	Description string `json:"Description"`
@@ -13,6 +14,7 @@ type BasicNotif struct {
 }
 
 //Add custom/predefined Header and Footer.
+///TODO Add Validation function.
 type QuestBoard struct {
 	Title       string   `json:"Title"`
 	Description string   `json:"Description"`
@@ -31,6 +33,7 @@ type QuestBoard struct {
 }
 
 //Add custom/predefined Header and Footer.
+///TODO Add Validation function.
 type Daily struct {
 	Role []string `json:"Role, omitempty"`
 	BasicNotif
