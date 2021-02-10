@@ -2,6 +2,7 @@ package dnd5e
 
 import (
 	"errors"
+	"github.com/bwmarrin/discordgo"
 )
 
 //Add custom/predefined Header and Footer.
@@ -18,6 +19,18 @@ func (b *BasicNotif) Validate() (valid bool, reason error) {
 		return false, errors.New("title cannot be empty")
 	}
 	return true, nil
+}
+
+///TODO: Test this function.
+func (b *BasicNotif) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) {
+	embed.Title = b.Title
+	embed.Description = b.Description
+	embed.Color, err = toIntColor(hexaNumberToInteger(b.Color))
+	embed.Image = &discordgo.MessageEmbedImage{URL: b.Picture}
+	embed.Footer = &discordgo.MessageEmbedFooter{
+		Text: "JACK-AL Framework | DND5e Extension.",
+	}
+	return
 }
 
 //Add custom/predefined Header and Footer.

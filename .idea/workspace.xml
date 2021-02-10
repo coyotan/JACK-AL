@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bot/responders/dnd5e/utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
     </list>
@@ -96,7 +97,7 @@
         <counts>
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="3" />
-          <entry key="go" value="117" />
+          <entry key="go" value="118" />
           <entry key="json" value="2" />
           <entry key="md" value="38" />
           <entry key="mod" value="5" />
@@ -106,7 +107,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="DTD" value="5" />
-          <entry key="Go" value="117" />
+          <entry key="Go" value="118" />
           <entry key="JSON" value="2" />
           <entry key="Markdown" value="38" />
           <entry key="PLAIN_TEXT" value="6" />
@@ -114,20 +115,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="13378" />
+          <entry key="go" value="14114" />
           <entry key="json" value="32" />
           <entry key="md" value="13848" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1615" />
+          <entry key="txt" value="1647" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="13417" />
+          <entry key="Go" value="14153" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13707" />
-          <entry key="PLAIN_TEXT" value="1615" />
+          <entry key="PLAIN_TEXT" value="1647" />
         </counts>
       </usages-collector>
     </session>
@@ -149,12 +150,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+            <state relative-caret-position="-51">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding>
                 <element signature="e#15#66#0" expanded="true" />
-                <element signature="e#1884#2081#0" />
-                <element signature="n#!!block;n#Validate#1" />
+                <element signature="n#!!block;n#Validate#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding>
+                <element signature="e#15#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -310,6 +322,7 @@
         <option value="$PROJECT_DIR$/bot/README.md" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/README.md" />
+        <option value="$PROJECT_DIR$/bot/responders/dnd5e/utils.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" />
       </list>
     </option>
@@ -357,14 +370,6 @@
               <item name="bot" type="462c0819:PsiDirectoryNode" />
               <item name="responders" type="462c0819:PsiDirectoryNode" />
               <item name="dnd5e" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JACK-AL" type="462c0819:PsiDirectoryNode" />
-              <item name="bot" type="462c0819:PsiDirectoryNode" />
-              <item name="responders" type="462c0819:PsiDirectoryNode" />
-              <item name="dnd5e" type="462c0819:PsiDirectoryNode" />
-              <item name="gcore" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
@@ -504,7 +509,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Trying to make this run again." />
     <MESSAGE value="WORK ALREADY!!!!" />
     <MESSAGE value="You've got to be kidding me." />
     <MESSAGE value="For whatever reason, GoDocs were wrong. roles.Permissions is NOT type int64. &gt;:(" />
@@ -529,16 +533,10 @@
     <MESSAGE value="Added more documentation" />
     <MESSAGE value="Added BasicNotif, Questboard, Daily, Taxes, and Incomeevent events." />
     <MESSAGE value="Added Todos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Todos." />
+    <MESSAGE value="Added Validation methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Validation methods." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Go/src/os/file.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="285" selection-start-line="285" selection-end-line="285" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Go/src/runtime/preempt_amd64.s">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -830,14 +828,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="e#15#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+        <state relative-caret-position="-51">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding>
             <element signature="e#15#66#0" expanded="true" />
-            <element signature="e#1884#2081#0" />
-            <element signature="n#!!block;n#Validate#1" />
+            <element signature="n#!!block;n#Validate#0" />
           </folding>
         </state>
       </provider>
