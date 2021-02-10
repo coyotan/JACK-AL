@@ -5,7 +5,6 @@ import (
 )
 
 //Add custom/predefined Header and Footer.
-///TODO Add Validation function.
 type BasicNotif struct {
 	Title       string `json:"Title"`
 	Description string `json:"Description"`
@@ -13,8 +12,15 @@ type BasicNotif struct {
 	Color       string `json:"Color, omitempty"`
 }
 
+//Validate ensures that the fields are properly populated, to prevent errors from occurring when we attempt to generate an embedded message from this.
+func (b *BasicNotif) Validate() (valid bool, reason error) {
+	if len(b.Title) == 0 {
+		return false, errors.New("title cannot be empty")
+	}
+	return true, nil
+}
+
 //Add custom/predefined Header and Footer.
-///TODO Add Validation function.
 type QuestBoard struct {
 	Title       string   `json:"Title"`
 	Description string   `json:"Description"`
@@ -32,8 +38,17 @@ type QuestBoard struct {
 	Mentions    []string `json:"Mentions, omitempty"`
 }
 
+//Validate ensures that the fields are properly populated, to prevent errors from occurring when we attempt to generate an embedded message from this.
+func (q *QuestBoard) Validate() (valid bool, reason error) {
+	if len(q.Title) == 0 || len(q.Description) == 0 || len(q.QuestID) == 0 || len(q.Location) == 0 || len(q.Origin) == 0 || len(q.Difficulty) == 0 || len(q.PartySize) == 0 {
+		return false, errors.New("fields incorrect. Title, Description, QuestID, Location, Origin, Difficulty, and PartySize are all required fields")
+	} else if (len(q.React) > 0 && len(q.QuestRole) == 0) || (len(q.QuestRole) > 0 && len(q.React) == 0) {
+		return false, errors.New("if either React or QuestRole are populated, then both are required fields")
+	}
+	return true, nil
+}
+
 //Add custom/predefined Header and Footer.
-///TODO Add Validation function.
 type Daily struct {
 	Role []string `json:"Role, omitempty"`
 	BasicNotif

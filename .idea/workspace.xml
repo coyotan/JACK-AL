@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,20 +114,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="12524" />
+          <entry key="go" value="13378" />
           <entry key="json" value="32" />
           <entry key="md" value="13848" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1511" />
+          <entry key="txt" value="1615" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="12563" />
+          <entry key="Go" value="13417" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13707" />
-          <entry key="PLAIN_TEXT" value="1511" />
+          <entry key="PLAIN_TEXT" value="1615" />
         </counts>
       </usages-collector>
     </session>
@@ -149,14 +149,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="542">
+              <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding>
                 <element signature="e#15#66#0" expanded="true" />
-                <element signature="e#812#834#0" />
-                <element signature="e#1016#1037#0" />
-                <element signature="n#!!block;n#Validate#0" />
-                <element signature="e#1801#1900#0" />
+                <element signature="e#1884#2081#0" />
                 <element signature="n#!!block;n#Validate#1" />
               </folding>
             </state>
@@ -507,8 +504,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Trying to fix VCS" />
-    <MESSAGE value="Adding Bolt... Again" />
     <MESSAGE value="Trying to make this run again." />
     <MESSAGE value="WORK ALREADY!!!!" />
     <MESSAGE value="You've got to be kidding me." />
@@ -532,7 +527,9 @@
     <MESSAGE value="Fixed the damned Google Core README. Another Github rendering issue." />
     <MESSAGE value="That... that one was on me." />
     <MESSAGE value="Added more documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more documentation" />
+    <MESSAGE value="Added BasicNotif, Questboard, Daily, Taxes, and Incomeevent events." />
+    <MESSAGE value="Added Todos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Todos." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Go/src/os/file.go">
@@ -835,14 +832,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="542">
+          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
           <folding>
             <element signature="e#15#66#0" expanded="true" />
-            <element signature="e#812#834#0" />
-            <element signature="e#1016#1037#0" />
-            <element signature="n#!!block;n#Validate#0" />
-            <element signature="e#1801#1900#0" />
+            <element signature="e#1884#2081#0" />
             <element signature="n#!!block;n#Validate#1" />
           </folding>
         </state>
