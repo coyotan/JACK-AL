@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bot/responders/dnd5e/utils.go" afterDir="false" />
+    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Added GenEmbed for BasicNotif">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
     </list>
@@ -115,20 +114,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="14114" />
+          <entry key="go" value="15195" />
           <entry key="json" value="32" />
           <entry key="md" value="13848" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1647" />
+          <entry key="txt" value="1703" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="14153" />
+          <entry key="Go" value="15234" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13707" />
-          <entry key="PLAIN_TEXT" value="1647" />
+          <entry key="PLAIN_TEXT" value="1703" />
         </counts>
       </usages-collector>
     </session>
@@ -150,11 +149,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            <state relative-caret-position="778">
+              <caret line="193" column="26" lean-forward="true" selection-start-line="193" selection-start-column="26" selection-end-line="193" selection-end-column="26" />
               <folding>
                 <element signature="e#15#66#0" expanded="true" />
                 <element signature="n#!!block;n#Validate#0" />
+                <element signature="n#!!block;n#GenerateEmbed#0" />
+                <element signature="n#!!block;n#GenerateEmbed#2" />
+                <element signature="n#!!block;n#Validate#0" />
+                <element signature="n#!!block;n#GenerateEmbed#3" />
               </folding>
             </state>
           </provider>
@@ -509,7 +512,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="WORK ALREADY!!!!" />
     <MESSAGE value="You've got to be kidding me." />
     <MESSAGE value="For whatever reason, GoDocs were wrong. roles.Permissions is NOT type int64. &gt;:(" />
     <MESSAGE value="Fucking work, dammit!" />
@@ -534,7 +536,8 @@
     <MESSAGE value="Added BasicNotif, Questboard, Daily, Taxes, and Incomeevent events." />
     <MESSAGE value="Added Todos." />
     <MESSAGE value="Added Validation methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Validation methods." />
+    <MESSAGE value="Added GenEmbed for BasicNotif" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GenEmbed for BasicNotif" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Go/src/runtime/preempt_amd64.s">
@@ -815,6 +818,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="e#15#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -828,23 +841,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="e#15#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        <state relative-caret-position="778">
+          <caret line="193" column="26" lean-forward="true" selection-start-line="193" selection-start-column="26" selection-end-line="193" selection-end-column="26" />
           <folding>
             <element signature="e#15#66#0" expanded="true" />
             <element signature="n#!!block;n#Validate#0" />
+            <element signature="n#!!block;n#GenerateEmbed#0" />
+            <element signature="n#!!block;n#GenerateEmbed#2" />
+            <element signature="n#!!block;n#Validate#0" />
+            <element signature="n#!!block;n#GenerateEmbed#3" />
           </folding>
         </state>
       </provider>
