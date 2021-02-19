@@ -23,7 +23,6 @@ func (b *BasicNotif) Validate() (valid bool, reason error) {
 
 ///TODO: Test this function.
 func (b *BasicNotif) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) {
-
 	if valid, reason := b.Validate(); valid {
 		embed.Title = b.Title
 		embed.Description = b.Description
@@ -131,7 +130,6 @@ func (t *Taxes) Validate() (valid bool, reason error) {
 
 ///TODO: Test this function.
 func (t *Taxes) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) {
-
 	if valid, reason := t.Validate(); valid {
 		embed.Title = t.Title
 		if len(t.Description) > 1 {

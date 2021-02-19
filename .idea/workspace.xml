@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Added GenEmbed for BasicNotif">
+    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
     </list>
@@ -10,31 +10,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
-                <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                  <state split_layout="SPLIT">
-                    <first_editor relative-caret-position="238">
-                      <caret line="63" selection-start-line="63" selection-end-line="63" />
-                      <folding>
-                        <element signature="e#287#299#0" />
-                      </folding>
-                    </first_editor>
-                    <second_editor />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="677283557">
@@ -86,10 +61,10 @@
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="4" />
-          <entry key="project.open.time.5" value="4" />
+          <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,20 +89,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="15195" />
+          <entry key="go" value="15257" />
           <entry key="json" value="32" />
           <entry key="md" value="13848" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1703" />
+          <entry key="txt" value="1721" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="15234" />
+          <entry key="Go" value="15296" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13707" />
-          <entry key="PLAIN_TEXT" value="1703" />
+          <entry key="PLAIN_TEXT" value="1721" />
         </counts>
       </usages-collector>
     </session>
@@ -138,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="337">
+              <first_editor relative-caret-position="425">
                 <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
               </first_editor>
               <second_editor />
@@ -149,15 +124,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="778">
-              <caret line="193" column="26" lean-forward="true" selection-start-line="193" selection-start-column="26" selection-end-line="193" selection-end-column="26" />
+            <state relative-caret-position="676">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
-                <element signature="e#15#66#0" expanded="true" />
+                <element signature="e#129#309#0" />
                 <element signature="n#!!block;n#Validate#0" />
                 <element signature="n#!!block;n#GenerateEmbed#0" />
+                <element signature="n#!!block;n#Validate#1" />
+                <element signature="n#!!block;n#GenerateEmbed#1" />
+                <element signature="e#3336#3398#0" />
                 <element signature="n#!!block;n#GenerateEmbed#2" />
-                <element signature="n#!!block;n#Validate#0" />
+                <element signature="e#3990#4281#0" />
+                <element signature="n#!!block;n#Validate#2" />
                 <element signature="n#!!block;n#GenerateEmbed#3" />
+                <element signature="e#5431#5674#0" />
+                <element signature="n#!!block;n#Validate#3" />
+                <element signature="n#!!block;n#GenerateEmbed#4" />
               </folding>
             </state>
           </provider>
@@ -166,11 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="238">
               <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-              <folding>
-                <element signature="e#15#54#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -337,7 +316,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="517" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="764" />
     <option name="height" value="1090" />
@@ -348,7 +327,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -398,6 +376,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -457,7 +436,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13219616" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14605543" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -512,7 +491,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="You've got to be kidding me." />
     <MESSAGE value="For whatever reason, GoDocs were wrong. roles.Permissions is NOT type int64. &gt;:(" />
     <MESSAGE value="Fucking work, dammit!" />
     <MESSAGE value="This better fix the issue." />
@@ -537,7 +515,8 @@
     <MESSAGE value="Added Todos." />
     <MESSAGE value="Added Validation methods." />
     <MESSAGE value="Added GenEmbed for BasicNotif" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GenEmbed for BasicNotif" />
+    <MESSAGE value="Added GenEmbed for IncomePayment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GenEmbed for IncomePayment" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Go/src/runtime/preempt_amd64.s">
@@ -675,12 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!block;n#PrintFatal#0" />
-            <element signature="n#!!block;n#PrintWarn#0" />
-            <element signature="n#!!block;n#PrintInfo#0" />
-            <element signature="n#!!block;n#PrintConsole#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -730,6 +703,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Downloads/Jacob Westbrook.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48178">
+          <caret line="2834" column="27" selection-start-line="2834" selection-start-column="24" selection-end-line="2834" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="238">
+            <caret line="63" selection-start-line="63" selection-end-line="63" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="425">
+            <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Errors.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -793,65 +808,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Downloads/Jacob Westbrook.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48178">
-          <caret line="2834" column="27" selection-start-line="2834" selection-start-column="24" selection-end-line="2834" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Errors.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="337">
-            <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="e#15#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="238">
-            <caret line="63" selection-start-line="63" selection-end-line="63" />
-            <folding>
-              <element signature="e#287#299#0" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="193" column="26" lean-forward="true" selection-start-line="193" selection-start-column="26" selection-end-line="193" selection-end-column="26" />
+        <state relative-caret-position="676">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
           <folding>
-            <element signature="e#15#66#0" expanded="true" />
+            <element signature="e#129#309#0" />
             <element signature="n#!!block;n#Validate#0" />
             <element signature="n#!!block;n#GenerateEmbed#0" />
+            <element signature="n#!!block;n#Validate#1" />
+            <element signature="n#!!block;n#GenerateEmbed#1" />
+            <element signature="e#3336#3398#0" />
             <element signature="n#!!block;n#GenerateEmbed#2" />
-            <element signature="n#!!block;n#Validate#0" />
+            <element signature="e#3990#4281#0" />
+            <element signature="n#!!block;n#Validate#2" />
             <element signature="n#!!block;n#GenerateEmbed#3" />
+            <element signature="e#5431#5674#0" />
+            <element signature="n#!!block;n#Validate#3" />
+            <element signature="n#!!block;n#GenerateEmbed#4" />
           </folding>
         </state>
       </provider>
