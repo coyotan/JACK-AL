@@ -31,3 +31,5 @@ func (b *JackalDB) Path() string {
 func (b *JackalDB) Close() {
 	b.db.Close()
 }
+
+///TODO: Implement database functions.
