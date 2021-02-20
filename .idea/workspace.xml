@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structs/jackaldb.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs/jackaldb.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,9 +71,9 @@
         <counts>
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="3" />
-          <entry key="go" value="118" />
+          <entry key="go" value="119" />
           <entry key="json" value="2" />
-          <entry key="md" value="38" />
+          <entry key="md" value="39" />
           <entry key="mod" value="5" />
           <entry key="sum" value="2" />
         </counts>
@@ -81,28 +81,28 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="DTD" value="5" />
-          <entry key="Go" value="118" />
+          <entry key="Go" value="119" />
           <entry key="JSON" value="2" />
-          <entry key="Markdown" value="38" />
+          <entry key="Markdown" value="39" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="15257" />
+          <entry key="go" value="16854" />
           <entry key="json" value="32" />
           <entry key="md" value="13848" />
           <entry key="mod" value="250" />
-          <entry key="txt" value="1721" />
+          <entry key="txt" value="1761" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="250" />
-          <entry key="Go" value="15296" />
+          <entry key="Go" value="16893" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13707" />
-          <entry key="PLAIN_TEXT" value="1721" />
+          <entry key="PLAIN_TEXT" value="1761" />
         </counts>
       </usages-collector>
     </session>
@@ -110,21 +110,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="425">
-                <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
+            <state relative-caret-position="833">
               <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
                 <element signature="e#129#309#0" />
@@ -146,20 +134,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-1278">
+                <caret line="63" selection-start-line="63" selection-end-line="63" />
+                <folding>
+                  <element signature="e#287#299#0" />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Errors.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!block;n#hexaNumberToInteger#0" />
+                <element signature="n#!!block;n#toIntColor#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
             </state>
           </provider>
         </entry>
@@ -292,7 +298,6 @@
         <option value="$PROJECT_DIR$/bot/responders/dndResponder.go" />
         <option value="$PROJECT_DIR$/bot/responders/leaveResponder.go" />
         <option value="$PROJECT_DIR$/bot/responders/0_loadMods.go" />
-        <option value="$PROJECT_DIR$/structs/jackaldb.go" />
         <option value="$PROJECT_DIR$/logutil/logutil.go" />
         <option value="$PROJECT_DIR$/logutil/structs.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/readme.md" />
@@ -306,6 +311,7 @@
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/README.md" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/utils.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" />
+        <option value="$PROJECT_DIR$/structs/jackaldb.go" />
       </list>
     </option>
   </component>
@@ -351,6 +357,14 @@
               <item name="bot" type="462c0819:PsiDirectoryNode" />
               <item name="responders" type="462c0819:PsiDirectoryNode" />
               <item name="dnd5e" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JACK-AL" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+              <item name="responders" type="462c0819:PsiDirectoryNode" />
+              <item name="dnd5e" type="462c0819:PsiDirectoryNode" />
+              <item name="gcore" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
@@ -436,7 +450,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14605543" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14605543" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -445,7 +459,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32848233" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32848233" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32848233" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32328483" />
@@ -491,8 +505,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="For whatever reason, GoDocs were wrong. roles.Permissions is NOT type int64. &gt;:(" />
-    <MESSAGE value="Fucking work, dammit!" />
     <MESSAGE value="This better fix the issue." />
     <MESSAGE value="It's finally working again. Fixing logging issue." />
     <MESSAGE value="Fixed Logging Issue" />
@@ -516,7 +528,9 @@
     <MESSAGE value="Added Validation methods." />
     <MESSAGE value="Added GenEmbed for BasicNotif" />
     <MESSAGE value="Added GenEmbed for IncomePayment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GenEmbed for IncomePayment" />
+    <MESSAGE value="Fixed formatting." />
+    <MESSAGE value="Added ToDo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ToDo" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Go/src/runtime/preempt_amd64.s">
@@ -678,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -710,33 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48178">
           <caret line="2834" column="27" selection-start-line="2834" selection-start-column="24" selection-end-line="2834" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="238">
-            <caret line="63" selection-start-line="63" selection-end-line="63" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="425">
-            <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -808,9 +788,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="337">
+            <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
+        <state relative-caret-position="833">
           <caret line="131" selection-start-line="131" selection-end-line="131" />
           <folding>
             <element signature="e#129#309#0" />
@@ -827,6 +817,37 @@
             <element signature="n#!!block;n#Validate#3" />
             <element signature="n#!!block;n#GenerateEmbed#4" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#hexaNumberToInteger#0" />
+            <element signature="n#!!block;n#toIntColor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1278">
+            <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <folding>
+              <element signature="e#287#299#0" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
         </state>
       </provider>
     </entry>
