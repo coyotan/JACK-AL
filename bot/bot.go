@@ -68,6 +68,8 @@ func dgOpen() {
 	dg.AddHandler(createDispatch)
 	dg.AddHandler(editDispatch)
 	dg.AddHandler(deleteDispatch)
+	dg.AddHandler(addReactionDispatch)
+	dg.AddHandler(rmReactionDispatch)
 
 	initModDispatch(jackal)
 

@@ -28,7 +28,7 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 					err := val(created.Message)
 
 					if err != nil {
-						jackal.Logger.Error.Println("Responder is 10-33", err)
+						jackal.Logger.Error.Println("Create responder is 10-33", err)
 					}
 
 					totalListeners = 1
@@ -38,7 +38,7 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 						err := v(created.Message)
 
 						if err != nil {
-							jackal.Logger.Error.Println("Responder is 10-33", err)
+							jackal.Logger.Error.Println("Create responder is 10-33", err)
 						} else {
 							totalListeners++
 						}
@@ -60,7 +60,7 @@ func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
 			err := v(deleted)
 
 			if err != nil {
-				jackal.Logger.Error.Println("Responder is 10-33", err)
+				jackal.Logger.Error.Println("Delete responder is 10-33", err)
 			} else {
 				totalListeners++
 			}
@@ -79,7 +79,43 @@ func editDispatch(_ *discordgo.Session, updated *discordgo.MessageUpdate) {
 			err := v(updated)
 
 			if err != nil {
-				jackal.Logger.Error.Println("Responder is 10-33", err)
+				jackal.Logger.Error.Println("Edit responder is 10-33", err)
+			} else {
+				totalListeners++
+			}
+		}
+
+		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
+	}
+}
+
+func addReactionDispatch(_ *discordgo.Session, reaction *discordgo.MessageReactionAdd) {
+	if reaction.UserID != jackal.Discord.User.ID {
+		var totalListeners = 0
+
+		for _, v := range jackal.Discord.ReactListeners {
+			err := v(reaction.MessageReaction)
+
+			if err != nil {
+				jackal.Logger.Error.Println("Reaction responder is 10-33", err)
+			} else {
+				totalListeners++
+			}
+		}
+
+		jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
+	}
+}
+
+func rmReactionDispatch(_ *discordgo.Session, reaction *discordgo.MessageReactionRemove) {
+	if reaction.UserID != jackal.Discord.User.ID {
+		var totalListeners = 0
+
+		for _, v := range jackal.Discord.ReactListeners {
+			err := v(reaction.MessageReaction)
+
+			if err != nil {
+				jackal.Logger.Error.Println("Reaction responder is 10-33", err)
 			} else {
 				totalListeners++
 			}
