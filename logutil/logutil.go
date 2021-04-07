@@ -25,7 +25,7 @@ func InitLoggers() (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Err
 	localLogger.Console = Console
 
 	//Create the file to start overwrite ... without this, we're getting some stupid bug.
-	lFile, _ = CreateFile(GetUserConfDir() + "/jackal.log")
+	lFile, _ = CreateFile(GetUserConfDir(), "/jackal.log")
 
 	//Now that we know the file exists, we can use the rest of these.
 	Info = log.New(lFile, "INFO: ", log.Ltime|log.Ldate|log.Lshortfile)
@@ -58,9 +58,17 @@ func VerifyFile(fName string) (fExists bool) {
 }
 
 //CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
-func CreateFile(fName string) (fHandle *os.File, err error) {
+func CreateFile(path string, fName string) (fHandle *os.File, err error) {
 
-	fHandle, err = os.OpenFile(fName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	err = os.MkdirAll(path, 0644)
+
+	if err != nil {
+		if initComplete {
+			localLogger.Error.Println("Path " + path + " could not be created!\n" + err.Error())
+		}
+	}
+
+	fHandle, err = os.OpenFile(path+fName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 
 	if err != nil {
 		if initComplete {
