@@ -36,6 +36,8 @@ func (b *JackalDB) Close() {
 }
 
 ///TODO: Review this function. Wrote this during session.
+
+//Put is a wrapping function for putting data into the databucket database. It should make storage actions simple and safe.
 func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 
 	err = b.db.Update(func(tx *bolt.Tx) error {
@@ -52,6 +54,8 @@ func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 }
 
 ///TODO: Review this function. Wrote this during session.
+
+//Get is a wrapping function for putting data into the databucket database. It should make queries simple and safe.
 func (b *JackalDB) Get(bucket string, query string) (queryReturn []byte, err error) {
 
 	err = b.db.View(func(tx *bolt.Tx) error {
