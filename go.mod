@@ -5,7 +5,7 @@ go 1.15
 require (
 	github.com/boltdb/bolt v1.3.1
 	github.com/bwmarrin/discordgo v0.23.2
-	github.com/coyotan/jack-al v0.2.0-alpha // indirect
+	github.com/CoyoTan/JACK-AL v0.2.0-devel // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/txgruppi/parseargs-go v0.0.0-20170124215356-4cb98496e521
 	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2 // indirect
