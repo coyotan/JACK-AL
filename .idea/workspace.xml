@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Apparently we could fix it by running Go Mod Tidy... and I should probably seriously consider redoing this for Go mods from the start.">
+    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Fixed some bugs, but also added the ReactResponder as well as most of the foundational components to drive it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/responders/0_loadMods.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/0_loadMods.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/responders/reactresponder.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/reactResponder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/leaveResponder.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/leaveResponder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/pingResponder.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/pingResponder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/reactResponder.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/reactResponder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/reactresponder.go" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,20 +93,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="18294" />
+          <entry key="go" value="22888" />
           <entry key="json" value="32" />
           <entry key="md" value="13852" />
           <entry key="mod" value="438" />
-          <entry key="txt" value="2226" />
+          <entry key="txt" value="2364" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DTD" value="438" />
-          <entry key="Go" value="18333" />
+          <entry key="Go" value="22927" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13711" />
-          <entry key="PLAIN_TEXT" value="2226" />
+          <entry key="PLAIN_TEXT" value="2364" />
         </counts>
       </usages-collector>
     </session>
@@ -125,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="527">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -134,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/responders/pingResponder.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="425">
+              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -152,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/reactResponder.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+            <state relative-caret-position="411">
+              <caret line="99" column="16" lean-forward="true" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
               <folding>
                 <element signature="e#20#74#0" expanded="true" />
               </folding>
@@ -164,8 +167,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
+            <state relative-caret-position="510">
+              <caret line="88" column="6" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
               <folding>
                 <element signature="n#!!block;n#initModDispatch#0" />
               </folding>
@@ -261,9 +264,7 @@
         <option value="$PROJECT_DIR$/config/structs.go" />
         <option value="$PROJECT_DIR$/structs/Core.go" />
         <option value="$PROJECT_DIR$/main.go" />
-        <option value="$PROJECT_DIR$/bot/responders/pingResponder.go" />
         <option value="$PROJECT_DIR$/bot/responders/dndResponder.go" />
-        <option value="$PROJECT_DIR$/bot/responders/leaveResponder.go" />
         <option value="$PROJECT_DIR$/logutil/structs.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/readme.md" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -280,11 +281,13 @@
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md" />
         <option value="$PROJECT_DIR$/bot/bot.go" />
         <option value="$PROJECT_DIR$/structs/DiscordStructs.go" />
-        <option value="$PROJECT_DIR$/bot/handlers.go" />
         <option value="$PROJECT_DIR$/bot/cli.go" />
         <option value="$PROJECT_DIR$/go.mod" />
         <option value="$PROJECT_DIR$/bot/responders/0_loadMods.go" />
         <option value="$PROJECT_DIR$/bot/responders/reactresponder.go" />
+        <option value="$PROJECT_DIR$/bot/responders/leaveResponder.go" />
+        <option value="$PROJECT_DIR$/bot/responders/pingResponder.go" />
+        <option value="$PROJECT_DIR$/bot/handlers.go" />
         <option value="$PROJECT_DIR$/bot/responders/reactResponder.go" />
       </list>
     </option>
@@ -409,19 +412,19 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14232409" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14232409" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32848233" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32848233" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32848233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32848233" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32848233" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3243243" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3243243" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32885906" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32952183" />
@@ -464,7 +467,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completely Removed Customizable logging system.&#10;&#10;It works better this way." />
     <MESSAGE value="Added documentation. Updated Logging Again." />
     <MESSAGE value="Going for that A+!" />
     <MESSAGE value="Added documentation for Google and DND Module." />
@@ -487,9 +489,10 @@
     <MESSAGE value="Added ReactListeners" />
     <MESSAGE value="Added ReactionDispatch components." />
     <MESSAGE value="Devel Release" />
-    <MESSAGE value="Apparently we could fix it by running Go Mod Tidy... and I should probably seriously consider redoing this for Go mods from the start." />
     <MESSAGE value="Added ReactLocalListener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ReactLocalListener" />
+    <MESSAGE value="Apparently we could fix it by running Go Mod Tidy... and I should probably seriously consider redoing this for Go mods from the start." />
+    <MESSAGE value="Fixed some bugs, but also added the ReactResponder as well as most of the foundational components to drive it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some bugs, but also added the ReactResponder as well as most of the foundational components to drive it." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/interfaces.go" />
@@ -748,10 +751,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
+    <entry file="file://$PROJECT_DIR$/bot/bot.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="1088">
+          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -762,30 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/bot.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/handlers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!block;n#initModDispatch#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/pingResponder.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/0_loadMods.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -793,10 +772,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/pingResponder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/handlers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="88" column="6" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!block;n#initModDispatch#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/reactResponder.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+        <state relative-caret-position="411">
+          <caret line="99" column="16" lean-forward="true" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
           <folding>
             <element signature="e#20#74#0" expanded="true" />
           </folding>
