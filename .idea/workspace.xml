@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Devel Release">
-      <change beforePath="$PROJECT_DIR$/bot/cli.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/cli.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Apparently we could fix it by running Go Mod Tidy... and I should probably seriously consider redoing this for Go mods from the start.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/0_loadMods.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/0_loadMods.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/reactresponder.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/reactResponder.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,49 +61,49 @@
           <entry key="project.closed" value="15" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.4" value="5" />
           <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitattributes" value="1" />
-          <entry key="gitignore" value="3" />
-          <entry key="go" value="136" />
+          <entry key="gitattributes" value="2" />
+          <entry key="gitignore" value="4" />
+          <entry key="go" value="145" />
           <entry key="json" value="3" />
-          <entry key="md" value="46" />
+          <entry key="md" value="47" />
           <entry key="mod" value="7" />
-          <entry key="sum" value="2" />
+          <entry key="sum" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="DTD" value="7" />
-          <entry key="Go" value="136" />
+          <entry key="Go" value="145" />
           <entry key="JSON" value="3" />
-          <entry key="Markdown" value="46" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Markdown" value="47" />
+          <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="18040" />
+          <entry key="go" value="18294" />
           <entry key="json" value="32" />
           <entry key="md" value="13852" />
-          <entry key="mod" value="404" />
-          <entry key="txt" value="2015" />
+          <entry key="mod" value="438" />
+          <entry key="txt" value="2226" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="DTD" value="404" />
-          <entry key="Go" value="18079" />
+          <entry key="DTD" value="438" />
+          <entry key="Go" value="18333" />
           <entry key="JSON" value="134" />
           <entry key="Markdown" value="13711" />
-          <entry key="PLAIN_TEXT" value="2015" />
+          <entry key="PLAIN_TEXT" value="2226" />
         </counts>
       </usages-collector>
     </session>
@@ -110,21 +111,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-217">
-                <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
+            <state relative-caret-position="-374">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#17#78#0" expanded="true" />
@@ -134,10 +123,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/botutils/grouputils.go">
+        <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="17">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot/responders/pingResponder.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -145,8 +143,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/responders/0_loadMods.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="194">
+              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bot/responders/reactResponder.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+              <folding>
+                <element signature="e#20#74#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-808">
-              <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+            <state relative-caret-position="1547">
+              <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
               <folding>
                 <element signature="n#!!block;n#initModDispatch#0" />
               </folding>
@@ -164,31 +174,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logutil/README.md">
+        <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/structs/DiscordStructs.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/structs/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="434">
-                <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+              <first_editor relative-caret-position="17">
+                <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/go.mod">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/structs/DiscordStructs.go">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="187">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -196,17 +206,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/bot.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot/cli.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="117" selection-start-line="10" selection-start-column="117" selection-end-line="10" selection-end-column="117" />
+            <state relative-caret-position="1088">
+              <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -226,6 +227,7 @@
       <find>inventory</find>
       <find>182</find>
       <find>tracking</find>
+      <find>JACK-AL</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
@@ -262,7 +264,6 @@
         <option value="$PROJECT_DIR$/bot/responders/pingResponder.go" />
         <option value="$PROJECT_DIR$/bot/responders/dndResponder.go" />
         <option value="$PROJECT_DIR$/bot/responders/leaveResponder.go" />
-        <option value="$PROJECT_DIR$/bot/responders/0_loadMods.go" />
         <option value="$PROJECT_DIR$/logutil/structs.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/readme.md" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -282,6 +283,9 @@
         <option value="$PROJECT_DIR$/bot/handlers.go" />
         <option value="$PROJECT_DIR$/bot/cli.go" />
         <option value="$PROJECT_DIR$/go.mod" />
+        <option value="$PROJECT_DIR$/bot/responders/0_loadMods.go" />
+        <option value="$PROJECT_DIR$/bot/responders/reactresponder.go" />
+        <option value="$PROJECT_DIR$/bot/responders/reactResponder.go" />
       </list>
     </option>
   </component>
@@ -321,21 +325,6 @@
               <item name="JACK-AL" type="462c0819:PsiDirectoryNode" />
               <item name="bot" type="462c0819:PsiDirectoryNode" />
               <item name="responders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JACK-AL" type="462c0819:PsiDirectoryNode" />
-              <item name="bot" type="462c0819:PsiDirectoryNode" />
-              <item name="responders" type="462c0819:PsiDirectoryNode" />
-              <item name="dnd5e" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JACK-AL" type="462c0819:PsiDirectoryNode" />
-              <item name="bot" type="462c0819:PsiDirectoryNode" />
-              <item name="responders" type="462c0819:PsiDirectoryNode" />
-              <item name="dnd5e" type="462c0819:PsiDirectoryNode" />
-              <item name="gcore" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JACK-AL" type="b2602c69:ProjectViewProjectNode" />
@@ -417,10 +406,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="764" height="1090" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3934659" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14232409" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -432,7 +421,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32848233" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32848233" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3253138" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3243243" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32885906" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32952183" />
@@ -475,8 +464,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated Logging System" />
-    <MESSAGE value="Fixed Order of Operations Issue with Database Module." />
     <MESSAGE value="Completely Removed Customizable logging system.&#10;&#10;It works better this way." />
     <MESSAGE value="Added documentation. Updated Logging Again." />
     <MESSAGE value="Going for that A+!" />
@@ -500,22 +487,13 @@
     <MESSAGE value="Added ReactListeners" />
     <MESSAGE value="Added ReactionDispatch components." />
     <MESSAGE value="Devel Release" />
-    <option name="LAST_COMMIT_MESSAGE" value="Devel Release" />
+    <MESSAGE value="Apparently we could fix it by running Go Mod Tidy... and I should probably seriously consider redoing this for Go mods from the start." />
+    <MESSAGE value="Added ReactLocalListener" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ReactLocalListener" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/google/gCalendarWrap.go" />
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/interfaces.go" />
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/commandStructs.go" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/bot/bot.go" />
     <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/config/structs.go" />
     <entry file="file://$PROJECT_DIR$/botutils/BoltDB/structs.go" />
@@ -568,20 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go.sum">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Downloads/Jacob Westbrook.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48178">
@@ -601,18 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="131" selection-start-line="131" selection-end-line="131" />
-          <folding>
-            <element signature="e#129#309#0" />
-            <element signature="n#!!block;n#Validate#0" />
-            <element signature="n#!!block;n#GenerateEmbed#0" />
-            <element signature="n#!!block;n#Validate#1" />
-            <element signature="n#!!block;n#GenerateEmbed#1" />
-            <element signature="n#!!block;n#GenerateEmbed#2" />
-            <element signature="n#!!block;n#Validate#2" />
-            <element signature="n#!!block;n#GenerateEmbed#3" />
-            <element signature="n#!!block;n#Validate#3" />
-            <element signature="n#!!block;n#GenerateEmbed#4" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -621,9 +573,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="969">
             <caret line="63" selection-start-line="63" selection-end-line="63" />
-            <folding>
-              <element signature="e#287#299#0" />
-            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -633,10 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#hexaNumberToInteger#0" />
-            <element signature="n#!!block;n#toIntColor#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -654,9 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding>
-            <element signature="e#16#108#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -664,9 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
-          <folding>
-            <element signature="e#17#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -674,16 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structs/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-25">
-            <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -727,72 +656,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/pingResponder.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/gcore/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-217">
+          <first_editor relative-caret-position="187">
             <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/bot.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/structs/DiscordStructs.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="82" lean-forward="true" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/0_loadMods.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structs/DiscordStructs.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/cli.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="117" selection-start-line="10" selection-start-column="117" selection-end-line="10" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#17#78#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,13 +673,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/handlers.go">
+    <entry file="file://$PROJECT_DIR$/structs/DiscordStructs.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-808">
-          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
-          <folding>
-            <element signature="n#!!block;n#initModDispatch#0" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -823,10 +690,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/go.sum">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-329">
+          <caret line="6" column="83" lean-forward="true" selection-start-line="6" selection-start-column="83" selection-end-line="6" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/go.mod">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/cli.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="117" selection-start-line="10" selection-start-column="117" selection-end-line="10" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="17">
+            <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#17#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/leaveResponder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/CoyoTan/JACK-AL/structs/DiscordStructs.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/bot.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/handlers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1547">
+          <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!block;n#initModDispatch#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/pingResponder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/0_loadMods.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/reactResponder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+          <folding>
+            <element signature="e#20#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
