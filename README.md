@@ -3,8 +3,8 @@
 [![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/CoyoTan/JACK-AL.svg)](https://github.com/CoyoTan/JACK-AL)
 [![Github Repository Size](https://img.shields.io/github/repo-size/CoyoTan/JACK-AL)](https://github.com/CoyoTan/JACK-AL)
 [![Go Report Card](https://goreportcard.com/badge/github.com/CoyoTan/JACK-AL)](https://goreportcard.com/report/github.com/CoyoTan/JACK-AL)
-[![Generic badge](https://img.shields.io/badge/Ensign-0.1.0-GREEN.svg)](https://shields.io/)
-[![Generic badge](https://img.shields.io/badge/Esper-0.0.0-BLUE.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Ensign-0.1.0%20alpha-GREEN.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Esper-0.2.0%20devel-BLUE.svg)](https://shields.io/)
 [![Generic badge](https://img.shields.io/badge/Archon-0.0.0-RED.svg)](https://shields.io/)
 
 ##### Just Another Classified Kiosk - Access Level: X

@@ -70,7 +70,7 @@ func responderReactionAction(message *discordgo.Message) (err error) {
 					fmt.Println("Reaction is " + value)
 
 					//TODO: Commit action using action, argument, and value as function arguments.!
-					err = doWork(action, argument, value)
+					return doWork(action, argument, value)
 				}
 			}
 
