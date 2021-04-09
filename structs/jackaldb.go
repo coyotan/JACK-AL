@@ -73,7 +73,7 @@ func (b *JackalDB) Get(bucket string, query string) (queryReturn []byte, err err
 	})
 
 	//This is an info/warning level debug error. This does NOT indicate a failure of any kind. We will make sure that we're not masking another error when writing this result.
-	if err == nil && len(queryReturn) > 1 {
+	if err == nil && len(queryReturn) < 1 {
 		err = errors.New("database query did not result in an answer")
 	}
 
