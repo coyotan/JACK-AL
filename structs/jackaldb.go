@@ -9,15 +9,15 @@ import (
 
 //JackalDB contains the boltDatabase. This is used to protect the data in the boltDatabase by providing proxied access to the records.
 type JackalDB struct {
-	db *bolt.DB
+	Db *bolt.DB
 }
 
 //InitDB is called by the core loader of the bot each time the program is executed.
 func (core *CoreCfg) InitDB() (dbError error) {
 	core.DB = &JackalDB{}
-	core.DB.db = &bolt.DB{}
+	core.DB.Db = &bolt.DB{}
 
-	core.DB.db, dbError = bolt.Open(core.GetConfDir()+"/jackal.db", 0640, &bolt.Options{Timeout: 5 * time.Second})
+	core.DB.Db, dbError = bolt.Open(core.GetConfDir()+"/jackal.Db", 0640, &bolt.Options{Timeout: 5 * time.Second})
 
 	if dbError != nil {
 		return dbError
@@ -25,22 +25,23 @@ func (core *CoreCfg) InitDB() (dbError error) {
 	return
 }
 
-//Path returns the location of the db file that was loaded. Wrapping it protects the information.
+//Path returns the location of the Db file that was loaded. Wrapping it protects the information.
 func (b *JackalDB) Path() string {
-	return b.db.Path()
+	return b.Db.Path()
 }
 
 //Close completes the database operations and cleanly unloads the database. Wrapping it protects the function.
 func (b *JackalDB) Close() {
-	b.db.Close()
+	b.Db.Close()
 }
 
 ///TODO: Review this function. Wrote this during session.
 
 //Put is a wrapping function for putting data into the databucket database. It should make storage actions simple and safe.
+//This can also take buckets, so they can still be nested!
 func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 
-	err = b.db.Update(func(tx *bolt.Tx) error {
+	err = b.Db.Update(func(tx *bolt.Tx) error {
 		b := tx.Bucket([]byte(bucket))
 		return b.Put([]byte(key), []byte(value))
 	})
@@ -56,9 +57,10 @@ func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 ///TODO: Review this function. Wrote this during session.
 
 //Get is a wrapping function for putting data into the databucket database. It should make queries simple and safe.
+//This can still take buckets, so we still support buckets!
 func (b *JackalDB) Get(bucket string, query string) (queryReturn []byte, err error) {
 
-	err = b.db.View(func(tx *bolt.Tx) error {
+	err = b.Db.View(func(tx *bolt.Tx) error {
 		b := tx.Bucket([]byte(bucket))
 		queryReturn = b.Get([]byte(query))
 

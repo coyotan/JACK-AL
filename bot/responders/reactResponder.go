@@ -19,8 +19,7 @@ jackal.Discord - Contains Discord configuration
 func init() {
 	addCreateListener("reactionact", responderReactionAction)
 
-	addReactListener("poll", responderPoll)
-
+	addReactListener("addreaction", responderPoll)
 }
 
 func responderReactionAction(message *discordgo.Message) (err error) {
@@ -68,9 +67,9 @@ func responderReactionAction(message *discordgo.Message) (err error) {
 					reaction = !reaction
 				} else if !actionWord && reaction {
 					fmt.Println("Reaction is " + value)
-
-					//TODO: Commit action using action, argument, and value as function arguments.!
-					return doWork(action, argument, value)
+					//TODO: Add the message to the database with the action, argument, and reaction keywords.
+					doWork(action, argument, value)
+					return err
 				}
 			}
 
@@ -89,6 +88,7 @@ func responderReactionAction(message *discordgo.Message) (err error) {
 
 func doWork(action string, argument string, reaction string) (err error) {
 	switch strings.ToLower(action) {
+	//Add calendar scheduling support in the future, maybe?
 	case "addrole":
 		//Actually add their role.
 	case "vote":
@@ -105,6 +105,9 @@ func doWork(action string, argument string, reaction string) (err error) {
 
 func responderPoll(react *discordgo.MessageReaction) (err error) {
 	_, err = jackal.Discord.Session.ChannelMessageSend(react.ChannelID, "This function has not yet been implemented.")
+
+	//Get the messageID and actions from the databucket.
+	//Pass the actions into doWork(action, argument, reaction)
 
 	return
 }
