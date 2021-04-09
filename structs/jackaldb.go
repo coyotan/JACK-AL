@@ -42,7 +42,10 @@ func (b *JackalDB) Close() {
 func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 
 	err = b.Db.Update(func(tx *bolt.Tx) error {
-		b := tx.Bucket([]byte(bucket))
+		b, err := tx.CreateBucketIfNotExists([]byte(bucket))
+		if err != nil {
+			return err
+		}
 		return b.Put([]byte(key), []byte(value))
 	})
 
