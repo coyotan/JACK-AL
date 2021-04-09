@@ -53,7 +53,7 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 
 //Thanks to the new "BeforeDelete" method, this is all this function really needs to be! It's so much simpler now!
 func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
-	if deleted.Author.ID != jackal.Discord.User.ID {
+	if deleted.Message.Author.ID != jackal.Discord.User.ID {
 		var totalListeners = 0
 		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 		for _, v := range jackal.Discord.DeleteListeners {
