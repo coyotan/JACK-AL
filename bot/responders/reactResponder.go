@@ -16,6 +16,13 @@ jackal - Core configuration.
 jackal.Discord - Contains Discord configuration
 */
 
+//reAction is a struct that can easily be marshaled into a json and back so that it can be stored in the databuckets. This allows for us to store reaction actions in a map that can be accessed by the messageID
+type reAction struct {
+	Reaction string `json:"reaction"`
+	Action   string `json:"action"`
+	Argument string `json:"argument"`
+}
+
 func init() {
 	addCreateListener("reactionact", responderReactionAction)
 
@@ -38,7 +45,7 @@ func responderReactionAction(message *discordgo.Message) (err error) {
 			//Get the messageID
 			watchMessageID = message.Content[13:31]
 
-			//TODO: Add reaction to the message listed here.
+			//TODO: Add reaction to the message at the ID listed here.
 
 			//Process every third item from the
 			args, err := parseargs.Parse(message.Content[31:])

@@ -38,7 +38,6 @@ func (b *JackalDB) Close() {
 ///TODO: Review this function. Wrote this during session.
 
 //Put is a wrapping function for putting data into the databucket database. It should make storage actions simple and safe.
-//This can also take buckets, so they can still be nested!
 func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 
 	err = b.Db.Update(func(tx *bolt.Tx) error {
@@ -60,7 +59,6 @@ func (b *JackalDB) Put(bucket string, key string, value string) (err error) {
 ///TODO: Review this function. Wrote this during session.
 
 //Get is a wrapping function for putting data into the databucket database. It should make queries simple and safe.
-//This can still take buckets, so we still support buckets!
 func (b *JackalDB) Get(bucket string, query string) (queryReturn []byte, err error) {
 
 	err = b.Db.View(func(tx *bolt.Tx) error {
@@ -76,6 +74,23 @@ func (b *JackalDB) Get(bucket string, query string) (queryReturn []byte, err err
 	if err == nil && len(queryReturn) < 1 {
 		err = errors.New("database query did not result in an answer")
 	}
+
+	return
+}
+
+func (b *JackalDB) CreateNestedBucket(root, name string) (bucket *bolt.Bucket, err error) {
+
+	err = b.Db.Update(func(tx *bolt.Tx) error {
+		base, err := tx.CreateBucketIfNotExists([]byte(root))
+
+		if err != nil {
+			return err
+		}
+
+		bucket, err = base.CreateBucketIfNotExists([]byte(name))
+
+		return err
+	})
 
 	return
 }
