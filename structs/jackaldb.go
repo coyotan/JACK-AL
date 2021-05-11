@@ -22,6 +22,14 @@ func (core *CoreCfg) InitDB() (dbError error) {
 	if dbError != nil {
 		return dbError
 	}
+
+	//Ensure that root is created, if it is not already for some reason.
+	dbError = core.DB.Db.Update(func(tx *bolt.Tx) error {
+		_, err := tx.CreateBucketIfNotExists([]byte("root"))
+
+		return err
+	})
+
 	return
 }
 
@@ -78,16 +86,22 @@ func (b *JackalDB) Get(bucket string, query string) (queryReturn []byte, err err
 	return
 }
 
-func (b *JackalDB) CreateNestedBucket(root, name string) (bucket *bolt.Bucket, err error) {
+//I'm not sure at all if this works, but I do really hope that it does.
+func (b *JackalDB) CreateNestedBucket(parent *bolt.Bucket, name string) (bucket *bolt.Bucket, err error) {
 
 	err = b.Db.Update(func(tx *bolt.Tx) error {
-		base, err := tx.CreateBucketIfNotExists([]byte(root))
+		bucket, err = parent.CreateBucketIfNotExists([]byte(name))
 
-		if err != nil {
-			return err
-		}
+		return err
+	})
 
-		bucket, err = base.CreateBucketIfNotExists([]byte(name))
+	return
+}
+
+func (b *JackalDB) GetNestedBucket(parent *bolt.Bucket, name string) (bucket *bolt.Bucket, err error) {
+
+	err = b.Db.Update(func(tx *bolt.Tx) error {
+		bucket, err = tx.CreateBucketIfNotExists([]byte(name))
 
 		return err
 	})
