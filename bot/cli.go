@@ -14,6 +14,7 @@ import (
 func GetInput() string {
 
 	reader := bufio.NewReader(os.Stdin)
+	fmt.Print(os.Stdin.Name())
 
 	for {
 

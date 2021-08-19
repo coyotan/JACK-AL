@@ -12,7 +12,8 @@ RUN apk update
 RUN apk add git
 RUN go mod download
 
-copy * ./
+#This is our problem line.
+COPY . .
 
 RUN go build -o /jackal
 
