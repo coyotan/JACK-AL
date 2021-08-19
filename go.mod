@@ -1,4 +1,4 @@
-module github.com/CoyoTan/JACK-AL
+module github.com/coyotan/JACK-AL
 
 go 1.15
 

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/CoyoTan/JACK-AL/bot"
-	"github.com/CoyoTan/JACK-AL/config"
-	"github.com/CoyoTan/JACK-AL/structs"
+	"github.com/coyotan/JACK-AL/bot"
+	"github.com/coyotan/JACK-AL/config"
+	"github.com/coyotan/JACK-AL/structs"
 )
 
 var (

@@ -1,9 +1,9 @@
 package bot
 
 import (
-	"github.com/CoyoTan/JACK-AL/bot/responders"
-	"github.com/CoyoTan/JACK-AL/structs"
 	"github.com/bwmarrin/discordgo"
+	"github.com/coyotan/JACK-AL/bot/responders"
+	"github.com/coyotan/JACK-AL/structs"
 	"github.com/txgruppi/parseargs-go"
 	"os"
 )

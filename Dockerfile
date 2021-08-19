@@ -12,7 +12,7 @@ RUN apk update
 RUN apk add git
 RUN go mod download
 
-copy *.go ./
+copy * ./
 
 RUN go build -o /jackal
 
