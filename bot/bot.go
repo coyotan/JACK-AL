@@ -76,6 +76,7 @@ func dgOpen() {
 	err = dg.Open()
 
 	if err != nil {
+		jackal.Logger.Console.Println(err)
 		jackal.Logger.Error.Println(err)
 		os.Exit(101)
 	}
