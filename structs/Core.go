@@ -10,8 +10,6 @@ type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
 	Logger logs
 
-	DB *JackalDB //Let's go ahead and achieve the first goal. Adding in BoltDB.
-
 	Discord DiscordConn `json:"discord"`
 }
 
