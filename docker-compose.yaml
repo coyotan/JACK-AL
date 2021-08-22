@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  jackal:
+    image: coyotech/jackal:latest
+    hostname: jackal
+    container_name: jackal
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    networks:
+      jackalNet:
+        ipv4_address: 172.16.0.2
+    volumes:
+      - JackalData:/root/.config/JACK-AL
+    environment:
+      - DISCTOKEN=[INSERT TOKEN HERE]
+
+  cassandra:
+    image: cassandra:latest
+    hostname: cassandra
+    container_name: cassandra
+    restart: unless-stopped
+    networks:
+      jackalNet:
+        ipv4_address: 172.16.0.3
+    volumes:
+      - CassandraData:/var/lib/cassandra
+
+volumes:
+  JackalData:
+    external: false
+  CassandraData:
+    external: false
+
+#docker network create --gateway 172.16.0.1 --subnet 172.16.0.0/24 jackalNet should be run before docker-compose up -d is attempted, otherwise this will error!
+networks:
+  jackalNet:
+    external: true
