@@ -27,6 +27,11 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 
 	//Before we load, let's see if it's the first run. If it is, we'll make the config file next.
 	if IsFirstRun() {
+
+		if !IsDockerContainer() {
+			fmt.Println("JACK-AL has detected that this is the first time it's been here. Please go to " + GetConfDir() + "and populate the config.json file with the bot's Discord Token.")
+		}
+
 		//Make file in ConfDir, and return as file used, so we can adjust the code that follows...
 		err := SaveCfg(configPath, &core)
 
@@ -111,6 +116,15 @@ func GetConfDir() (fPath string) {
 	return path + "/JACK-AL"
 }
 
+//IsDockerContainer checks to evaluate if the bot is running in a docker container, or on bare metal.
+func IsDockerContainer() (IsContainer bool) {
+	if logutil.VerifyFile("/.dockerenv") {
+		return true
+	} else {
+		return false
+	}
+}
+
 //IsFirstRun returns a boolean if the program detects this is its first run. This can be evaluated by checking for the existence of a configuration file.
 //If one does not exist at either path, then we can assume that this is the first run.
 //TODO: Add support for accessing environment variables to perform authentication to Discord and the Cassandra database.
@@ -122,7 +136,6 @@ func IsFirstRun() (firstRun bool) {
 			break
 		} else {
 			firstRun = true
-			fmt.Println("Please find the config.json file in" + GetConfDir() + "and populate it with the information about your bot.")
 		}
 	}
 	return
