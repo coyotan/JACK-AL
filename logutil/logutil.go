@@ -69,8 +69,7 @@ func CreateFile(path string, fName string) (file *os.File, err error) {
 		}
 	}
 
-	fPath := filepath.Join(path, filepath.Clean(fName))
-	file, err = os.OpenFile(fPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
+	file, err = os.OpenFile(filepath.Clean(filepath.Join(path, fName)), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
 
 	if err != nil {
 		if initComplete {
