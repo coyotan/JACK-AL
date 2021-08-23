@@ -3,6 +3,7 @@ package logutil
 import (
 	"log"
 	"os"
+	"path/filepath"
 )
 
 var (
@@ -58,7 +59,7 @@ func VerifyFile(fName string) (fExists bool) {
 }
 
 //CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
-func CreateFile(path string, fName string) (fHandle *os.File, err error) {
+func CreateFile(path string, fName string) (file *os.File, err error) {
 
 	err = os.MkdirAll(path, 0644)
 
@@ -68,7 +69,8 @@ func CreateFile(path string, fName string) (fHandle *os.File, err error) {
 		}
 	}
 
-	fHandle, err = os.OpenFile(path+fName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	fPath := filepath.Join(path, filepath.Clean(fName))
+	file, err = os.OpenFile(fPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
 
 	if err != nil {
 		if initComplete {
@@ -81,7 +83,7 @@ func CreateFile(path string, fName string) (fHandle *os.File, err error) {
 		//Exit code 1 is reserved for failed creation of log file. This should be a dead give away of the issue.
 	}
 
-	return fHandle, err
+	return file, err
 }
 
 //GetUserConfDir gets the application data directory of the operating system this code is running on. For example, in Windows this is %APPDATA%/JACK-AL
