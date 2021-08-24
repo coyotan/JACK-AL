@@ -15,18 +15,20 @@ import (
 )
 
 var (
-	jackal              *structs.CoreCfg
-	initLocalListener   map[string]func(core *structs.CoreCfg) (err error)
-	editLocalListener   map[string]func(edited *discordgo.MessageUpdate) (err error)
-	createLocalListener map[string]func(message *discordgo.Message) (err error)
-	deleteLocalListener map[string]func(deleted *discordgo.MessageDelete) (err error)
-	reactLocalListener  map[string]func(deleted *discordgo.MessageReaction) (err error)
+	jackal                 *structs.CoreCfg
+	initLocalListener      map[string]func(core *structs.CoreCfg) (err error)
+	editLocalListener      map[string]func(edited *discordgo.MessageUpdate) (err error)
+	createLocalListener    map[string]func(message *discordgo.Message) (err error)
+	nonPrefixLocalListener map[string]func(message *discordgo.Message) (err error)
+	deleteLocalListener    map[string]func(deleted *discordgo.MessageDelete) (err error)
+	reactLocalListener     map[string]func(deleted *discordgo.MessageReaction) (err error)
 )
 
 func init() {
 	initLocalListener = make(map[string]func(message *structs.CoreCfg) (err error))
 	editLocalListener = make(map[string]func(message *discordgo.MessageUpdate) (err error))
 	createLocalListener = make(map[string]func(message *discordgo.Message) (err error))
+	nonPrefixLocalListener = make(map[string]func(message *discordgo.Message) (err error))
 	deleteLocalListener = make(map[string]func(message *discordgo.MessageDelete) (err error))
 	reactLocalListener = make(map[string]func(message *discordgo.MessageReaction) (err error))
 }
@@ -38,6 +40,7 @@ func InitAll(core *structs.CoreCfg) {
 	jackal.Discord.EditListeners = editLocalListener
 	jackal.Discord.InitModListeners = initLocalListener
 	jackal.Discord.CreateListeners = createLocalListener
+	jackal.Discord.NonprefixListeners = nonPrefixLocalListener
 	jackal.Discord.DeleteListeners = deleteLocalListener
 	jackal.Discord.ReactListeners = reactLocalListener
 }
@@ -56,6 +59,24 @@ func addCreateListener(name string, responder func(message *discordgo.Message) (
 	}
 
 	createLocalListener[name] = responder
+
+	return
+}
+
+func addNonprefixListener(name string, responder func(message *discordgo.Message) (err error)) (err error) {
+
+	if nonPrefixLocalListener == nil {
+		nonPrefixLocalListener = make(map[string]func(message *discordgo.Message) (err error))
+	}
+
+	//This might be able to be revised in the future. It may not be important for users to be able to name their map keys themselves, so we might be able to use a random ID generator for this in the future.
+	if _, ok := nonPrefixLocalListener[name]; ok {
+		err = errors.New("NonprefixListeners already contains a function with this name. Please pick a different name")
+
+		return
+	}
+
+	nonPrefixLocalListener[name] = responder
 
 	return
 }

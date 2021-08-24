@@ -1,7 +1,9 @@
 package structs
 
 import (
+	"encoding/json"
 	"fmt"
+	"github.com/bwmarrin/discordgo"
 	"github.com/gocql/gocql"
 )
 
@@ -26,7 +28,7 @@ func (database *Db) CreateUserTable() (err error) {
 
 func (database *Db) CreateMessagesTable() (err error) {
 
-	if err = database.session.Query(`CREATE TABLE IF NOT EXISTS jackal.messages (messageid text, channelid text, guildid text, authorid text, content text, messagetype text, json text, PRIMARY KEY (messageid, guildid))`).Exec(); err != nil {
+	if err = database.session.Query(`CREATE TABLE IF NOT EXISTS jackal.messages (messageid text, channelid text, guildid text, authorid text, content text, messagetype text, json text, messagesent timestamp, messageupdated timestamp, PRIMARY KEY (messageid, guildid)) WITH compression = {'class': 'LZ4Compressor', 'chunk_length_in_kb': 64, 'crc_check_chance': 0.5};`).Exec(); err != nil {
 		return err
 	}
 
@@ -76,4 +78,30 @@ func (database *Db) SelectUserByID(userid string) {
 
 	fmt.Println(id, allRemainingData)
 
+}
+
+func (database *Db) AddMessage(message *discordgo.Message) (err error) {
+
+	messageJson, err := json.Marshal(message)
+
+	if err != nil {
+		return err
+	}
+
+	err = database.session.Query(`INSERT INTO jackal.messages (messageid, channelid, guildid, authorid, content, messagetype, json, messagesent, messageupdated) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		message.ID,
+		message.ChannelID,
+		message.GuildID,
+		message.Author.ID,
+		message.Content,
+		message.Type,
+		messageJson,
+		message.Timestamp,
+		message.EditedTimestamp).Exec()
+
+	if err != nil {
+		return err
+	}
+
+	return
 }

@@ -51,6 +51,22 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 	}
 }
 
+func NonprefixDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
+	var totalListeners = 0
+	//When we detect a message that was NOT prefixed with the command, we should send it here. This is useful for things like logging functions.
+	for _, v := range jackal.Discord.NonprefixListeners {
+		err := v(created.Message)
+
+		if err != nil {
+			jackal.Logger.Error.Println("Responder is 10-33", err)
+		} else {
+			totalListeners++
+		}
+	}
+
+	jackal.Logger.Console.Println("Dispatched INIT to ", totalListeners, " listeners. All responders are 10-8.")
+}
+
 //Thanks to the new "BeforeDelete" method, this is all this function really needs to be! It's so much simpler now!
 func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
 	if deleted.Message.Author.ID != jackal.Discord.User.ID {
