@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/coyotan/JACK-AL/logutil"
 )
@@ -40,7 +41,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 		}
 	}
 
-	LoadCfg(configPath, &core)
+	_ = LoadCfg(configPath, &core)
 
 	return
 }
@@ -48,7 +49,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 //LoadCfg configuration from specified directory and provide it to interface. Ideally this would be a reference.
 func LoadCfg(filename string, config interface{}) (err error) {
 
-	file, err := os.Open(filename)
+	file, err := os.Open(filepath.Clean(filename))
 
 	if err != nil {
 		logErr.Println("There was a critical error opening the core json.\n", err)
@@ -63,7 +64,7 @@ func LoadCfg(filename string, config interface{}) (err error) {
 		os.Exit(11)
 	}
 
-	json.Unmarshal(byteVal, &config)
+	err = json.Unmarshal(byteVal, &config)
 
 	return err
 }
@@ -79,11 +80,12 @@ func SaveCfg(fName string, core interface{}) (err error) {
 			//File failed to write to config... but it did open.
 		}
 
-		ioutil.WriteFile(fName, confOut, 660)
+		//TODO: At a later date, change this from a discard to some logging information for posterity's sake.
+		_ = ioutil.WriteFile(fName, confOut, 600)
 
 	} else {
 		//If it does not exist, make it!
-		err = os.MkdirAll(fName[:len(fName)-12], 660)
+		err = os.MkdirAll(fName[:len(fName)-12], 750)
 
 		if err != nil {
 			logErr.Println("There was a critical error creating a directory in "+fName[:12], err)
@@ -97,7 +99,7 @@ func SaveCfg(fName string, core interface{}) (err error) {
 			//Prevent recursion by stopping here... we do NOT want to continue with this one.
 		}
 
-		SaveCfg(fName, core)
+		_ = SaveCfg(fName, core)
 	}
 
 	return
@@ -105,8 +107,8 @@ func SaveCfg(fName string, core interface{}) (err error) {
 
 //GetConfDir returns the file location for the ideal place to use for a working directory.
 func GetConfDir() (fPath string) {
-	path, err := os.UserConfigDir()
 
+	path, err := os.UserConfigDir()
 	//We can exit code for this, since this shouldn't ever happen.
 	if err != nil {
 		logErr.Println("Couldn't find config directory.", err)

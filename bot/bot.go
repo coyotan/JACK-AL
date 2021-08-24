@@ -1,6 +1,7 @@
 package bot
 
 import (
+	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/coyotan/JACK-AL/bot/responders"
 	"github.com/coyotan/JACK-AL/structs"
@@ -31,7 +32,6 @@ func Init(core *structs.CoreCfg) {
 				jackal.Logger.Console.Println("Pong")
 			case "leave":
 				jackal.Discord.Session.Close()
-				jackal.DB.Close()
 				os.Exit(100)
 			}
 		}
@@ -81,11 +81,25 @@ func dgOpen() {
 		os.Exit(101)
 	}
 
-	if err := jackal.InitDB(); err != nil {
-		jackal.Logger.Error.Println("There was a critical error opening the Jackal Database.", err.Error())
-		os.Exit(20)
+	if err := jackal.InitCassandraDB(); err != nil {
+
+		if jackal.IsDockerContainer() {
+			fmt.Println("Is a docker container!")
+			//Announce that we will configure the database for them!
+			jackal.Logger.Console.Println("JACKAL is currently configuring the Cassandra database. Please standby.")
+
+			fmt.Println(jackal.Database.CreateUserTable())
+
+		} else {
+			//Tell them that since they didn't use the docker container, they need to do it themselves!
+			jackal.Logger.Console.Println("JACK-AL has detected that it is not in a docker container, and that the database has not yet been configured. JACK-AL cannot automatically configure databases at this time. Please follow the guidance on the github page to manually configure the Cassandra database.")
+			//TODO: Make this not matter in the future. JACKAL should be able to configure the database, so long as it knows where to find it. This snip of code probably won't even make it to the next release, but it is here for now.
+			jackal.Logger.Error.Println("There was a critical error opening the Jackal Database.", err.Error())
+			os.Exit(20)
+		}
 	}
 
+	jackal.Database.SelectUserByID("228355771526676480")
 	jackal.Logger.Info.Println("JackalDB Initialization Completed!")
 
 }

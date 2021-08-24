@@ -27,7 +27,6 @@ func responderLeave(message *discordgo.Message) (err error) {
 				jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "Leaving now!")
 				jackal.Discord.Session.Close()
 				jackal.Logger.Info.Println("Peacefully closing JACK-AL. Exit Code 100")
-				jackal.DB.Close()
 				os.Exit(100)
 			}
 		} else if err != nil {

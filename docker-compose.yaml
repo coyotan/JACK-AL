@@ -13,7 +13,9 @@ services:
     volumes:
       - JackalData:/root/.config/JACK-AL
     environment:
-      - DISCTOKEN=[INSERT TOKEN HERE]
+      - DISCTOKEN=
+      - CASSANDRA=172.16.0.3
+      #TODO: In the future, add array parsing to allow for scalability of the Cassandra cluster. This will have to be done in structs/core.go
 
   cassandra:
     image: cassandra:latest
