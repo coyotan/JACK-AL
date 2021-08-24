@@ -66,6 +66,7 @@ func dgOpen() {
 
 	dg.AddHandler(ready)
 	dg.AddHandler(createDispatch)
+	dg.AddHandler(NonprefixDispatch)
 	dg.AddHandler(editDispatch)
 	dg.AddHandler(deleteDispatch)
 	dg.AddHandler(addReactionDispatch)
