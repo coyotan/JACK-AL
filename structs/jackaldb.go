@@ -28,7 +28,7 @@ func (database *Db) CreateUserTable() (err error) {
 
 func (database *Db) CreateMessagesTable() (err error) {
 
-	if err = database.session.Query(`CREATE TABLE IF NOT EXISTS jackal.messages (messageid text, channelid text, guildid text, authorid text, content text, messagetype text, json text, messagesent timestamp, messageupdated timestamp, PRIMARY KEY (messageid, guildid)) WITH compression = {'class': 'LZ4Compressor', 'chunk_length_in_kb': 64, 'crc_check_chance': 0.5};`).Exec(); err != nil {
+	if err = database.session.Query(`CREATE TABLE IF NOT EXISTS jackal.messages (messageid text, channelid text, guildid text, authorid text, content text, messagetype int, json text, messagesent timestamp, messageupdated timestamp, PRIMARY KEY (messageid, guildid)) WITH compression = {'class': 'LZ4Compressor', 'chunk_length_in_kb': 64, 'crc_check_chance': 0.5};`).Exec(); err != nil {
 		return err
 	}
 
@@ -80,6 +80,7 @@ func (database *Db) SelectUserByID(userid string) {
 
 }
 
+//TODO: Add AlterMessage to take into account for updates and edits to messages.
 func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 
 	messageJson, err := json.Marshal(message)
@@ -88,7 +89,12 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 		return err
 	}
 
-	err = database.session.Query(`INSERT INTO jackal.messages (messageid, channelid, guildid, authorid, content, messagetype, json, messagesent, messageupdated) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+	timestamp1, err := message.Timestamp.Parse()
+	if err != nil {
+		return err
+	}
+
+	err = database.session.Query(`INSERT INTO jackal.messages (messageid, channelid, guildid, authorid, content, messagetype, json, messagesent) VALUES( ?, ?, ?, ?, ?, ?, ?, ?)`,
 		message.ID,
 		message.ChannelID,
 		message.GuildID,
@@ -96,8 +102,7 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 		message.Content,
 		message.Type,
 		messageJson,
-		message.Timestamp,
-		message.EditedTimestamp).Exec()
+		timestamp1).Exec()
 
 	if err != nil {
 		return err

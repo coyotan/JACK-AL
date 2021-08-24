@@ -66,7 +66,7 @@ func dgOpen() {
 
 	dg.AddHandler(ready)
 	dg.AddHandler(createDispatch)
-	dg.AddHandler(NonprefixDispatch)
+	dg.AddHandler(nonprefixDispatch)
 	dg.AddHandler(editDispatch)
 	dg.AddHandler(deleteDispatch)
 	dg.AddHandler(addReactionDispatch)
@@ -100,7 +100,6 @@ func dgOpen() {
 		}
 	}
 
-	jackal.Database.SelectUserByID("228355771526676480")
 	jackal.Logger.Info.Println("JackalDB Initialization Completed!")
 
 }

@@ -1,9 +1,12 @@
 package responders
 
-import "github.com/bwmarrin/discordgo"
+import (
+	"fmt"
+	"github.com/bwmarrin/discordgo"
+)
 
 func init() {
-	addNonprefixListener("", logMessageIntoDB)
+	fmt.Println(addNonprefixListener("logmessage", logMessageIntoDB))
 }
 
 func logMessageIntoDB(message *discordgo.Message) (err error) {

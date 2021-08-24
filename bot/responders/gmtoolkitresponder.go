@@ -44,8 +44,8 @@ func hypotenuseResponder(message *discordgo.Message) (err error) {
 		_, err = jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "The distance measured is "+strconv.FormatFloat(c, 'c', 2, 64))
 
 	} else {
-		//Respond that we don't have enough arguments.
-		jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "You did not provide enough arguments to execute the function. A and B must be provided to get C.")
+		//Respond that we don't have enough arguments. WE SHOULD NOT DO THIS IF WE WERE PART OF THE ALL CALL
+		//jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "You did not provide enough arguments to execute the function. A and B must be provided to get C.")
 	}
 
 	return

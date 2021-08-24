@@ -24,9 +24,9 @@ type reAction struct {
 }
 
 func init() {
-	addCreateListener("reactionact", responderReactionAction)
-
-	addReactListener("addreaction", responderPoll)
+	//	addCreateListener("reactionact", responderReactionAction)
+	//TODO: Figure out how Vix was able to activate these functions despite them not being fully implemented.
+	//	addReactListener("addreaction", responderPoll)
 }
 
 func responderReactionAction(message *discordgo.Message) (err error) {

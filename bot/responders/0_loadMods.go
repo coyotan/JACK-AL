@@ -10,6 +10,7 @@ jackal.Discord - Contains Discord configuration
 
 import (
 	"errors"
+	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/coyotan/JACK-AL/structs"
 )
@@ -73,11 +74,10 @@ func addNonprefixListener(name string, responder func(message *discordgo.Message
 	if _, ok := nonPrefixLocalListener[name]; ok {
 		err = errors.New("NonprefixListeners already contains a function with this name. Please pick a different name")
 
-		return
+		return err
 	}
 
 	nonPrefixLocalListener[name] = responder
-
 	return
 }
 
