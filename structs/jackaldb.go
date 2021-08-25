@@ -44,43 +44,60 @@ func (database *Db) CreateUserRecord(userid string, email string, username strin
 	return
 }
 
-func (database *Db) SelectUserByID(userid string) {
-	var id gocql.UUID
-	var allRemainingData string
+func (database *Db) SelectUserByID(userid string) (result DBUser, err error) {
+	var (
+		qUserID       = ""
+		avatar        = ""
+		bot           = false
+		discriminator = ""
+		email         = ""
+		isAdmin       = false
+		isDeveloper   = false
+		locale        = ""
+		publicFlags   = 0
+		username      = ""
+		mfa           = false
+		verified      = false
+	)
 
 	scanner := database.session.Query(`SELECT * FROM jackal.users WHERE userid = ? `, userid).Iter().Scanner()
 
-	for scanner.Next() {
-		var (
-			userid        string
-			avatar        string
-			bot           bool
-			discriminator string
-			email         string
-			isAdmin       bool
-			isDeveloper   bool
-			locale        string
-			publicFlags   int
-			username      string
-			mfa           bool
-			verified      bool
-		)
-		//Note, apparently the database prefers to return shit in alphabetical order EXCEPT the primary key. We will have to keep this in mind when dealing with queries.
-		err := scanner.Scan(&userid, &avatar, &bot, &discriminator, &email, &isAdmin, &isDeveloper, &locale, &mfa, &publicFlags, &username, &verified)
-		if err != nil {
-			fmt.Println(err)
-		}
-		fmt.Println(userid, email, username, avatar, locale, discriminator, publicFlags, isDeveloper, isAdmin, verified, mfa, bot)
+	scanner.Next()
+
+	//Note, apparently the database prefers to return shit in alphabetical order EXCEPT the primary key. We will have to keep this in mind when dealing with queries.
+	err = scanner.Scan(&qUserID, &avatar, &bot, &discriminator, &email, &isAdmin, &isDeveloper, &locale, &mfa, &publicFlags, &username, &verified)
+	if err != nil {
+		return DBUser{}, err
 	}
+
+	fmt.Println(qUserID, email, username, avatar, locale, discriminator, publicFlags, isDeveloper, isAdmin, verified, mfa, bot)
+	fmt.Println("Passing debug printing.")
+
 	if err := scanner.Err(); err != nil {
-		fmt.Println(err)
+		return DBUser{}, err
 	}
 
-	fmt.Println(id, allRemainingData)
+	result = DBUser{
+		JDB: DBData{
+			isAdmin:     isAdmin,
+			isDeveloper: isDeveloper,
+		},
+		User: discordgo.User{
+			ID:            qUserID,
+			Email:         email,
+			Username:      username,
+			Avatar:        avatar,
+			Locale:        locale,
+			Discriminator: discriminator,
+			Verified:      verified,
+			MFAEnabled:    mfa,
+			Bot:           bot,
+		},
+	}
 
+	return
 }
 
-//TODO: Add AlterMessage to take into account for updates and edits to messages.
 func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 
 	messageJson, err := json.Marshal(message)
@@ -109,4 +126,56 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 	}
 
 	return
+}
+
+func (database *Db) AddUserFromMessage(message *discordgo.Message) (err error) {
+
+	if err != nil {
+		return err
+	}
+
+	if result, err := database.SelectUserByID(message.Author.ID); err != nil {
+		//TODO: Remove assumption that this means that the user does not exist. This is a BAD fucking idea. Change to database error type checking.
+
+		err = database.session.Query(`INSERT INTO jackal.users (userid, email, username, avatar, locale, discriminator, publicflags, isdeveloper, isadmin, verified, mfaenabled, bot ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+			message.Author.ID,
+			message.Author.Email,
+			message.Author.Username,
+			message.Author.Avatar,
+			message.Author.Locale,
+			message.Author.Discriminator,
+			message.Author.PublicFlags,
+			false,
+			false,
+			message.Author.Verified,
+			message.Author.MFAEnabled,
+			message.Author.Bot).Exec()
+
+		if err != nil {
+			return err
+		}
+
+	} else if result.User.ID == message.Author.ID {
+		if !(message.Author.Username == result.User.Username && message.Author.Discriminator == result.User.Discriminator && message.Author.Avatar == result.User.Avatar) {
+			err = database.session.Query(`UPDATE jackal.users SET email = ? , username = ? , avatar = ? , locale = ? , discriminator = ? , publicflags = ? , isdeveloper = ? , isadmin = ? , verified = ? , mfaenabled = ? , bot = ? WHERE userid = ? `,
+				message.Author.Email,
+				message.Author.Username,
+				message.Author.Avatar,
+				message.Author.Locale,
+				message.Author.Discriminator,
+				message.Author.PublicFlags,
+				result.JDB.GetDeveloper(),
+				result.JDB.GetAdmin(),
+				message.Author.Verified,
+				message.Author.MFAEnabled,
+				message.Author.Bot,
+				message.Author.ID).Exec()
+
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return err
 }

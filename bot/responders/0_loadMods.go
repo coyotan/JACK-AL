@@ -10,7 +10,6 @@ jackal.Discord - Contains Discord configuration
 
 import (
 	"errors"
-	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/coyotan/JACK-AL/structs"
 )

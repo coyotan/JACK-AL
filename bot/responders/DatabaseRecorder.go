@@ -10,5 +10,10 @@ func init() {
 }
 
 func logMessageIntoDB(message *discordgo.Message) (err error) {
+	err = jackal.Database.AddUserFromMessage(message)
+	if err != nil {
+		return err
+	}
+
 	return jackal.Database.AddMessage(message)
 }
