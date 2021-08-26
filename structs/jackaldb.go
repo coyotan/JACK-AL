@@ -100,32 +100,52 @@ func (database *Db) SelectUserByID(userid string) (result DBUser, err error) {
 
 func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 
+	var (
+		channelid = ""
+		guildid   = ""
+		authorid  = ""
+		content   = ""
+	)
+
 	messageJson, err := json.Marshal(message)
 
 	if err != nil {
 		return err
 	}
 
-	timestamp1, err := message.Timestamp.Parse()
-	if err != nil {
-		return err
-	}
+	qRes := database.session.Query(`SELECT channelid, guilid, authorid, content FROM jackal.messages WHERE messageid = ?`, message.ID).Iter().Scanner()
 
-	err = database.session.Query(`INSERT INTO jackal.messages (messageid, channelid, guildid, authorid, content, messagetype, json, messagesent) VALUES( ?, ?, ?, ?, ?, ?, ?, ?)`,
-		message.ID,
-		message.ChannelID,
-		message.GuildID,
-		message.Author.ID,
-		message.Content,
-		message.Type,
-		messageJson,
-		timestamp1).Exec()
+	qRes.Next()
+	err = qRes.Scan(&channelid, &guildid, &authorid, &content)
 
 	if err != nil {
-		return err
+		//TODO: Remove the assumption that this is "entry doesn't exist". This is a horrid idea and I'm just too lazy to fix it in a dev build.
+		//return err
 	}
 
-	return
+	if !(channelid == message.ChannelID && message.GuildID == message.GuildID && message.Author.ID == authorid && message.Content == content) {
+
+		timestamp1, err := message.Timestamp.Parse()
+		if err != nil {
+			return err
+		}
+
+		err = database.session.Query(`INSERT INTO jackal.messages (messageid, channelid, guildid, authorid, content, messagetype, json, messagesent) VALUES( ?, ?, ?, ?, ?, ?, ?, ?)`,
+			message.ID,
+			message.ChannelID,
+			message.GuildID,
+			message.Author.ID,
+			message.Content,
+			message.Type,
+			messageJson,
+			timestamp1).Exec()
+
+		if err != nil {
+			return err
+		}
+	}
+
+	return err
 }
 
 func (database *Db) AddUserFromMessage(message *discordgo.Message) (err error) {

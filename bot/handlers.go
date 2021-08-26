@@ -1,6 +1,7 @@
 package bot
 
 import (
+	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/coyotan/JACK-AL/structs"
 	"strings"
@@ -67,8 +68,10 @@ func nonprefixDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 	jackal.Logger.Console.Println("Dispatched a non-prefix message to ", totalListeners, " listeners. All responders are 10-8.")
 }
 
+//TODO: Fix delete! Right now it's not doing so hot due to the fact that deleted message object's don't have authors.
 //Thanks to the new "BeforeDelete" method, this is all this function really needs to be! It's so much simpler now!
 func deleteDispatch(_ *discordgo.Session, deleted *discordgo.MessageDelete) {
+	fmt.Println(deleted.BeforeDelete.Author.ID)
 	if deleted.Message.Author.ID != jackal.Discord.User.ID {
 		var totalListeners = 0
 		//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
