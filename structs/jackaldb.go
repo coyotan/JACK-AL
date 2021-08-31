@@ -60,22 +60,20 @@ func (database *Db) SelectUserByID(userid string) (result DBUser, err error) {
 		verified      = false
 	)
 
-	scanner := database.session.Query(`SELECT * FROM jackal.users WHERE userid = ? `, userid).Iter().Scanner()
-
-	scanner.Next()
-
 	//Note, apparently the database prefers to return shit in alphabetical order EXCEPT the primary key. We will have to keep this in mind when dealing with queries.
-	err = scanner.Scan(&qUserID, &avatar, &bot, &discriminator, &email, &isAdmin, &isDeveloper, &locale, &mfa, &publicFlags, &username, &verified)
+	err = database.session.Query(`SELECT * FROM jackal.users WHERE userid = ? `, userid).Scan(&qUserID, &avatar, &bot, &discriminator, &email, &isAdmin, &isDeveloper, &locale, &mfa, &publicFlags, &username, &verified)
+
 	if err != nil {
+		fmt.Println("Erroring here")
 		return DBUser{}, err
 	}
 
 	fmt.Println(qUserID, email, username, avatar, locale, discriminator, publicFlags, isDeveloper, isAdmin, verified, mfa, bot)
 	fmt.Println("Passing debug printing.")
 
-	if err := scanner.Err(); err != nil {
-		return DBUser{}, err
-	}
+	//	if err := scanner.Err(); err != nil {
+	//		return DBUser{}, err
+	//	}
 
 	result = DBUser{
 		JDB: DBData{
@@ -113,14 +111,15 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 		return err
 	}
 
-	qRes := database.session.Query(`SELECT channelid, guilid, authorid, content FROM jackal.messages WHERE messageid = ?`, message.ID).Iter().Scanner()
-
-	qRes.Next()
-	err = qRes.Scan(&channelid, &guildid, &authorid, &content)
+	err = database.session.Query(`SELECT channelid, guildid, authorid, content FROM jackal.messages WHERE messageid = ?`, message.ID).Scan(&channelid, &guildid, &authorid, &content)
 
 	if err != nil {
-		//TODO: Remove the assumption that this is "entry doesn't exist". This is a horrid idea and I'm just too lazy to fix it in a dev build.
-		//return err
+		if !(err.Error() == "not found") {
+			return err
+		} else {
+			//If the error is that it is not found, reset the error! This is expected.
+			err = nil
+		}
 	}
 
 	if !(channelid == message.ChannelID && message.GuildID == message.GuildID && message.Author.ID == authorid && message.Content == content) {

@@ -83,7 +83,6 @@ func logHistoryIntoDB(message *discordgo.Message, amount int) (err error) {
 				}
 			}
 			//Set the lastID to the new lastID
-			fmt.Println(len(messages))
 			lastID = messages[len(messages)-1].ID
 		}
 

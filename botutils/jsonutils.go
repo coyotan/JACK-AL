@@ -50,7 +50,6 @@ func SaveCfg(fName string, core interface{}) (err error) {
 	} else {
 		//If it does not exist, make it!
 		err = os.MkdirAll(fName[:len(fName)-12], 750)
-
 		if err != nil {
 			return err
 			//Unreachable but left for future documentation
