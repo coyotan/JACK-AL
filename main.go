@@ -15,6 +15,9 @@ var (
 )
 
 func init() {
+	jackal.Logger.Console, jackal.Logger.Info, jackal.Logger.Warn, jackal.Logger.Error = config.Init(&jackal)
+	jackal.Logger.Info.Println("\n\n//========== JACK-AL: " + jackalClass + " Has Begun Execution. ==========\\\\")
+	jackal.Logger.Info.Println("Passing to package: Bot")
 
 	//This is here to support containers, because APPARENTLY making life easy requires first making it more difficult.
 	if botutils.IsDockerContainer() {
@@ -27,10 +30,6 @@ func init() {
 			fmt.Println("DISCTOKEN not present in environment. Please read the logs for more information.")
 		}
 	}
-
-	jackal.Logger.Console, jackal.Logger.Info, jackal.Logger.Warn, jackal.Logger.Error = config.Init(&jackal)
-	jackal.Logger.Info.Println("\n\n//========== JACK-AL: " + jackalClass + " Has Begun Execution. ==========\\\\")
-	jackal.Logger.Info.Println("Passing to package: Bot")
 
 	bot.Init(&jackal)
 }

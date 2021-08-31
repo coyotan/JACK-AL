@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/coyotan/JACK-AL/bot/responders"
+	"github.com/coyotan/JACK-AL/botutils"
 	"github.com/coyotan/JACK-AL/structs"
 	"github.com/txgruppi/parseargs-go"
 	"os"
@@ -31,8 +32,20 @@ func Init(core *structs.CoreCfg) {
 			case "ping":
 				jackal.Logger.Console.Println("Pong")
 			case "leave":
-				jackal.Discord.Session.Close()
-				os.Exit(100)
+
+				err := botutils.SaveCfg(botutils.ConfigDir+"config.json", jackal)
+
+				if err != nil {
+					jackal.Logger.Console.Println("Failed to save to config.json. Current running configuration will be lost. Please check the log file for more information.")
+					jackal.Logger.Error.Println(err)
+					jackal.Logger.Info.Println("JACK-AL closing with errors. Exit Code 199")
+					jackal.Discord.Session.Close()
+					os.Exit(199)
+				} else {
+					jackal.Logger.Info.Println("Peacefully closing JACK-AL. Exit Code 100")
+					jackal.Discord.Session.Close()
+					os.Exit(100)
+				}
 			}
 		}
 	}
