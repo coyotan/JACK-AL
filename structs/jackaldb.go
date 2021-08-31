@@ -103,6 +103,7 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 		guildid   = ""
 		authorid  = ""
 		content   = ""
+		notFound  bool
 	)
 
 	messageJson, err := json.Marshal(message)
@@ -118,11 +119,12 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 			return err
 		} else {
 			//If the error is that it is not found, reset the error! This is expected.
+			notFound = true
 			err = nil
 		}
 	}
 
-	if !(channelid == message.ChannelID && message.GuildID == message.GuildID && message.Author.ID == authorid && message.Content == content) {
+	if notFound {
 
 		timestamp1, err := message.Timestamp.Parse()
 		if err != nil {
@@ -142,6 +144,23 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 		if err != nil {
 			return err
 		}
+	} else if !(channelid == message.ChannelID && guildid == message.GuildID && message.Author.ID == authorid && message.Content == content) {
+
+		timestamp1, err := message.Timestamp.Parse()
+		if err != nil {
+			return err
+		}
+
+		err = database.session.Query(`UPDATE jackal.messages SET messageid = ?, channelid = ?, guildid = ?, authorid = ?, content = ?, messagetype = ?, json = ?, messagesent = ? WHERE messageid = ?`,
+			message.ID,
+			message.ChannelID,
+			message.GuildID,
+			message.Author.ID,
+			message.Content,
+			message.Type,
+			messageJson,
+			timestamp1,
+			message.ID).Exec()
 	}
 
 	return err
@@ -149,31 +168,43 @@ func (database *Db) AddMessage(message *discordgo.Message) (err error) {
 
 func (database *Db) AddUserFromMessage(message *discordgo.Message) (err error) {
 
+	var notFound bool
+
 	if err != nil {
 		return err
 	}
 
 	if result, err := database.SelectUserByID(message.Author.ID); err != nil {
-		//TODO: Remove assumption that this means that the user does not exist. This is a BAD fucking idea. Change to database error type checking.
-
-		err = database.session.Query(`INSERT INTO jackal.users (userid, email, username, avatar, locale, discriminator, publicflags, isdeveloper, isadmin, verified, mfaenabled, bot ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-			message.Author.ID,
-			message.Author.Email,
-			message.Author.Username,
-			message.Author.Avatar,
-			message.Author.Locale,
-			message.Author.Discriminator,
-			message.Author.PublicFlags,
-			false,
-			false,
-			message.Author.Verified,
-			message.Author.MFAEnabled,
-			message.Author.Bot).Exec()
 
 		if err != nil {
-			return err
+			if !(err.Error() == "not found") {
+				return err
+			} else {
+				//If the error is that it is not found, reset the error! This is expected.
+				notFound = true
+				err = nil
+			}
 		}
 
+		if notFound {
+			err = database.session.Query(`INSERT INTO jackal.users (userid, email, username, avatar, locale, discriminator, publicflags, isdeveloper, isadmin, verified, mfaenabled, bot ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+				message.Author.ID,
+				message.Author.Email,
+				message.Author.Username,
+				message.Author.Avatar,
+				message.Author.Locale,
+				message.Author.Discriminator,
+				message.Author.PublicFlags,
+				false,
+				false,
+				message.Author.Verified,
+				message.Author.MFAEnabled,
+				message.Author.Bot).Exec()
+
+			if err != nil {
+				return err
+			}
+		}
 	} else if result.User.ID == message.Author.ID {
 		if !(message.Author.Username == result.User.Username && message.Author.Discriminator == result.User.Discriminator && message.Author.Avatar == result.User.Avatar) {
 			err = database.session.Query(`UPDATE jackal.users SET email = ? , username = ? , avatar = ? , locale = ? , discriminator = ? , publicflags = ? , isdeveloper = ? , isadmin = ? , verified = ? , mfaenabled = ? , bot = ? WHERE userid = ? `,
