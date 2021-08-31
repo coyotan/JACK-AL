@@ -35,7 +35,7 @@ func (database *Db) CreateMessagesTable() (err error) {
 	return
 }
 
-//TODO:
+//TODO: Conduct following
 //CreateUserRecord needs testing
 func (database *Db) CreateUserRecord(userid string, email string, username string, avatar string, locale string, discriminator string, publicFlags int, isdeveloper bool, isadmin bool, bot bool, verified bool, mfaenabled bool) (err error) {
 	if err := database.session.Query(`INSERT INTO jackal.users (userid, email, username, avatar, locale, discriminator, publicflags, isdeveloper, isadmin, verified, mfaenabled, bot) VALUES (? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? )`, userid, email, username, avatar, locale, discriminator, publicFlags, isdeveloper, isadmin, verified, mfaenabled, bot).Exec(); err != nil {

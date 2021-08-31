@@ -21,3 +21,4 @@ addCreateListener is a non-expported function which can be used by responders co
 
 ##### Post-Init:
 - 100: Closed peacefully by JACK-AL Bot Framework
+- 199: Closed with errors by JACK-AL Bot Framework

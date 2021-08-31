@@ -26,8 +26,18 @@ func responderLeave(message *discordgo.Message) (err error) {
 			if strings.ToLower(message.Content[len(jackal.Discord.CommandPrefix):]) == "leave" {
 				jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "Leaving now!")
 				jackal.Discord.Session.Close()
-				jackal.Logger.Info.Println("Peacefully closing JACK-AL. Exit Code 100")
-				os.Exit(100)
+
+				err := botutils.SaveCfg(botutils.ConfigDir+"config.json", jackal)
+
+				if err != nil {
+					jackal.Logger.Console.Println("Failed to save to config.json. Current running configuration will be lost. Please check the log file for more information.")
+					jackal.Logger.Error.Println(err)
+					jackal.Logger.Info.Println("JACK-AL closing with errors. Exit Code 199")
+					os.Exit(199)
+				} else {
+					jackal.Logger.Info.Println("Peacefully closing JACK-AL. Exit Code 100")
+					os.Exit(100)
+				}
 			}
 		} else if err != nil {
 			jackal.Logger.Error.Println("There was an error validating the permissions of user ", message.Author.Username+"#"+message.Author.Discriminator, " when they attempted to run the leave command.")
