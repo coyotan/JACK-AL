@@ -1,7 +1,9 @@
 package botutils
 
 import (
+	"errors"
 	"os"
+	"path/filepath"
 )
 
 var (
@@ -56,3 +58,23 @@ func IsFirstRun() (firstRun bool) {
 	}
 	return
 }
+
+//CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
+func CreateFile(path string, fName string) (file *os.File, err error) {
+
+	err = os.MkdirAll(path, 0644)
+
+	if err != nil {
+		return nil, errors.New("path " + path + " could not be created\n" + err.Error())
+	}
+
+	file, err = os.OpenFile(filepath.Clean(filepath.Join(path, fName)), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
+
+	if err != nil {
+		return nil, errors.New("(╯°□°）╯︵ ┻━┻\n A critical error prevented the creation of " + fName + "\n" + err.Error())
+	}
+
+	return file, err
+}
+
+//We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.
