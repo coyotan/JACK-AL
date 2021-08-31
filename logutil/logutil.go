@@ -1,6 +1,7 @@
 package logutil
 
 import (
+	"github.com/coyotan/JACK-AL/botutils"
 	"log"
 	"os"
 	"path/filepath"
@@ -26,7 +27,7 @@ func InitLoggers() (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Err
 	localLogger.Console = Console
 
 	//Create the file to start overwrite ... without this, we're getting some stupid bug.
-	lFile, _ = CreateFile(GetUserConfDir(), "/jackal.log")
+	lFile, _ = CreateFile(botutils.ConfigDir, "/jackal.log")
 
 	//Now that we know the file exists, we can use the rest of these.
 	Info = log.New(lFile, "INFO: ", log.Ltime|log.Ldate|log.Lshortfile)
@@ -43,19 +44,6 @@ func InitLoggers() (Console *log.Logger, Info *log.Logger, Warn *log.Logger, Err
 	Info.Println("Logging initialized.")
 
 	return
-}
-
-//VerifyFile returns false if the filename present does not exist in the filesystem.
-//Exported because it makes writing other things that need to use this a lot smoother.
-func VerifyFile(fName string) (fExists bool) {
-
-	if _, err := os.Stat(fName); os.IsNotExist(err) {
-		fExists = false
-	} else {
-		fExists = true
-	}
-
-	return fExists
 }
 
 //CreateFile will attempt to create a file, and if file creation for the log file fails, flip shit.
@@ -83,17 +71,6 @@ func CreateFile(path string, fName string) (file *os.File, err error) {
 	}
 
 	return file, err
-}
-
-//GetUserConfDir gets the application data directory of the operating system this code is running on. For example, in Windows this is %APPDATA%/JACK-AL
-func GetUserConfDir() (path string) {
-	path, err := os.UserConfigDir()
-
-	if err != nil {
-		localLogger.PrintFatal("There was a critical error attempting to access the logging directory\n"+err.Error(), 3)
-		return ""
-	}
-	return path + "/JACK-AL"
 }
 
 //We will need to add support for hunting down filepaths and finding the folder that does not exist. Program does not automatically identify that directories need to be made.

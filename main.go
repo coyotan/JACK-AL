@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/coyotan/JACK-AL/bot"
+	"github.com/coyotan/JACK-AL/botutils"
 	"github.com/coyotan/JACK-AL/config"
 	"github.com/coyotan/JACK-AL/structs"
 	"os"
@@ -19,7 +20,7 @@ func init() {
 	jackal.Logger.Info.Println("Passing to package: Bot")
 
 	//This is here to support containers, because APPARENTLY making life easy requires first making it more difficult.
-	if config.IsDockerContainer() {
+	if botutils.IsDockerContainer() {
 		jackal.Discord.Token = os.Getenv("DISCTOKEN")
 		if len(os.Getenv("DISCTOKEN")) > 1 {
 			jackal.Logger.Info.Println("Grabbed DISCTOKEN from environment")
