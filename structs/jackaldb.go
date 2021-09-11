@@ -8,7 +8,7 @@ import (
 )
 
 type Db struct {
-	IP      string         `json:"cassandraIP"`
+	IPs     []string       `json:"cassandraIPs"`
 	session *gocql.Session `json:"-"`
 }
 

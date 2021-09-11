@@ -108,8 +108,8 @@ func dgOpen() {
 			//Tell them that since they didn't use the docker container, they need to do it themselves!
 			jackal.Logger.Console.Println("JACK-AL has detected that it is not in a docker container, and that the database has not yet been configured. JACK-AL cannot automatically configure databases at this time. Please follow the guidance on the github page to manually configure the Cassandra database.")
 			//TODO: Make this not matter in the future. JACKAL should be able to configure the database, so long as it knows where to find it. This snip of code probably won't even make it to the next release, but it is here for now.
-			jackal.Logger.Error.Println("There was a critical error opening the Jackal Database.", err.Error())
-			os.Exit(20)
+
+			fmt.Println(jackal.Database.CreateMessagesTable())
 		}
 	}
 

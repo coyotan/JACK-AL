@@ -70,8 +70,12 @@ func (core *CoreCfg) VerifyFile(fName string) (fExists bool) {
 
 func (core *CoreCfg) InitCassandraDB() (err error) {
 
-	//This line will need to be changed when we add support for multiple clusters in the end.
-	cluster := gocql.NewCluster(os.Getenv("CASSANDRA"))
+	//If there is a variable in the environment named CASSANDRA, we can add it to the list. In the future, we might want to get away from using these, if we can define files in a docker-compose... worth looking into.
+	if envIP := os.Getenv("CASSANDRA"); len(envIP) > 4 {
+		core.Database.IPs = append(core.Database.IPs, envIP)
+	}
+
+	cluster := gocql.NewCluster(core.Database.IPs...)
 	//TODO We need to find a way to check if this exists before we use it to connect. This will involve more first time checking.
 	cluster.Keyspace = "jackal"
 	cluster.Consistency = gocql.Quorum
