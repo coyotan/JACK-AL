@@ -14,9 +14,11 @@ Public Variables accessible from this location:
 jackal - Core configuration.
 jackal.Discord - Contains Discord configuration
 */
+//The command we will use for the hypotenuse command.
+var hypo = "hypo"
 
 func init() {
-	addCreateListener("hypo", hypotenuseResponder)
+	addCreateListener(hypo, hypotenuseResponder)
 }
 
 func hypotenuseResponder(message *discordgo.Message) (err error) {
@@ -24,9 +26,10 @@ func hypotenuseResponder(message *discordgo.Message) (err error) {
 
 	jackal.Logger.Console.Println("Received message with content: " + message.Content)
 
-	args, err := parseargs.Parse(message.Content[len("!hypo"):])
+	args, err := parseargs.Parse(message.Content[len("!"+hypo):])
 
-	if len(args) > 1 {
+	//Because of the AllCast command fallthrough, sometimes this command responds when it really shouldn't.
+	if len(args) > 1 && message.Content[len("!"+hypo):] == "!"+hypo {
 		if a2, err = strconv.Atoi(args[0]); err != nil {
 			jackal.Logger.Error.Println(err)
 			jackal.Discord.Session.ChannelMessageSend(message.ChannelID, "A had an error converting to an int!")
