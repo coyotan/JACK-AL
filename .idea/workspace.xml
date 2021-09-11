@@ -103,11 +103,11 @@
           <entry key="DOCKERFILE" value="5" />
           <entry key="Dockerfile" value="533" />
           <entry key="env" value="12" />
-          <entry key="go" value="54757" />
+          <entry key="go" value="54877" />
           <entry key="json" value="33" />
           <entry key="md" value="14015" />
           <entry key="mod" value="452" />
-          <entry key="txt" value="5909" />
+          <entry key="txt" value="6069" />
           <entry key="yaml" value="1392" />
         </counts>
       </usages-collector>
@@ -116,10 +116,10 @@
           <entry key="DTD" value="452" />
           <entry key="Dockerfile" value="533" />
           <entry key="Env File" value="12" />
-          <entry key="Go" value="54796" />
+          <entry key="Go" value="54916" />
           <entry key="JSON" value="135" />
           <entry key="Markdown" value="13874" />
-          <entry key="PLAIN_TEXT" value="5914" />
+          <entry key="PLAIN_TEXT" value="6074" />
           <entry key="YAML" value="1392" />
         </counts>
       </usages-collector>
@@ -156,16 +156,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="187">
+              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1190">
@@ -401,13 +401,13 @@
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Coyotan\Documents\GitHub\JACK-AL\bot\responders\DND5e\Google" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Documents\Code Repistories\JACK-AL\bot\responders" />
       <recent name="C:\Users\Coyotan\Documents\GitHub\JACK-AL\bot\responders" />
       <recent name="C:\Users\Coyotan\Documents\GitHub\JACK-AL\bot" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Coyotan\Documents\GitHub\JACK-AL\bot\responders\DND5e\Google" />
     </key>
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
@@ -640,8 +640,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored to no caps." />
-    <MESSAGE value="Tryina Fix Docker" />
     <MESSAGE value="Testing in Docker" />
     <MESSAGE value="I'm stupid. Problem is fixed." />
     <MESSAGE value="Docker support!!!! (not really, but the start of it)" />
@@ -665,7 +663,9 @@
     <MESSAGE value="Fixed Issue #2" />
     <MESSAGE value="Removed legacy IsDockerContainer and IsFirstRun from Core" />
     <MESSAGE value="Attempted to fix Incorrect conversion between integer type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempted to fix Incorrect conversion between integer type." />
+    <MESSAGE value="Provided additional fix. Now it definitely shouldn't be an issue." />
+    <MESSAGE value="I realized I didn't push this before I started running security tests...." />
+    <option name="LAST_COMMIT_MESSAGE" value="I realized I didn't push this before I started running security tests...." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -1022,17 +1022,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/structs.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
           <caret line="73" column="46" lean-forward="true" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/dnd5e/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
