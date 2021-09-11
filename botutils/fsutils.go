@@ -45,7 +45,6 @@ func IsDockerContainer() (IsContainer bool) {
 
 //IsFirstRun returns a boolean if the program detects this is its first run. This can be evaluated by checking for the existence of a configuration file.
 //If one does not exist at either path, then we can assume that this is the first run.
-//TODO: Add support for accessing environment variables to perform authentication to Discord and the Cassandra database.
 func IsFirstRun() (firstRun bool) {
 
 	for _, v := range append(possibleCfgs) {

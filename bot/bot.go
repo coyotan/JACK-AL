@@ -97,7 +97,7 @@ func dgOpen() {
 
 	if err := jackal.InitCassandraDB(); err != nil {
 
-		if jackal.IsDockerContainer() {
+		if botutils.IsDockerContainer() {
 			fmt.Println("Is a docker container!")
 			//Announce that we will configure the database for them!
 			jackal.Logger.Console.Println("JACKAL is currently configuring the Cassandra database. Please standby.")

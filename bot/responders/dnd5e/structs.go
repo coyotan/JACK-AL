@@ -26,7 +26,7 @@ func (b *BasicNotif) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) 
 	if valid, reason := b.Validate(); valid {
 		embed.Title = b.Title
 		embed.Description = b.Description
-		embed.Color, err = toIntColor(hexaNumberToInteger(b.Color))
+		embed.Color, err = toIntColor(b.Color)
 		embed.Image = &discordgo.MessageEmbedImage{URL: b.Picture}
 		embed.Footer = &discordgo.MessageEmbedFooter{
 			Text:    "JACK-AL Framework | DND5e Extension.",
@@ -71,7 +71,7 @@ func (q *QuestBoard) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) 
 	if valid, reason := q.Validate(); valid {
 		embed.Title = q.Title
 		embed.Description = q.Description
-		embed.Color, err = toIntColor(hexaNumberToInteger(q.Color))
+		embed.Color, err = toIntColor(q.Color)
 		embed.Image = &discordgo.MessageEmbedImage{URL: q.Picture}
 		embed.Footer = &discordgo.MessageEmbedFooter{
 			Text:    "JACK-AL Framework | DND5e Extension.",
@@ -95,7 +95,7 @@ func (d *Daily) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) {
 	if valid, reason := d.Validate(); valid {
 		embed.Title = d.Title
 		embed.Description = d.Description
-		embed.Color, err = toIntColor(hexaNumberToInteger(d.Color))
+		embed.Color, err = toIntColor(d.Color)
 		embed.Image = &discordgo.MessageEmbedImage{URL: d.Picture}
 		embed.Footer = &discordgo.MessageEmbedFooter{
 			Text:    "JACK-AL Framework | DND5e Extension.",
@@ -136,7 +136,7 @@ func (t *Taxes) GenerateEmbed() (embed *discordgo.MessageEmbed, err error) {
 			embed.Description = t.Description
 		}
 		if len(t.Color) > 1 {
-			embed.Color, err = toIntColor(hexaNumberToInteger(t.Color))
+			embed.Color, err = toIntColor(t.Color)
 		} else {
 			embed.Color = 0x00c5ff
 		}
@@ -177,7 +177,7 @@ func (i *IncomePayment) GenerateEmbed() (embed *discordgo.MessageEmbed, err erro
 			embed.Description = i.Description
 		}
 		if len(i.Color) > 1 {
-			embed.Color, err = toIntColor(hexaNumberToInteger(i.Color))
+			embed.Color, err = toIntColor(i.Color)
 		} else {
 			embed.Color = 0x00c5ff
 		}
