@@ -9,7 +9,7 @@ import (
 
 var (
 	logErr     *log.Logger
-	configPath string
+	ConfigPath string
 )
 
 //Init takes in a core, which must be compliant with the initInt interface. Let's try to make this lib modular too!
@@ -18,7 +18,7 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 
 	logErr = err
 
-	configPath = botutils.ConfigDir + "/config.json"
+	ConfigPath = botutils.ConfigDir + "/config.json"
 
 	//Before we load, let's see if it's the first run. If it is, we'll make the config file next.
 	if botutils.IsFirstRun() {
@@ -28,14 +28,14 @@ func Init(core initInt) (console *log.Logger, info *log.Logger, warn *log.Logger
 		}
 
 		//Make file in ConfDir, and return as file used, so we can adjust the code that follows...
-		err := botutils.SaveCfg(configPath, &core)
+		err := botutils.SaveCfg(ConfigPath, &core)
 
 		if err != nil {
 			logErr.Println("There was a critical error loading ")
 		}
 	}
 
-	_ = botutils.LoadCfg(configPath, &core)
+	_ = botutils.LoadCfg(ConfigPath, &core)
 
 	return
 }

@@ -69,7 +69,6 @@ func (core *CoreCfg) VerifyFile(fName string) (fExists bool) {
 }
 
 func (core *CoreCfg) InitCassandraDB() (err error) {
-
 	//If there is a variable in the environment named CASSANDRA, we can add it to the list. In the future, we might want to get away from using these, if we can define files in a docker-compose... worth looking into.
 	if envIP := os.Getenv("CASSANDRA"); len(envIP) > 4 {
 		core.Database.IPs = append(core.Database.IPs, envIP)
