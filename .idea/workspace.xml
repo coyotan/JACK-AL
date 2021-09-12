@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Further supported metal builds - Jackal will now run assuming a Cassandra server is established at the expected IP(s)">
+    <list default="true" id="f178036a-bd92-43a6-b01f-0ddc558673e2" name="Default Changelist" comment="Removed AllCast. This feature was a baaad idea.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/responders/dndResponder.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/responders/dndResponder.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structs/jackaldb.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs/jackaldb.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,16 +59,16 @@
     <session id="905467094">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="40" />
+          <entry key="project.closed" value="41" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="6" />
-          <entry key="project.open.time.4" value="19" />
+          <entry key="project.open.time.4" value="20" />
           <entry key="project.open.time.5" value="11" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="43" />
+          <entry key="project.opened" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -77,7 +78,7 @@
           <entry key="env" value="1" />
           <entry key="gitattributes" value="2" />
           <entry key="gitignore" value="5" />
-          <entry key="go" value="336" />
+          <entry key="go" value="340" />
           <entry key="json" value="10" />
           <entry key="md" value="72" />
           <entry key="mod" value="9" />
@@ -91,7 +92,7 @@
         <counts>
           <entry key="DTD" value="9" />
           <entry key="Dockerfile" value="13" />
-          <entry key="Go" value="336" />
+          <entry key="Go" value="340" />
           <entry key="JSON" value="10" />
           <entry key="Markdown" value="72" />
           <entry key="PLAIN_TEXT" value="16" />
@@ -103,11 +104,11 @@
           <entry key="DOCKERFILE" value="5" />
           <entry key="Dockerfile" value="533" />
           <entry key="env" value="12" />
-          <entry key="go" value="57686" />
+          <entry key="go" value="57994" />
           <entry key="json" value="46" />
           <entry key="md" value="14034" />
           <entry key="mod" value="452" />
-          <entry key="txt" value="6367" />
+          <entry key="txt" value="6423" />
           <entry key="yaml" value="1438" />
         </counts>
       </usages-collector>
@@ -116,10 +117,10 @@
           <entry key="DTD" value="452" />
           <entry key="Dockerfile" value="533" />
           <entry key="Env File" value="12" />
-          <entry key="Go" value="57725" />
+          <entry key="Go" value="58033" />
           <entry key="JSON" value="148" />
           <entry key="Markdown" value="13893" />
-          <entry key="PLAIN_TEXT" value="6372" />
+          <entry key="PLAIN_TEXT" value="6428" />
           <entry key="YAML" value="1438" />
         </counts>
       </usages-collector>
@@ -134,22 +135,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="578">
-                <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/bot/responders/initCustoms.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!block;n#AddUserFromMessage#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot/responders/DatabaseRecorder.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bot/handlers.go">
+        <entry file="file://$PROJECT_DIR$/bot/responders/dndResponder.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="255">
+              <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+              <folding>
+                <element signature="e#20#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,29 +179,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/responders/0_loadMods.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
+            <state relative-caret-position="442">
               <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
               <folding>
                 <element signature="e#301#392#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/structs/Core.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -291,7 +295,6 @@
         <option value="$PROJECT_DIR$/botutils/grouputils.go" />
         <option value="$PROJECT_DIR$/bot/responders/DatabaseModule.go" />
         <option value="$PROJECT_DIR$/config/structs.go" />
-        <option value="$PROJECT_DIR$/bot/responders/dndResponder.go" />
         <option value="$PROJECT_DIR$/logutil/structs.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/readme.md" />
         <option value="$PROJECT_DIR$/structs/README.md" />
@@ -323,7 +326,6 @@
         <option value="$PROJECT_DIR$/botutils/fsutils.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/structs.go" />
         <option value="$PROJECT_DIR$/bot/responders/dnd5e/utils.go" />
-        <option value="$PROJECT_DIR$/structs/jackaldb.go" />
         <option value="$PROJECT_DIR$/bot/bot.go" />
         <option value="$PROJECT_DIR$/docker-compose.yaml" />
         <option value="$PROJECT_DIR$/config/config.go" />
@@ -332,6 +334,8 @@
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/bot/handlers.go" />
+        <option value="$PROJECT_DIR$/structs/jackaldb.go" />
+        <option value="$PROJECT_DIR$/bot/responders/dndResponder.go" />
       </list>
     </option>
   </component>
@@ -342,10 +346,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="514" />
+    <option name="y" value="-18" />
+    <option name="width" value="2173" />
+    <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -479,7 +483,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12899786" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12953092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -490,11 +494,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49840087" weight="0.32848233" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49840087" weight="0.32848233" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.38006395" side_tool="true" visible="true" weight="0.3180873" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4978678" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5021322" side_tool="true" visible="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32885906" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4978678" weight="0.32952183" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.61993605" visible="true" weight="0.3180873" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.62" weight="0.3167702" />
       <window_info anchor="bottom" id="Docker" order="13" sideWeight="0.46162048" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -535,7 +539,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed Bolt - Probably." />
     <MESSAGE value="Added docker-compose and included baseline Cassandra" />
     <MESSAGE value="Fixed CWE-22/276." />
     <MESSAGE value="Now fixed to the satisfaction of the scanner." />
@@ -560,7 +563,8 @@
     <MESSAGE value="I really do not understand CodeQLs beef with historical vulns." />
     <MESSAGE value="Added support for metal and containerized builds." />
     <MESSAGE value="Further supported metal builds - Jackal will now run assuming a Cassandra server is established at the expected IP(s)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further supported metal builds - Jackal will now run assuming a Cassandra server is established at the expected IP(s)" />
+    <MESSAGE value="Removed AllCast. This feature was a baaad idea." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed AllCast. This feature was a baaad idea." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -696,27 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/dndResponder.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/initCustoms.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/responders/DatabaseRecorder.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/botutils/fsutils.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -756,13 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -864,6 +840,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="595">
+            <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/handlers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/initCustoms.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/config.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -899,19 +899,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="578">
-            <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/structs/jackaldb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#AddUserFromMessage#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/responders/DatabaseRecorder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/responders/0_loadMods.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
+        <state relative-caret-position="442">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
           <folding>
             <element signature="e#301#392#0" expanded="true" />
@@ -919,10 +926,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/handlers.go">
+    <entry file="file://$PROJECT_DIR$/bot/responders/dndResponder.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="255">
+          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+          <folding>
+            <element signature="e#20#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

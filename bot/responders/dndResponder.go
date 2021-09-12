@@ -1,6 +1,8 @@
 package responders
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //DOCUMENTATION:
 /*
