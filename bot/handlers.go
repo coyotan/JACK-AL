@@ -34,6 +34,9 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 
 					totalListeners = 1
 				} else {
+					jackal.Discord.Session.ChannelMessageSend(created.ChannelID, "I'm sorry. I couldn't find that command")
+					//TODO: Turn this into a help referrer later.
+					/*This was a bad idea, lol. We'll comment it out for now, then later we will remove it.
 					//If we cannot find the specific command we are looking for, tell EVERYONE what we found...
 					for _, v := range jackal.Discord.CreateListeners {
 						err := v(created.Message)
@@ -43,7 +46,7 @@ func createDispatch(_ *discordgo.Session, created *discordgo.MessageCreate) {
 						} else {
 							totalListeners++
 						}
-					}
+					}*/
 				}
 
 				jackal.Logger.Console.Println("Dispatched to ", totalListeners, " listeners. All responders are 10-8.")
