@@ -37,7 +37,7 @@ func (database *Db) CreateMessagesTable() (err error) {
 
 func (database *Db) CreateGuildsTable() (err error) {
 
-	if err = database.session.Query(`CREATE TABLE IF NOT EXISTS jackal.guilds (guildid text PRIMARY KEY, name text, guildicon text, region text, ownerid text, membercount int, large boolean, description text) WITH compression = {'class': 'LZ4Compressor', 'chunk_length_in_kb': 64, 'crc_check_chance': 0.5};`).Exec(); err != nil {
+	if err = database.session.Query(`CREATE TABLE IF NOT EXISTS jackal.guilds (guildid text PRIMARY KEY, Name text, guildicon text, region text, ownerid text, membercount int, large boolean, description text) WITH compression = {'class': 'LZ4Compressor', 'chunk_length_in_kb': 64, 'crc_check_chance': 0.5};`).Exec(); err != nil {
 		return err
 	}
 

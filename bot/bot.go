@@ -79,6 +79,7 @@ func dgOpen() {
 
 	dg.AddHandler(ready)
 	dg.AddHandler(createDispatch)
+	dg.AddHandler(structs.DiscordDispatchCreate)
 	dg.AddHandler(nonprefixDispatch)
 	dg.AddHandler(editDispatch)
 	//dg.AddHandler(deleteDispatch)

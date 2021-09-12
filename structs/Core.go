@@ -10,9 +10,10 @@ import (
 //CoreCfg is the most important part of this software, contains all information used by every part of this program. This is the heart of JACK-AL
 type CoreCfg struct {
 	//Structure components pertaining specifically to logging.
-	Logger   logs
-	Database Db
-	Discord  DiscordConn `json:"discord"`
+	Logger       logs             `json:"-"`
+	Database     Db               `json:"Database"`
+	CmdFramework CommandFramework `json:"-"`
+	Discord      DiscordConn      `json:"discord"`
 }
 
 //LogConsole is an exported function which returns a pointer to the console logger, which can be used to share informational messages with a console user.

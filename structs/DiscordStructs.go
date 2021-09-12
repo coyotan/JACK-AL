@@ -18,6 +18,7 @@ type DiscordConn struct {
 	//Structure information pertaining to dispatching and responding.
 	CommandPrefix string `json:"commandPrefix"`
 
+	//TODO: If we can remove these, that would be sweet.
 	InitModListeners   map[string]func(jackal *CoreCfg) (err error)
 	CreateListeners    map[string]func(message *discordgo.Message) (err error)
 	NonprefixListeners map[string]func(message *discordgo.Message) (err error)
