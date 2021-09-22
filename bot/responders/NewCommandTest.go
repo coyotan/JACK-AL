@@ -3,18 +3,18 @@ package responders
 import (
 	"fmt"
 	"github.com/bwmarrin/discordgo"
-	"github.com/coyotan/JACK-AL/structs"
+	"github.com/coyotan/JACK-AL/CommandFramework"
 	"strings"
 )
 
 var (
-	MyGroup = structs.CommandGroup{
+	MyGroup = CommandFramework.CommandGroup{
 		Name: "MyTestGroup",
 	}
 )
 
 func init() {
-	MyGroup.NewCommand("ping1", newPingResponder, structs.Enabled+structs.Discord+structs.Guild)
+	MyGroup.NewCommand("ping1", newPingResponder, CommandFramework.Enabled+CommandFramework.Discord+CommandFramework.Guild)
 	fmt.Println(MyGroup.RegisterAllCommands())
 }
 

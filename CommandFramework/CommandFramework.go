@@ -1,13 +1,11 @@
-package structs
+package CommandFramework
 
 import (
 	"errors"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
+	"github.com/coyotan/JACK-AL/structs"
 )
-
-//TODO: Move this out of struct... it kinda doesn't belong here.
-//Define a list of constants which represent permissions values for convenience. Remember, this is done in a system similar to what Discord uses for permissions. Use bit logic.
 
 type CommandFramework struct {
 }
@@ -17,6 +15,9 @@ type CommandGroup struct {
 	Name     string
 }
 
+//TODO: Database structure (guildID string, channelID string, name string ) PRIMARY KEY, group string, commandPermissions int
+//Permissions have hierarchy - Guild permissions apply universally across the server, channel specific permissions can be used to override bot permissions in an isolated channel.
+//TODO: Apparently I forgot to add default permissions... well, that's another item.
 func (g *CommandGroup) NewCommand(name string, execute interface{}, commContext int, alias ...string) (err error) {
 
 	c := Command{
@@ -44,7 +45,7 @@ func (g *CommandGroup) RegisterAllCommands() error {
 	for _, c := range g.Commands {
 		switch c.Execute.(type) {
 		//This section is for bot events, we might even be able to put database return events in here to prevent plugins from directly interacting with the database.
-		case func(*discordgo.Session, *CoreCfg) error: //InitEvent
+		case func(*discordgo.Session, *structs.CoreCfg) error: //InitEvent
 		//TODO: Enumerate other possible JACKAL events which modders might be able to rely on. Consider using events to power database activities, or cross-bot communication?
 
 		//DiscordGo listeners that we restrict the use of, for permissions. Prior to release, this will need to be a full list, so we can remove passing through the entire discord structure.
