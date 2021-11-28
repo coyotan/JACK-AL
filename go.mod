@@ -3,7 +3,6 @@ module github.com/coyotan/JACK-AL
 go 1.15
 
 require (
-	github.com/boltdb/bolt v1.3.1
 	github.com/bwmarrin/discordgo v0.23.2
 	github.com/gocql/gocql v0.0.0-20210817081954-bc256bbb90de
 	github.com/gorilla/websocket v1.4.2 // indirect
